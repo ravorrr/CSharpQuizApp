@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpQuizApp", "CSharpQuizApp.csproj", "{ABCF4988-A227-4CC1-8988-73A1C5D81283}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABCF4988-A227-4CC1-8988-73A1C5D81283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABCF4988-A227-4CC1-8988-73A1C5D81283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABCF4988-A227-4CC1-8988-73A1C5D81283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABCF4988-A227-4CC1-8988-73A1C5D81283}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
