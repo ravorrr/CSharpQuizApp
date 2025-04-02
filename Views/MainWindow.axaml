@@ -1,20 +1,18 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:CSharpQuizApp.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="CSharpQuizApp.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="CSharpQuizApp">
+        Width="400" Height="300" Title="Quiz App">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+    <StackPanel Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
+    
+        <TextBlock x:Name="QuestionTextBlock" FontSize="18" TextWrapping="Wrap" />
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="Answer1Button" Click="Answer1_Click"/>
+        <Button x:Name="Answer2Button" Click="Answer2_Click"/>
+        <Button x:Name="Answer3Button" Click="Answer3_Click"/>
+        <Button x:Name="Answer4Button" Click="Answer4_Click"/>
 
+        <TextBlock x:Name="FeedbackTextBlock" FontWeight="Bold" FontSize="14" Foreground="DarkGreen"/>
+    
+    </StackPanel>
 </Window>
