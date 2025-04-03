@@ -13,6 +13,24 @@
         <Button x:Name="Answer4Button" Click="Answer4_Click"/>
 
         <TextBlock x:Name="FeedbackTextBlock" FontWeight="Bold" FontSize="14" Foreground="DarkGreen"/>
+        
+        <TextBlock x:Name="ScoreTextBlock"
+                   FontWeight="Bold"
+                   FontSize="14"
+                   Foreground="Blue"
+                   HorizontalAlignment="Center"/>
+
+        <TextBlock x:Name="QuestionNumberTextBlock"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Foreground="Gray"
+                   HorizontalAlignment="Center"/>
+
+        <Button x:Name="NextButton"
+                Content="Dalej"
+                Click="NextButton_Click"
+                HorizontalAlignment="Center"
+                Margin="0,10,0,0"/>
     
     </StackPanel>
 </Window>
