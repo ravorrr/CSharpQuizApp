@@ -1,36 +1,54 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="CSharpQuizApp.Views.MainWindow"
-        Width="400" Height="300" Title="Quiz App">
+        Width="400" Height="400" Title="Quiz App">
 
-    <StackPanel Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
-    
-        <TextBlock x:Name="QuestionTextBlock" FontSize="18" TextWrapping="Wrap" />
-
-        <Button x:Name="Answer1Button" Click="Answer1_Click"/>
-        <Button x:Name="Answer2Button" Click="Answer2_Click"/>
-        <Button x:Name="Answer3Button" Click="Answer3_Click"/>
-        <Button x:Name="Answer4Button" Click="Answer4_Click"/>
-
-        <TextBlock x:Name="FeedbackTextBlock" FontWeight="Bold" FontSize="14" Foreground="DarkGreen"/>
+    <Grid Margin="10"
+          RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+          ColumnDefinitions="*,*"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          >
+        
+        <TextBlock x:Name="QuestionTextBlock"
+                   Grid.Row="0" Grid.ColumnSpan="2"
+                   FontSize="18"
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,10"
+                   HorizontalAlignment="Center"/>
+        
+        <Button x:Name="Answer1Button" Grid.Row="1" Grid.Column="0" Click="Answer1_Click" Margin="5"/>
+        <Button x:Name="Answer2Button" Grid.Row="1" Grid.Column="1" Click="Answer2_Click" Margin="5"/>
+        <Button x:Name="Answer3Button" Grid.Row="2" Grid.Column="0" Click="Answer3_Click" Margin="5"/>
+        <Button x:Name="Answer4Button" Grid.Row="2" Grid.Column="1" Click="Answer4_Click" Margin="5"/>
+        
+        <TextBlock x:Name="FeedbackTextBlock"
+                   Grid.Row="3" Grid.ColumnSpan="2"
+                   FontWeight="Bold"
+                   FontSize="14"
+                   Foreground="DarkGreen"
+                   HorizontalAlignment="Center"
+                   Margin="0,10,0,0"/>
         
         <TextBlock x:Name="ScoreTextBlock"
+                   Grid.Row="4" Grid.ColumnSpan="2"
                    FontWeight="Bold"
                    FontSize="14"
                    Foreground="Blue"
                    HorizontalAlignment="Center"/>
-
+        
         <TextBlock x:Name="QuestionNumberTextBlock"
+                   Grid.Row="5" Grid.ColumnSpan="2"
                    FontWeight="Bold"
                    FontSize="12"
                    Foreground="Gray"
                    HorizontalAlignment="Center"/>
-
+        
         <Button x:Name="NextButton"
+                Grid.Row="6" Grid.ColumnSpan="2"
                 Content="Dalej"
                 Click="NextButton_Click"
                 HorizontalAlignment="Center"
                 Margin="0,10,0,0"/>
-    
-    </StackPanel>
+    </Grid>
 </Window>

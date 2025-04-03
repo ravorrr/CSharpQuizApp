@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using CSharpQuizApp.ViewModels;
@@ -30,11 +31,39 @@ public partial class MainWindow : Window
         QuestionNumberTextBlock.Text = $"Question {_viewModel.CurrentQuestionIndex + 1} z {_viewModel.Questions.Count}";
     }
 
-    private void ShowResult(int index)
+    private async void ShowResult(int index)
     {
+        Answer1Button.IsEnabled = false;
+        Answer2Button.IsEnabled = false;
+        Answer3Button.IsEnabled = false;
+        Answer4Button.IsEnabled = false;
+        
         _viewModel.CheckAnswer(index);
         FeedbackTextBlock.Text = _viewModel.FeedbackMessage;
-        ScoreTextBlock.Text = $"Result: {_viewModel.Score}/{_viewModel.Questions.Count}";
+        ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
+        
+        await Task.Delay(2000);
+        
+        if (_viewModel.GoToNextQuestion())
+        {
+            UpdateUI();
+            Answer1Button.IsEnabled = true;
+            Answer2Button.IsEnabled = true;
+            Answer3Button.IsEnabled = true;
+            Answer4Button.IsEnabled = true;
+        }
+        else
+        {
+            QuestionTextBlock.Text = "You finished quiz!";
+            FeedbackTextBlock.Text = $"Your final score: {_viewModel.Score}/{_viewModel.Questions.Count}";
+
+            Answer1Button.IsVisible = false;
+            Answer2Button.IsVisible = false;
+            Answer3Button.IsVisible = false;
+            Answer4Button.IsVisible = false;
+            NextButton.IsVisible = false;
+            QuestionNumberTextBlock.IsVisible = false;
+        }
     }
 
     private void NextButton_Click(object? sender, RoutedEventArgs e)
