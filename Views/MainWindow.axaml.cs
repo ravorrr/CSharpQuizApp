@@ -112,7 +112,7 @@ public partial class MainWindow : Window
 
     private void ShowFinalScreen()
     {
-        QuestionTextBlock.IsVisible = true;
+        QuestionTextBlock.IsVisible = false;
         FeedbackTextBlock.IsVisible = false;
         ScoreTextBlock.IsVisible = false;
         QuestionNumberTextBlock.IsVisible = false;
