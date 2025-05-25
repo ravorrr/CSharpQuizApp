@@ -66,7 +66,7 @@ public partial class MainWindow : Window
         ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
         QuestionNumberTextBlock.Text = $"Pytanie {_viewModel.CurrentQuestionIndex + 1} z {_viewModel.Questions.Count}";
 
-        FeedbackTextBlock.Text = "";
+        FeedbackTextBlock.Text = ""; // Wyczyść komunikat
         ResetButtonColors();
         StartTimer();
     }
@@ -81,6 +81,8 @@ public partial class MainWindow : Window
         if (_answered) return;
         _answered = true;
         _timer?.Stop();
+
+        DisableAllAnswerButtons(); // wyłączenie hovera i klikania
 
         if (index == -1)
         {
@@ -162,9 +164,17 @@ public partial class MainWindow : Window
     {
         foreach (var btn in new[] { Answer1Button, Answer2Button, Answer3Button, Answer4Button })
         {
-            btn.Background = Brushes.DimGray;
+            btn.ClearValue(Button.BackgroundProperty);
             btn.ClearValue(Button.ForegroundProperty);
-            btn.IsEnabled = true;
+            btn.IsEnabled = true; // ponownie aktywuj przyciski
+        }
+    }
+
+    private void DisableAllAnswerButtons()
+    {
+        foreach (var btn in new[] { Answer1Button, Answer2Button, Answer3Button, Answer4Button })
+        {
+            btn.IsEnabled = false;
         }
     }
 

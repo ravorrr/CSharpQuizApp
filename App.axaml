@@ -3,17 +3,16 @@
              x:Class="CSharpQuizApp.App"
              xmlns:local="using:CSharpQuizApp"
              RequestedThemeVariant="Default">
-    
+
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
 
     <Application.Styles>
         <FluentTheme/>
-
-        <!-- Styl bez hovera -->
+        
         <Style Selector="Button.answer">
-            <Setter Property="Background" Value="DimGray"/>
+            <Setter Property="Background" Value="#404040"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="1"/>
@@ -22,22 +21,32 @@
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <ControlTemplate>
-                    <Border Background="{TemplateBinding Background}"
+                    <Border x:Name="border"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                        
+                        <Border.Styles>
+                            <Style Selector="Border:pointerover">
+                                <Setter Property="Background" Value="#606060"/>
+                            </Style>
+                        </Border.Styles>
+                        
                         <ContentPresenter
                             Content="{TemplateBinding Content}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
-                            <ContentPresenter.Styles>
-                                <Style Selector="TextBlock">
-                                    <Setter Property="Foreground" Value="{TemplateBinding Foreground}" />
-                                    <Setter Property="TextAlignment" Value="Center"/>
-                                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                    <Setter Property="FontWeight" Value="Bold"/>
-                                </Style>
-                            </ContentPresenter.Styles>
+                            <ContentPresenter.ContentTemplate>
+                                <DataTemplate x:DataType="x:String">
+                                    <TextBlock
+                                        Text="{Binding .}"
+                                        Foreground="{TemplateBinding Foreground}"
+                                        TextAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontWeight="Bold"/>
+                                </DataTemplate>
+                            </ContentPresenter.ContentTemplate>
                         </ContentPresenter>
                     </Border>
                 </ControlTemplate>
