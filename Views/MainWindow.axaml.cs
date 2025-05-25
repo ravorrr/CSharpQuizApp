@@ -94,12 +94,12 @@ public partial class MainWindow : Window
             if (_viewModel.IsAnswerCorrect)
             {
                 FeedbackTextBlock.Text = "Poprawna odpowiedź!";
-                FeedbackTextBlock.Foreground = Brushes.LimeGreen;
+                FeedbackTextBlock.Foreground = Brushes.LightGreen;
             }
             else
             {
                 FeedbackTextBlock.Text = "Zła odpowiedź!";
-                FeedbackTextBlock.Foreground = Brushes.Red;
+                FeedbackTextBlock.Foreground = Brushes.IndianRed;
             }
         }
 
