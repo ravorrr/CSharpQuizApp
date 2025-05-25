@@ -19,6 +19,7 @@
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Padding" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <ControlTemplate>
                     <Border Background="{TemplateBinding Background}"

@@ -2,6 +2,8 @@
 using System.IO;
 using CSharpQuizApp.Data;
 using CSharpQuizApp.Models;
+using System;
+using System.Linq;
 
 namespace CSharpQuizApp.ViewModels;
 
@@ -17,11 +19,16 @@ public class MainWindowViewModel
     public MainWindowViewModel()
     {
         QuizDatabase.Initialize();
-        Questions = QuizDatabase.LoadQuestions();
-        CurrentQuestion = Questions[0];
+
+        Questions = QuizDatabase.LoadQuestions()
+            .OrderBy(q => Guid.NewGuid())
+            .Take(10)
+            .ToList();
+
+        CurrentQuestionIndex = 0;
+        CurrentQuestion = Questions[CurrentQuestionIndex];
         FeedbackMessage = "";
         Score = 0;
-        CurrentQuestion = Questions[CurrentQuestionIndex];
     }
 
     public void CheckAnswer(int selectedIndex)
