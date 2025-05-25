@@ -66,6 +66,7 @@ public partial class MainWindow : Window
         ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
         QuestionNumberTextBlock.Text = $"Pytanie {_viewModel.CurrentQuestionIndex + 1} z {_viewModel.Questions.Count}";
 
+        FeedbackTextBlock.Text = "";
         ResetButtonColors();
         StartTimer();
     }
@@ -84,11 +85,22 @@ public partial class MainWindow : Window
         if (index == -1)
         {
             FeedbackTextBlock.Text = "Czas minął! Brak odpowiedzi.";
+            FeedbackTextBlock.Foreground = Brushes.Orange;
         }
         else
         {
             _viewModel.CheckAnswer(index);
-            FeedbackTextBlock.Text = _viewModel.FeedbackMessage;
+
+            if (_viewModel.IsAnswerCorrect)
+            {
+                FeedbackTextBlock.Text = "Poprawna odpowiedź!";
+                FeedbackTextBlock.Foreground = Brushes.LimeGreen;
+            }
+            else
+            {
+                FeedbackTextBlock.Text = "Zła odpowiedź!";
+                FeedbackTextBlock.Foreground = Brushes.Red;
+            }
         }
 
         ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";

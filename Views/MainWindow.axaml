@@ -93,11 +93,11 @@
         <TextBlock x:Name="FeedbackTextBlock"
                    Grid.Row="5" Grid.ColumnSpan="2"
                    FontWeight="Bold"
-                   FontSize="14"
-                   Foreground="DarkGreen"
+                   FontSize="24" 
+                   Foreground="White"
                    HorizontalAlignment="Center"
                    TextAlignment="Center"
-                   Margin="0,10,0,0"/>
+                   Margin="0,20,0,0"/>
 
         <TextBlock x:Name="ScoreTextBlock"
                    Grid.Row="6" Grid.ColumnSpan="2"

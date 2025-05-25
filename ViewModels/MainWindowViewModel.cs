@@ -12,6 +12,7 @@ public class MainWindowViewModel
     public string FeedbackMessage { get; set; }
     public int Score { get; set; }
     public int CurrentQuestionIndex { get; set; }
+    public bool IsAnswerCorrect { get; private set; }
 
     public MainWindowViewModel()
     {
@@ -25,14 +26,16 @@ public class MainWindowViewModel
 
     public void CheckAnswer(int selectedIndex)
     {
-        if (CurrentQuestion.IsCorrect(selectedIndex))
+        IsAnswerCorrect = CurrentQuestion.IsCorrect(selectedIndex); // 🆕
+
+        if (IsAnswerCorrect)
         {
-            FeedbackMessage = "✅ Correct Answer!";
+            FeedbackMessage = "Poprawna odpowiedź!";
             Score++;
         }
         else
         {
-            FeedbackMessage = "❌ Wrong Answer!";
+            FeedbackMessage = "Zła odpowiedź!";
         }
         
         File.WriteAllText("result.txt", $"Your score is {Score}/{Questions.Count}");
