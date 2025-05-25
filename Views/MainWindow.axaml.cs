@@ -1,26 +1,63 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Media;
+using Avalonia.Threading;
 using CSharpQuizApp.ViewModels;
 using System;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace CSharpQuizApp.Views;
 
 public partial class MainWindow : Window
 {
     private MainWindowViewModel _viewModel;
+    private Timer _timer;
+    private int _remainingSeconds = 15;
+    private bool _answered;
 
     public MainWindow()
     {
         InitializeComponent();
-        
         _viewModel = new MainWindowViewModel();
         UpdateUI();
+    }
+
+    private void StartTimer()
+    {
+        _remainingSeconds = 15;
+        _answered = false;
+        TimerTextBlock.Text = $"Pozostały czas: {_remainingSeconds} s";
+
+        _timer = new Timer(1000);
+        _timer.Elapsed += TimerElapsed!;
+        _timer.Start();
+    }
+
+    private async void TimerElapsed(object? sender, ElapsedEventArgs e)
+    {
+        _remainingSeconds--;
+
+        await Dispatcher.UIThread.InvokeAsync(() =>
+        {
+            TimerTextBlock.Text = $"Pozostały czas: {_remainingSeconds} s";
+        });
+
+        if (_remainingSeconds <= 0)
+        {
+            _timer?.Stop();
+            await Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                if (!_answered)
+                    ShowResult(-1);
+            });
+        }
     }
 
     private void UpdateUI()
     {
         QuestionTextBlock.Text = _viewModel.CurrentQuestion.Text;
+
         Answer1Button.Content = _viewModel.CurrentQuestion.Answers[0];
         Answer2Button.Content = _viewModel.CurrentQuestion.Answers[1];
         Answer3Button.Content = _viewModel.CurrentQuestion.Answers[2];
@@ -28,6 +65,9 @@ public partial class MainWindow : Window
 
         ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
         QuestionNumberTextBlock.Text = $"Pytanie {_viewModel.CurrentQuestionIndex + 1} z {_viewModel.Questions.Count}";
+
+        ResetButtonColors();
+        StartTimer();
     }
 
     private void Answer1_Click(object? sender, RoutedEventArgs e) => ShowResult(0);
@@ -37,18 +77,56 @@ public partial class MainWindow : Window
 
     private async void ShowResult(int index)
     {
-        _viewModel.CheckAnswer(index);
-        FeedbackTextBlock.Text = _viewModel.FeedbackMessage;
+        if (_answered) return;
+        _answered = true;
+        _timer?.Stop();
+
+        if (index == -1)
+        {
+            FeedbackTextBlock.Text = "Czas minął! Brak odpowiedzi.";
+        }
+        else
+        {
+            _viewModel.CheckAnswer(index);
+            FeedbackTextBlock.Text = _viewModel.FeedbackMessage;
+        }
+
         ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
 
-        DisableAnswerButtons();
+        for (int i = 0; i < 4; i++)
+        {
+            var btn = GetButtonByIndex(i);
 
-        await Task.Delay(2000);
+            if (index == -1)
+            {
+                btn.Background = (i == _viewModel.CurrentQuestion.CorrectAnswerIndex)
+                    ? Brushes.LightGreen
+                    : Brushes.DimGray;
+            }
+            else if (index == _viewModel.CurrentQuestion.CorrectAnswerIndex)
+            {
+                btn.Background = (i == index)
+                    ? Brushes.LightGreen
+                    : Brushes.DimGray;
+            }
+            else
+            {
+                if (i == index)
+                    btn.Background = Brushes.IndianRed;
+                else if (i == _viewModel.CurrentQuestion.CorrectAnswerIndex)
+                    btn.Background = Brushes.LightGreen;
+                else
+                    btn.Background = Brushes.DimGray;
+            }
+        }
+
+        await Task.Delay(4000);
 
         if (_viewModel.GoToNextQuestion())
         {
+            _answered = false;
+            ResetButtonColors();
             UpdateUI();
-            EnableAnswerButtons();
         }
         else
         {
@@ -68,46 +146,35 @@ public partial class MainWindow : Window
         };
     }
 
-    private void DisableAnswerButtons()
+    private void ResetButtonColors()
     {
-        Answer1Button.IsEnabled = false;
-        Answer2Button.IsEnabled = false;
-        Answer3Button.IsEnabled = false;
-        Answer4Button.IsEnabled = false;
-    }
-
-    private void EnableAnswerButtons()
-    {
-        Answer1Button.IsEnabled = true;
-        Answer2Button.IsEnabled = true;
-        Answer3Button.IsEnabled = true;
-        Answer4Button.IsEnabled = true;
-    }
-
-    private void NextButton_Click(object? sender, RoutedEventArgs e)
-    {
-        // Przycisk "Dalej" nieużywany - quiz przechodzi automatycznie
+        foreach (var btn in new[] { Answer1Button, Answer2Button, Answer3Button, Answer4Button })
+        {
+            btn.Background = Brushes.DimGray;
+            btn.ClearValue(Button.ForegroundProperty);
+            btn.IsEnabled = true;
+        }
     }
 
     private void RestartButton_Click(object? sender, RoutedEventArgs e)
     {
         _viewModel = new MainWindowViewModel();
-        UpdateUI();
+        ResetButtonColors();
 
         QuestionTextBlock.IsVisible = true;
         FeedbackTextBlock.IsVisible = true;
         ScoreTextBlock.IsVisible = true;
         QuestionNumberTextBlock.IsVisible = true;
+        TimerTextBlock.IsVisible = true;
         Answer1Button.IsVisible = true;
         Answer2Button.IsVisible = true;
         Answer3Button.IsVisible = true;
         Answer4Button.IsVisible = true;
-        NextButton.IsVisible = true;
 
         FinalResultTextBlock.IsVisible = false;
         RestartButton.IsVisible = false;
 
-        EnableAnswerButtons();
+        UpdateUI();
     }
 
     private void ShowFinalScreen()
@@ -116,11 +183,11 @@ public partial class MainWindow : Window
         FeedbackTextBlock.IsVisible = false;
         ScoreTextBlock.IsVisible = false;
         QuestionNumberTextBlock.IsVisible = false;
+        TimerTextBlock.IsVisible = false;
         Answer1Button.IsVisible = false;
         Answer2Button.IsVisible = false;
         Answer3Button.IsVisible = false;
         Answer4Button.IsVisible = false;
-        NextButton.IsVisible = false;
 
         FinalResultTextBlock.Text = $"Gratulacje! Twój wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
         FinalResultTextBlock.IsVisible = true;
