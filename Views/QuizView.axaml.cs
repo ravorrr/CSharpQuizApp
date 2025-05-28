@@ -212,6 +212,7 @@ public partial class QuizView : UserControl
         Answer2Button.IsVisible = false;
         Answer3Button.IsVisible = false;
         Answer4Button.IsVisible = false;
+        ExitButton.IsVisible = false;
 
         FinalResultTextBlock.Text = $"Gratulacje! Twój wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
         FinalResultTextBlock.IsVisible = true;
