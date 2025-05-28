@@ -1,0 +1,63 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="CSharpQuizApp.Views.StartView">
+
+    <Border Background="#1F1F1F" Padding="30">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
+            
+            <TextBlock Text="QUIZ APP"
+                       FontSize="36"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10"/>
+
+            <TextBlock Text="Sprawdź swoją wiedzę w 10 pytaniach! Masz 15 sekund na każdą odpowiedź."
+                       FontSize="16"
+                       Foreground="LightGray"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Width="400"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,20"/>
+
+            <Button Content="🎲 Rozpocznij losowy quiz"
+                    Width="250"
+                    Height="50"
+                    Click="StartQuiz_Click"
+                    FontSize="16"
+                    HorizontalAlignment="Center"/>
+
+            <Button Content="📂 Wybierz kategorię (Wkrótce)"
+                    Width="250"
+                    Height="50"
+                    IsEnabled="False"
+                    FontSize="16"
+                    HorizontalAlignment="Center"/>
+
+            <Button Content="ℹ️ Zasady gry"
+                    Width="250"
+                    Height="40"
+                    Click="ShowRules_Click"
+                    FontSize="14"
+                    HorizontalAlignment="Center"/>
+
+            <TextBlock x:Name="RulesTextBlock"
+                       Text="Masz 15 sekund na każde pytanie. Za każdą poprawną odpowiedź otrzymujesz 1 punkt. Wynik końcowy poznasz po ostatnim pytaniu. Powodzenia!"
+                       FontSize="14"
+                       Foreground="LightGray"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Width="400"
+                       TextWrapping="Wrap"
+                       IsVisible="False"
+                       Margin="0,0,0,0"/>
+
+            <TextBlock Text="wersja 1.0 by Ty"
+                       FontSize="12"
+                       Foreground="Gray"
+                       HorizontalAlignment="Center"
+                       Margin="0,30,0,0"/>
+        </StackPanel>
+    </Border>
+</UserControl>
