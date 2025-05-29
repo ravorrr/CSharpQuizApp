@@ -17,6 +17,7 @@
                 Background="#3A3A3A"
                 Foreground="White"
                 FontSize="14"
+                Cursor="Hand"
                 Margin="0,0,0,10"/>
         
         <TextBlock x:Name="TimerTextBlock"
@@ -112,7 +113,7 @@
                    Grid.Row="6" Grid.ColumnSpan="2"
                    FontWeight="Bold"
                    FontSize="14"
-                   Foreground="Blue"
+                   Foreground="#00FF7F"
                    HorizontalAlignment="Center"
                    TextAlignment="Center"/>
 
@@ -120,7 +121,7 @@
                    Grid.Row="8" Grid.ColumnSpan="2"
                    FontSize="20"
                    FontWeight="Bold"
-                   Foreground="DarkBlue"
+                   Foreground="#00FF7F"
                    HorizontalAlignment="Center"
                    TextAlignment="Center"
                    IsVisible="False"
@@ -132,6 +133,7 @@
                 Click="RestartButton_Click"
                 HorizontalAlignment="Center"
                 IsVisible="False"
+                Cursor="Hand"
                 Margin="0,10,0,0"/>
 
         <Button x:Name="BackToMenuButton"
@@ -140,6 +142,7 @@
                 Click="BackToMenu_Click"
                 HorizontalAlignment="Center"
                 IsVisible="False"
+                Cursor="Hand"
                 Margin="0,10,0,0"/>
         </Grid>
         <Border x:Name="ConfirmExitOverlay"
@@ -170,6 +173,7 @@
 
                     <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center">
                         <Button Content="❌ Nie"
+                                Cursor="Hand"
                                 Width="110"
                                 Height="36"
                                 Click="ConfirmExit_No_Click"
@@ -177,6 +181,7 @@
                                 Foreground="White"/>
 
                         <Button Content="✅ Tak"
+                                Cursor="Hand"
                                 Width="110"
                                 Height="36"
                                 Click="ConfirmExit_Yes_Click"

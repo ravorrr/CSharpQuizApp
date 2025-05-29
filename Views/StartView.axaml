@@ -22,6 +22,7 @@
                        Margin="0,0,0,20"/>
 
             <Button Content="🎲 Rozpocznij losowy quiz"
+                    Cursor="Hand"
                     Width="250"
                     Height="50"
                     Click="StartQuiz_Click"
@@ -29,6 +30,7 @@
                     HorizontalAlignment="Center"/>
 
             <Button Content="📂 Wybierz kategorię (Wkrótce)"
+                    Cursor="Hand"
                     Width="250"
                     Height="50"
                     IsEnabled="False"
@@ -36,6 +38,7 @@
                     HorizontalAlignment="Center"/>
 
             <Button Content="ℹ️ Zasady gry"
+                    Cursor="Hand"
                     Width="250"
                     Height="40"
                     Click="ShowRules_Click"
