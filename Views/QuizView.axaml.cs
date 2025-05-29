@@ -58,6 +58,25 @@ public partial class QuizView : UserControl
 
     private void UpdateUI()
     {
+        if (_viewModel.Questions == null || _viewModel.Questions.Count == 0)
+        {
+            FeedbackTextBlock.Text = "❌ Błąd ładowania pytań. Spróbuj ponownie.";
+            FeedbackTextBlock.Foreground = Brushes.OrangeRed;
+
+            QuestionTextBlock.IsVisible = false;
+            QuestionNumberTextBlock.IsVisible = false;
+            TimerTextBlock.IsVisible = false;
+
+            DisableAllAnswerButtons();
+            Answer1Button.IsVisible = false;
+            Answer2Button.IsVisible = false;
+            Answer3Button.IsVisible = false;
+            Answer4Button.IsVisible = false;
+
+            BackToMenuButton.IsVisible = true;
+            return;
+        }
+
         QuestionTextBlock.Text = _viewModel.CurrentQuestion.Text;
 
         Answer1Button.Content = _viewModel.CurrentQuestion.Answers[0];
