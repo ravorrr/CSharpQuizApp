@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using CSharpQuizApp.ViewModels;
 
 namespace CSharpQuizApp.Views;
 
@@ -13,7 +14,8 @@ public partial class MainWindow : Window
 
     public void NavigateToQuiz()
     {
-        MainContent.Content = new QuizView(this);
+        var quizVM = new RandomQuizViewModel();
+        MainContent.Content = new QuizView(this, quizVM);
     }
     
     public void NavigateToStart()

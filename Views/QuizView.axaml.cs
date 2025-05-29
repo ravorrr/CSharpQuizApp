@@ -12,16 +12,16 @@ namespace CSharpQuizApp.Views;
 public partial class QuizView : UserControl
 {
     private MainWindow _mainWindow;
-    private MainWindowViewModel _viewModel;
+    private QuizBaseViewModel _viewModel;
     private Timer _timer;
     private int _remainingSeconds = 15;
     private bool _answered;
 
-    public QuizView(MainWindow mainWindow)
+    public QuizView(MainWindow mainWindow, QuizBaseViewModel viewModel)
     {
         InitializeComponent();
         _mainWindow = mainWindow;
-        _viewModel = new MainWindowViewModel();
+        _viewModel = viewModel;
         UpdateUI();
     }
 
@@ -182,7 +182,7 @@ public partial class QuizView : UserControl
 
     private void RestartButton_Click(object? sender, RoutedEventArgs e)
     {
-        _viewModel = new MainWindowViewModel();
+        _viewModel = new RandomQuizViewModel();
         ResetButtonColors();
 
         QuestionTextBlock.IsVisible = true;

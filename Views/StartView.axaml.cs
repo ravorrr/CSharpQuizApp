@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
+using CSharpQuizApp.ViewModels;
 
 namespace CSharpQuizApp.Views;
 
@@ -15,7 +16,8 @@ public partial class StartView : UserControl
 
     private void StartQuiz_Click(object? sender, RoutedEventArgs e)
     {
-        _mainWindow.NavigateToQuiz();
+        var quizVM = new RandomQuizViewModel();
+        _mainWindow.MainContent.Content = new QuizView(_mainWindow, quizVM);
     }
 
     private void ShowRules_Click(object? sender, RoutedEventArgs e)
