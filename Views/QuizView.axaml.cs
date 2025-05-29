@@ -213,9 +213,11 @@ public partial class QuizView : UserControl
         Answer2Button.IsVisible = true;
         Answer3Button.IsVisible = true;
         Answer4Button.IsVisible = true;
+        ExitButton.IsVisible = true;
 
         FinalResultTextBlock.IsVisible = false;
         RestartButton.IsVisible = false;
+        BackToMenuButton.IsVisible = false;
 
         UpdateUI();
     }
