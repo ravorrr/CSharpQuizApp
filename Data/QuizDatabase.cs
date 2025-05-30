@@ -86,7 +86,55 @@ public class QuizDatabase
                     ('Jak nazywa się najwyższa góra w Polsce?', 'Babia Góra', 'Giewont', 'Śnieżka', 'Rysy', 3),
                     ('Co to jest H2O?', 'Tlen', 'Woda', 'Wodór', 'Azot', 1),
                     ('Które zwierzę jest ssakiem?', 'Żaba', 'Rekin', 'Nietoperz', 'Kura', 2),
-                    ('Które państwo nie graniczy z Polską?', 'Niemcy', 'Litwa', 'Słowacja', 'Rumunia', 3)
+                    ('Które państwo nie graniczy z Polską?', 'Niemcy', 'Litwa', 'Słowacja', 'Rumunia', 3),
+                    ('Który pierwiastek ma symbol Na?', 'Sód', 'Wapń', 'Azot', 'Cynk', 0),
+                    ('W jakim kraju leży wieża Eiffla?', 'Niemcy', 'Włochy', 'Francja', 'Hiszpania', 2),
+                    ('Jakie zwierzę widnieje w herbie Polski?', 'Lew', 'Orzeł', 'Niedźwiedź', 'Wilk', 1),
+                    ('Który język jest używany w Brazylii?', 'Hiszpański', 'Angielski', 'Portugalski', 'Francuski', 2),
+                    ('W jakim roku człowiek pierwszy raz poleciał w kosmos?', '1961', '1957', '1969', '1972', 0),
+                    ('Jaką jednostką mierzymy energię?', 'Wolt', 'Amper', 'Joule', 'Kelwin', 2),
+                    ('Stolicą Norwegii jest?', 'Oslo', 'Sztokholm', 'Kopenhaga', 'Helsinki', 0),
+                    ('Ile lat ma jedna dekada?', '5', '10', '15', '20', 1),
+                    ('Która planeta jest najbliżej Słońca?', 'Merkury', 'Wenus', 'Mars', 'Ziemia', 0),
+                    ('Który język programowania jest najczęściej używany?', 'C++', 'Python', 'Java', 'PHP', 1),
+                    ('Z ilu kolorów składa się tęcza?', '5', '6', '7', '8', 2),
+                    ('Jaki jest symbol chemiczny węgla?', 'W', 'We', 'C', 'Ca', 2),
+                    ('Jak brzmi pierwsze prawo Newtona?', 'Akcja = Reakcja', 'Ciało w spoczynku...', 'F = ma', 'P = mv', 1),
+                    ('Który kraj słynie z produkcji sushi?', 'Chiny', 'Japonia', 'Korea', 'Wietnam', 1),
+                    ('Ile nóg ma rak?', '6', '8', '10', '12', 2),
+                    ('Jakiego koloru jest flaga Niemiec?', 'Czarna, czerwona, złota', 'Biała, czerwona, niebieska', 'Czerwona, żółta, zielona', 'Czarna, zielona, czerwona', 0),
+                    ('Kto napisał „Zbrodnię i karę”?', 'Tołstoj', 'Dostojewski', 'Puszkin', 'Gogol', 1),
+                    ('Jaką liczbą rzymską zapisujemy 1000?', 'L', 'C', 'D', 'M', 3),
+                    ('Które zwierzę jest symbolem mądrości?', 'Lis', 'Wilk', 'Sowa', 'Wąż', 2),
+                    ('Jakie ciśnienie atmosferyczne uznaje się za normalne?', '760 mmHg', '800 mmHg', '720 mmHg', '700 mmHg', 0),
+                    ('Jak nazywa się najmniejsza cząstka pierwiastka?', 'Atom', 'Proton', 'Cząsteczka', 'Neutron', 0),
+                    ('Jakiego koloru są liście jesienią?', 'Czerwone', 'Żółte', 'Pomarańczowe', 'Wszystkie powyższe', 3),
+                    ('Które państwo nie ma dostępu do morza?', 'Austria', 'Włochy', 'Portugalia', 'Turcja', 0),
+                    ('Który instrument należy do strunowych?', 'Flet', 'Skrzypce', 'Bęben', 'Trąbka', 1),
+                    ('Jakie jest największe zwierzę lądowe?', 'Nosorożec', 'Słoń afrykański', 'Hipopotam', 'Żubr', 1),
+                    ('Jakie jest największe państwo Afryki?', 'Nigeria', 'Egipt', 'Algieria', 'RPA', 2),
+                    ('Z ilu kości składa się ludzki szkielet?', '106', '206', '306', '406', 1),
+                    ('Jak nazywa się chemiczny symbol wody?', 'HO', 'H2O', 'OH2', 'O2H', 1),
+                    ('Co to jest fotosynteza?', 'Oddychanie roślin', 'Proces wzrostu', 'Wytwarzanie tlenu przez rośliny', 'Wchłanianie wody', 2),
+                    ('Który wynalazca stworzył telefon?', 'Edison', 'Tesla', 'Bell', 'Newton', 2),
+                    ('Które morze jest najcieplejsze?', 'Bałtyckie', 'Czarne', 'Czerwone', 'Śródziemne', 2),
+                    ('Jakiego koloru jest złoto?', 'Srebrny', 'Żółty', 'Szary', 'Biały', 1),
+                    ('Który ssak potrafi latać?', 'Nietoperz', 'Wiewiórka', 'Orzeł', 'Pelikany', 0),
+                    ('Jak nazywa się proces przejścia cieczy w gaz?', 'Kondensacja', 'Parowanie', 'Topnienie', 'Sublimacja', 1),
+                    ('Jaka liczba jest największa spośród: 256, 512, 128, 1024?', '512', '128', '256', '1024', 3),
+                    ('Które zwierzę żyje najdłużej?', 'Papuga', 'Żółw', 'Koń', 'Słoń', 1),
+                    ('Z ilu kontynentów składa się świat?', '5', '6', '7', '8', 2),
+                    ('Jak nazywa się najstarszy uniwersytet w Polsce?', 'UJ', 'UW', 'Politechnika Warszawska', 'SGH', 0),
+                    ('Który pierwiastek występuje najczęściej w skorupie ziemskiej?', 'Tlen', 'Żelazo', 'Wodór', 'Krzem', 0),
+                    ('W jakim państwie wynaleziono proch?', 'Chiny', 'Japonia', 'Rosja', 'Indie', 0),
+                    ('Która planeta ma pierścienie?', 'Ziemia', 'Mars', 'Saturn', 'Merkury', 2),
+                    ('Który ssak składa jaja?', 'Nietoperz', 'Delfin', 'Kolczatka', 'Słoń', 2),
+                    ('Jakiego koloru jest flaga Włoch?', 'Zielony, biały, czerwony', 'Czerwony, biały, niebieski', 'Żółty, niebieski, czerwony', 'Biały, czerwony, zielony', 0),
+                    ('Jaka planeta nazywana jest „Czerwoną Planetą”?', 'Ziemia', 'Mars', 'Wenus', 'Jowisz', 1),
+                    ('Które państwo leży na dwóch kontynentach?', 'Hiszpania', 'Rosja', 'Egipt', 'Turcja', 3),
+                    ('Jakie jest najpopularniejsze hobby na świecie?', 'Wędkarstwo', 'Czytanie', 'Podróżowanie', 'Gotowanie', 0),
+                    ('Co to jest haiku?', 'Rodzaj sushi', 'Rodzaj wiersza', 'Styl malarski', 'Taniec', 1),
+                    ('Które miasto leży jednocześnie w Europie i Azji?', 'Stambuł', 'Teheran', 'Moskwa', 'Jerozolima', 0)
                     ;
                 ";
                 tableCmd.ExecuteNonQuery();
@@ -129,6 +177,43 @@ public class QuizDatabase
         catch (Exception ex)
         {
             Logger.LogError(ex); // <-- logowanie błędów przy ładowaniu pytań
+            throw;
+        }
+
+        return questions;
+    }
+    
+    public static List<Question> LoadAllQuestions()
+    {
+        var questions = new List<Question>();
+
+        try
+        {
+            using var connection = new SqliteConnection($"Data Source={FileName}");
+            connection.Open();
+
+            var selectCmd = connection.CreateCommand();
+            selectCmd.CommandText = "SELECT * FROM Questions"; // <-- wszystkie pytania (bez losowania)
+
+            using var reader = selectCmd.ExecuteReader();
+            while (reader.Read())
+            {
+                questions.Add(new Question(
+                    reader.GetString(1),
+                    new List<string>
+                    {
+                        reader.GetString(2),
+                        reader.GetString(3),
+                        reader.GetString(4),
+                        reader.GetString(5)
+                    },
+                    reader.GetInt32(6)
+                ));
+            }
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex);
             throw;
         }
 

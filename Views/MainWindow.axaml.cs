@@ -12,14 +12,18 @@ public partial class MainWindow : Window
         MainContent.Content = new StartView(this); // Start from menu
     }
 
-    public void NavigateToQuiz()
+    public void NavigateToQuiz(QuizBaseViewModel viewModel)
     {
-        var quizVM = new RandomQuizViewModel();
-        MainContent.Content = new QuizView(this, quizVM);
+        MainContent.Content = new QuizView(this, viewModel);
     }
     
     public void NavigateToStart()
     {
         MainContent.Content = new StartView(this);
+    }
+
+    public void NavigateToModeSelection()
+    {
+        MainContent.Content = new ModeSelectionView(this);
     }
 }

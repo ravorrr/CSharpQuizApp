@@ -16,8 +16,7 @@ public partial class StartView : UserControl
 
     private void StartQuiz_Click(object? sender, RoutedEventArgs e)
     {
-        var quizVM = new RandomQuizViewModel();
-        _mainWindow.MainContent.Content = new QuizView(_mainWindow, quizVM);
+        _mainWindow.NavigateToModeSelection();
     }
 
     private void ShowRules_Click(object? sender, RoutedEventArgs e)
