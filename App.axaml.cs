@@ -6,6 +6,8 @@ using System.Linq;
 using Avalonia.Markup.Xaml;
 using CSharpQuizApp.ViewModels;
 using CSharpQuizApp.Views;
+using System;
+using CSharpQuizApp.Utils;
 
 namespace CSharpQuizApp;
 
@@ -18,6 +20,12 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+        {
+            if (e.ExceptionObject is Exception ex)
+                Utils.Logger.LogError(ex);
+        };
+        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
