@@ -25,5 +25,10 @@ namespace CSharpQuizApp.Views
             var viewModel = new AllQuestionsQuizViewModel();
             _mainWindow.NavigateToQuiz(viewModel);
         }
+        
+        private void BackToMenu_Click(object? sender, RoutedEventArgs e)
+        {
+            _mainWindow.NavigateToStart();
+        }
     }
 }
