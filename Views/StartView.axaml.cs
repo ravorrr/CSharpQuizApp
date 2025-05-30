@@ -73,4 +73,9 @@ public partial class StartView : UserControl
     {
         RulesTextBlock.IsVisible = !RulesTextBlock.IsVisible;
     }
+    
+    private void FocusCatcher_PointerPressed(object? sender, PointerPressedEventArgs e)
+    {
+        Focus();
+    }
 }

@@ -3,76 +3,87 @@
              x:Class="CSharpQuizApp.Views.StartView">
 
     <Border Background="#1F1F1F" Padding="30">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
+        <Grid>
+            <Rectangle Name="FocusCatcher"
+                       Fill="Transparent"
+                       Focusable="True"
+                       IsHitTestVisible="True"
+                       PointerPressed="FocusCatcher_PointerPressed"/>
 
-            <TextBlock Text="QUIZ APP"
-                       FontSize="36"
-                       FontWeight="Bold"
-                       Foreground="White"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,10"/>
-
-            <TextBlock Text="Sprawdź swoją wiedzę w 10 pytaniach! Masz 15 sekund na każdą odpowiedź."
-                       FontSize="16"
-                       Foreground="LightGray"
-                       TextAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Width="400"
-                       TextWrapping="Wrap"
-                       Margin="0,0,0,20"/>
-
-            <StackPanel HorizontalAlignment="Center" Spacing="10">
-                <TextBlock x:Name="WelcomeTextBlock"
-                           Text="Kliknij tutaj, aby wpisać imię"
-                           FontSize="20"
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
+                <TextBlock Text="QUIZ APP"
+                           FontSize="36"
                            FontWeight="Bold"
                            Foreground="White"
                            HorizontalAlignment="Center"
-                           Cursor="Hand"
-                           PointerPressed="WelcomeTextBlock_PointerPressed"
-                           IsVisible="True"/>
+                           Margin="0,0,0,10"/>
 
-                <TextBox x:Name="NameEditBox"
-                         FontSize="20"
-                         Width="200"
-                         HorizontalAlignment="Center"
-                         IsVisible="False"
-                         LostFocus="NameEditBox_LostFocus"
-                         KeyUp="NameEditBox_KeyUp"/>
+                <TextBlock Text="Sprawdź swoją wiedzę w 10 pytaniach! Masz 15 sekund na każdą odpowiedź."
+                           FontSize="16"
+                           Foreground="LightGray"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Width="400"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,20"/>
+
+                <StackPanel HorizontalAlignment="Center" Spacing="10">
+                    <TextBlock x:Name="WelcomeTextBlock"
+                               Text="Kliknij tutaj, aby wpisać imię"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               Cursor="Hand"
+                               PointerPressed="WelcomeTextBlock_PointerPressed"
+                               IsVisible="True"/>
+
+                    <TextBox x:Name="NameEditBox"
+                             FontSize="20"
+                             Width="200"
+                             HorizontalAlignment="Center"
+                             IsVisible="False"
+                             LostFocus="NameEditBox_LostFocus"
+                             KeyUp="NameEditBox_KeyUp"/>
+                </StackPanel>
+
+                <Button Content="🎲 Rozpocznij quiz"
+                        Cursor="Hand"
+                        Width="250"
+                        Height="50"
+                        Click="StartQuiz_Click"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        Focusable="True"/>
+
+                <Button Content="ℹ️ Zasady gry"
+                        Cursor="Hand"
+                        Width="250"
+                        Height="50"
+                        Click="ShowRules_Click"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        Focusable="True"/>
+
+                <TextBlock x:Name="RulesTextBlock"
+                           Text="Masz 15 sekund na każde pytanie. Za każdą poprawną odpowiedź otrzymujesz 1 punkt. Wynik końcowy poznasz po ostatnim pytaniu. Powodzenia!"
+                           FontSize="14"
+                           Foreground="LightGray"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Width="400"
+                           TextWrapping="Wrap"
+                           IsVisible="False"
+                           Margin="0,0,0,0"
+                           Focusable="True"/>
+
+                <TextBlock Text="wersja 1.0 by Ty"
+                           FontSize="12"
+                           Foreground="Gray"
+                           HorizontalAlignment="Center"
+                           Margin="0,30,0,0"
+                           Focusable="True"/>
             </StackPanel>
-
-            <Button Content="🎲 Rozpocznij quiz"
-                    Cursor="Hand"
-                    Width="250"
-                    Height="50"
-                    Click="StartQuiz_Click"
-                    FontSize="16"
-                    HorizontalAlignment="Center"/>
-
-            <Button Content="ℹ️ Zasady gry"
-                    Cursor="Hand"
-                    Width="250"
-                    Height="50"
-                    Click="ShowRules_Click"
-                    FontSize="16"
-                    HorizontalAlignment="Center"/>
-
-            <TextBlock x:Name="RulesTextBlock"
-                       Text="Masz 15 sekund na każde pytanie. Za każdą poprawną odpowiedź otrzymujesz 1 punkt. Wynik końcowy poznasz po ostatnim pytaniu. Powodzenia!"
-                       FontSize="14"
-                       Foreground="LightGray"
-                       TextAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Width="400"
-                       TextWrapping="Wrap"
-                       IsVisible="False"
-                       Margin="0,0,0,0"/>
-
-            <TextBlock Text="wersja 1.0 by Ty"
-                       FontSize="12"
-                       Foreground="Gray"
-                       HorizontalAlignment="Center"
-                       Margin="0,30,0,0"/>
-        </StackPanel>
+        </Grid>
     </Border>
 </UserControl>
