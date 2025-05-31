@@ -16,6 +16,7 @@ public partial class QuizView : UserControl
     private Timer _timer;
     private int _remainingSeconds = 15;
     private bool _answered;
+    private DateTime _quizStartTime;
 
     public QuizView(MainWindow mainWindow, QuizBaseViewModel viewModel)
     {
@@ -23,6 +24,7 @@ public partial class QuizView : UserControl
         _mainWindow = mainWindow;
         _viewModel = viewModel;
         UpdateUI();
+        _quizStartTime = DateTime.Now;
     }
 
     private void StartTimer()
@@ -224,6 +226,9 @@ public partial class QuizView : UserControl
 
     private void ShowFinalScreen()
     {
+        _viewModel.QuizTimeSeconds = (int)(DateTime.Now - _quizStartTime).TotalSeconds;
+        _viewModel.SaveQuizHistory();
+        
         QuestionTextBlock.IsVisible = false;
         FeedbackTextBlock.IsVisible = false;
         ScoreTextBlock.IsVisible = false;

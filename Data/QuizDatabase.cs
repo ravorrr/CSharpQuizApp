@@ -3,7 +3,7 @@ using System.IO;
 using CSharpQuizApp.Models;
 using Microsoft.Data.Sqlite;
 using System;
-using CSharpQuizApp.Utils; // <--- dodane
+using CSharpQuizApp.Utils;
 
 namespace CSharpQuizApp.Data;
 
@@ -139,10 +139,63 @@ public class QuizDatabase
                 ";
                 tableCmd.ExecuteNonQuery();
             }
+
+            EnsureHistoryTableExists();
         }
         catch (Exception ex)
         {
             Logger.LogError(ex); // <-- logowanie błędów inicjalizacji
+        }
+    }
+
+    public static void EnsureHistoryTableExists()
+    {
+        using var connection = new SqliteConnection($"Data Source={FileName}");
+        connection.Open();
+
+        var command = connection.CreateCommand();
+        command.CommandText =
+            @"CREATE TABLE IF NOT EXISTS quiz_history (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                player_name TEXT,
+                quiz_type TEXT,
+                score INTEGER,
+                total_questions INTEGER,
+                correct_answers INTEGER,
+                wrong_answers INTEGER,
+                time_in_seconds INTEGER,
+                date TEXT
+            );";
+        command.ExecuteNonQuery();
+    }
+
+    public static void SaveQuizHistory(QuizHistoryEntry entry)
+    {
+        try
+        {
+            using var connection = new SqliteConnection($"Data Source={FileName}");
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+            command.CommandText =
+                @"INSERT INTO quiz_history
+                  (player_name, quiz_type, score, total_questions, correct_answers, wrong_answers, time_in_seconds, date)
+                  VALUES (@name, @type, @score, @total, @correct, @wrong, @time, @date)";
+
+            command.Parameters.AddWithValue("@name", entry.PlayerName);
+            command.Parameters.AddWithValue("@type", entry.QuizType);
+            command.Parameters.AddWithValue("@score", entry.Score);
+            command.Parameters.AddWithValue("@total", entry.TotalQuestions);
+            command.Parameters.AddWithValue("@correct", entry.CorrectAnswers);
+            command.Parameters.AddWithValue("@wrong", entry.WrongAnswers);
+            command.Parameters.AddWithValue("@time", entry.TimeInSeconds);
+            command.Parameters.AddWithValue("@date", entry.Date.ToString("yyyy-MM-dd HH:mm:ss"));
+
+            command.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex);
         }
     }
 
@@ -155,8 +208,8 @@ public class QuizDatabase
             using var connection = new SqliteConnection($"Data Source={FileName}");
             connection.Open();
 
-        var selectCmd = connection.CreateCommand();
-        selectCmd.CommandText = "SELECT * FROM Questions ORDER BY RANDOM() LIMIT 10"; // <-- losujemy 10 pytań!
+            var selectCmd = connection.CreateCommand();
+            selectCmd.CommandText = "SELECT * FROM Questions ORDER BY RANDOM() LIMIT 10"; // <-- losujemy 10 pytań!
 
             using var reader = selectCmd.ExecuteReader();
             while (reader.Read())
@@ -218,5 +271,35 @@ public class QuizDatabase
         }
 
         return questions;
+    }
+    
+    public static List<QuizHistoryEntry> LoadHistory()
+    {
+        var history = new List<QuizHistoryEntry>();
+
+        using var connection = new SqliteConnection("Data Source=quiz.db");
+        connection.Open();
+
+        var command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM quiz_history ORDER BY date DESC";
+
+        using var reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            history.Add(new QuizHistoryEntry
+            {
+                Id = reader.GetInt32(0),
+                PlayerName = reader.GetString(1),
+                QuizType = reader.GetString(2),
+                Score = reader.GetInt32(3),
+                TotalQuestions = reader.GetInt32(4),
+                CorrectAnswers = reader.GetInt32(5),
+                WrongAnswers = reader.GetInt32(6),
+                TimeInSeconds = reader.GetInt32(7),
+                Date = DateTime.Parse(reader.GetString(8))
+            });
+        }
+
+        return history;
     }
 }

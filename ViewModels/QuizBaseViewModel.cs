@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using CSharpQuizApp.Models;
+using CSharpQuizApp.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 
 namespace CSharpQuizApp.ViewModels;
 
@@ -12,6 +14,13 @@ public abstract class QuizBaseViewModel : ObservableObject
     public int CurrentQuestionIndex { get; protected set; }
     public bool IsAnswerCorrect { get; protected set; }
     public string FeedbackMessage { get; protected set; }
+    
+    public string PlayerName { get; set; } = "";
+    public virtual string QuizTypeName => "Nieznany";
+    public int QuizTimeSeconds { get; set; } = 0;
+    public int TotalQuestions => Questions?.Count ?? 0;
+    public int CorrectAnswers => Score;
+    public int WrongAnswers => TotalQuestions - Score;
 
     protected QuizBaseViewModel()
     {
@@ -46,5 +55,24 @@ public abstract class QuizBaseViewModel : ObservableObject
         }
 
         return false;
+    }
+    
+    public void SaveQuizHistory()
+    {
+        var playerName = string.IsNullOrWhiteSpace(PlayerName) ? "Unknown" : PlayerName;
+
+        var entry = new QuizHistoryEntry
+        {
+            PlayerName = playerName,
+            QuizType = QuizTypeName,
+            Score = Score,
+            TotalQuestions = TotalQuestions,
+            CorrectAnswers = CorrectAnswers,
+            WrongAnswers = WrongAnswers,
+            TimeInSeconds = QuizTimeSeconds,
+            Date = DateTime.Now
+        };
+
+        QuizDatabase.SaveQuizHistory(entry);
     }
 }

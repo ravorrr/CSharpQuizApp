@@ -55,6 +55,15 @@
                         FontSize="16"
                         HorizontalAlignment="Center"
                         Focusable="True"/>
+                
+                <Button Content="📜 Historia quizów"
+                        Cursor="Hand"
+                        Width="250"
+                        Height="50"
+                        Click="ShowHistory_Click"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        Focusable="True"/>
 
                 <Button Content="ℹ️ Zasady gry"
                         Cursor="Hand"

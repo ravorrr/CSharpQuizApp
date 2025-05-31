@@ -1,7 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using CSharpQuizApp.Utils;
+using CSharpQuizApp.Data;
 using System;
 
 namespace CSharpQuizApp.Views;
@@ -73,7 +73,12 @@ public partial class StartView : UserControl
     {
         RulesTextBlock.IsVisible = !RulesTextBlock.IsVisible;
     }
-    
+
+    private void ShowHistory_Click(object? sender, RoutedEventArgs e)
+    {
+        _mainWindow.NavigateToHistory();
+    }
+
     private void FocusCatcher_PointerPressed(object? sender, PointerPressedEventArgs e)
     {
         Focus();

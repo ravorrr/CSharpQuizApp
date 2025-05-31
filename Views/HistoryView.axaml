@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:CSharpQuizApp.ViewModels"
+             x:Class="CSharpQuizApp.Views.HistoryView"
+             x:DataType="vm:HistoryViewModel">
+
+    <Border Background="#1F1F1F" Padding="30">
+        <StackPanel Spacing="20">
+            <TextBlock Text="📜 Historia Quizów"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+
+            <ListBox ItemsSource="{Binding History}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding FormattedEntry}" Foreground="White"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button Content="🔙 Powrót"
+                    Click="Back_Click"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    Cursor="Hand"/>
+        </StackPanel>
+    </Border>
+</UserControl>
