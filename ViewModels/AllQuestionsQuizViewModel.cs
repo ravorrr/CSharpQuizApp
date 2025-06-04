@@ -13,5 +13,8 @@ public class AllQuestionsQuizViewModel : QuizBaseViewModel
         QuizDatabase.Initialize();
         var questions = QuizDatabase.LoadAllQuestions();
         SetQuestions(questions);
+        
+        var settings = UserSettings.Load();
+        PlayerName = string.IsNullOrWhiteSpace(settings.PlayerName) ? "Unknown" : settings.PlayerName;
     }
 }

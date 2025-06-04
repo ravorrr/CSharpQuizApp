@@ -12,5 +12,8 @@ public class RandomQuizViewModel : QuizBaseViewModel
         QuizDatabase.Initialize();
         var questions = QuizDatabase.LoadQuestions(); // 10 losowych
         SetQuestions(questions);
+        
+        var settings = UserSettings.Load();
+        PlayerName = string.IsNullOrWhiteSpace(settings.PlayerName) ? "Unknown" : settings.PlayerName;
     }
 }
