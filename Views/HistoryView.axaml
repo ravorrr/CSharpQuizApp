@@ -12,7 +12,9 @@
                        Foreground="White"
                        HorizontalAlignment="Center"/>
 
-            <ListBox ItemsSource="{Binding History}">
+            <ListBox ItemsSource="{Binding History}"
+                     MaxHeight="500"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding FormattedEntry}" Foreground="White"/>
