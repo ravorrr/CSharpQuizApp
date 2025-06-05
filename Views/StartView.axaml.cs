@@ -22,7 +22,7 @@ public partial class StartView : UserControl
 
     private void UpdateWelcomeMessage()
     {
-        if (!string.IsNullOrWhiteSpace(_userSettings.PlayerName))
+        if (!string.IsNullOrWhiteSpace(_userSettings.PlayerName) && _userSettings.PlayerName.ToLower() != "unknown")
         {
             WelcomeTextBlock.Text = $"Witaj, {_userSettings.PlayerName}!";
         }
@@ -34,7 +34,10 @@ public partial class StartView : UserControl
 
     private void WelcomeTextBlock_PointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        NameEditBox.Text = _userSettings.PlayerName;
+        var nameToSet = _userSettings.PlayerName;
+        if (string.Equals(nameToSet, "unknown", StringComparison.OrdinalIgnoreCase))
+            nameToSet = "";
+        NameEditBox.Text = nameToSet;
         NameEditBox.IsVisible = true;
         WelcomeTextBlock.IsVisible = false;
         NameEditBox.Focus();

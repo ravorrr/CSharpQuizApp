@@ -10,9 +10,17 @@ public class HistoryViewModel
 
     public HistoryViewModel()
     {
+        History = new ObservableCollection<HistoryEntryViewModel>();
+        LoadHistory();
+    }
+
+    public void LoadHistory()
+    {
+        History.Clear();
         var entries = QuizDatabase.LoadHistory();
-        History = new ObservableCollection<HistoryEntryViewModel>(
-            entries.Select(e => new HistoryEntryViewModel(e))
-        );
+        foreach (var entry in entries)
+        {
+            History.Add(new HistoryEntryViewModel(entry));
+        }
     }
 }

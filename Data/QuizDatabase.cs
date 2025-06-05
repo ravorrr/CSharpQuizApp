@@ -9,6 +9,7 @@ namespace CSharpQuizApp.Data;
 
 public class QuizDatabase
 {
+    public static string ConnectionString = "Data Source=quiz.db";
     private const string FileName = "quiz.db";
 
     public static void Initialize()
@@ -301,5 +302,15 @@ public class QuizDatabase
         }
 
         return history;
+    }
+    
+    public static void ClearHistory()
+    {
+        using var connection = new SqliteConnection(ConnectionString);
+        connection.Open();
+
+        var command = connection.CreateCommand();
+        command.CommandText = "DELETE FROM quiz_history";
+        command.ExecuteNonQuery();
     }
 }
