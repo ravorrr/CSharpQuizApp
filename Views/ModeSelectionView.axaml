@@ -1,7 +1,7 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="CSharpQuizApp.Views.ModeSelectionView">
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto" Margin="30" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Margin="30" HorizontalAlignment="Center" VerticalAlignment="Center">
 
         <TextBlock Text="Wybierz tryb gry" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="0" />
 
@@ -15,12 +15,17 @@
                 Click="StartAllQuestionsQuiz_Click"
                 Grid.Row="2" Margin="0,10,0,0"/>
         
+        <Button Content="📚 Quiz wg kategorii"
+                Width="250" Height="50" Cursor="Hand"
+                Click="ShowCategorySelection_Click"
+                Grid.Row="3" Margin="0,10,0,0"/>
+        
         <Button Content="⬅️ Powrót do menu"
                 Width="250"
                 Height="40"
                 Cursor="Hand"
                 Click="BackToMenu_Click"
-                Grid.Row="3" Margin="0,30,0,0"/>
+                Grid.Row="4" Margin="0,30,0,0"/>
 
     </Grid>
 </UserControl>

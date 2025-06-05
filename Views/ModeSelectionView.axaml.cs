@@ -26,6 +26,11 @@ namespace CSharpQuizApp.Views
             _mainWindow.NavigateToQuiz(viewModel);
         }
         
+        private void ShowCategorySelection_Click(object? sender, RoutedEventArgs e)
+        {
+            _mainWindow.NavigateToCategorySelection();
+        }
+        
         private void BackToMenu_Click(object? sender, RoutedEventArgs e)
         {
             _mainWindow.NavigateToStart();

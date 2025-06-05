@@ -20,6 +20,15 @@ public partial class MainWindow : Window
 
         MainContent.Content = new QuizView(this, viewModel);
     }
+    
+    public void StartCategoryQuiz(string category)
+    {
+        var viewModel = new CategoryQuizViewModel(category);
+        var userSettings = UserSettings.Load();
+        viewModel.PlayerName = string.IsNullOrWhiteSpace(userSettings.PlayerName) ? "Unknown" : userSettings.PlayerName;
+        
+        MainContent.Content = new QuizView(this, viewModel);
+    }
 
     public void NavigateToStart()
     {
@@ -29,6 +38,11 @@ public partial class MainWindow : Window
     public void NavigateToModeSelection()
     {
         MainContent.Content = new ModeSelectionView(this);
+    }
+    
+    public void NavigateToCategorySelection()
+    {
+        MainContent.Content = new CategorySelectionView(this);
     }
 
     public void NavigateToHistory()
