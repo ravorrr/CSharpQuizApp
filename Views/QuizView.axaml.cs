@@ -203,25 +203,7 @@ public partial class QuizView : UserControl
 
     private void RestartButton_Click(object? sender, RoutedEventArgs e)
     {
-        _viewModel = new RandomQuizViewModel();
-        ResetButtonColors();
-
-        QuestionTextBlock.IsVisible = true;
-        FeedbackTextBlock.IsVisible = true;
-        ScoreTextBlock.IsVisible = true;
-        QuestionNumberTextBlock.IsVisible = true;
-        TimerTextBlock.IsVisible = true;
-        Answer1Button.IsVisible = true;
-        Answer2Button.IsVisible = true;
-        Answer3Button.IsVisible = true;
-        Answer4Button.IsVisible = true;
-        ExitButton.IsVisible = true;
-
-        FinalResultTextBlock.IsVisible = false;
-        RestartButton.IsVisible = false;
-        BackToMenuButton.IsVisible = false;
-
-        UpdateUI();
+        _mainWindow.PlayAgain();
     }
 
     private void ShowFinalScreen()
