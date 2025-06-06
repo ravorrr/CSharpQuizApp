@@ -40,7 +40,7 @@
                         Click="ClearHistory_Click"
                         Width="200"
                         Cursor="Hand"/>
-                <Button Content="🔙 Powrót"
+                <Button Content="🔙 Powrót do menu"
                         Click="Back_Click"
                         Width="200"
                         Cursor="Hand"/>
