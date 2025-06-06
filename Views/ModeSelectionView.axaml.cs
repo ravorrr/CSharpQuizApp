@@ -1,12 +1,11 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
-using CSharpQuizApp.ViewModels;
 
 namespace CSharpQuizApp.Views
 {
     public partial class ModeSelectionView : UserControl
     {
-        private MainWindow _mainWindow;
+        private readonly MainWindow _mainWindow;
 
         public ModeSelectionView(MainWindow mainWindow)
         {
@@ -16,14 +15,12 @@ namespace CSharpQuizApp.Views
 
         private void StartRandomQuiz_Click(object? sender, RoutedEventArgs e)
         {
-            var viewModel = new RandomQuizViewModel();
-            _mainWindow.NavigateToQuiz(viewModel);
+            _mainWindow.StartRandomQuiz();
         }
 
         private void StartAllQuestionsQuiz_Click(object? sender, RoutedEventArgs e)
         {
-            var viewModel = new AllQuestionsQuizViewModel();
-            _mainWindow.NavigateToQuiz(viewModel);
+            _mainWindow.StartAllQuestionsQuiz();
         }
         
         private void ShowCategorySelection_Click(object? sender, RoutedEventArgs e)

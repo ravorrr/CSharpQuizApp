@@ -1,6 +1,4 @@
 ﻿using CSharpQuizApp.Data;
-using CSharpQuizApp.Models;
-using System.Collections.Generic;
 
 namespace CSharpQuizApp.ViewModels;
 

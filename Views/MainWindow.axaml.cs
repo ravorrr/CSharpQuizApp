@@ -21,23 +21,19 @@ public partial class MainWindow : Window
         InitializeComponent();
         MainContent.Content = new StartView(this);
     }
-
-    public void NavigateToQuiz(QuizBaseViewModel viewModel)
+    
+    private void SetPlayerName(QuizBaseViewModel viewModel)
     {
         var userSettings = UserSettings.Load();
         viewModel.PlayerName = string.IsNullOrWhiteSpace(userSettings.PlayerName) ? "Unknown" : userSettings.PlayerName;
-
-        MainContent.Content = new QuizView(this, viewModel);
     }
 
     public void StartRandomQuiz()
     {
         _lastQuizType = QuizType.Random;
         _lastCategory = null;
-
         var viewModel = new RandomQuizViewModel();
-        var userSettings = UserSettings.Load();
-        viewModel.PlayerName = string.IsNullOrWhiteSpace(userSettings.PlayerName) ? "Unknown" : userSettings.PlayerName;
+        SetPlayerName(viewModel);
         MainContent.Content = new QuizView(this, viewModel);
     }
 
@@ -45,10 +41,8 @@ public partial class MainWindow : Window
     {
         _lastQuizType = QuizType.All;
         _lastCategory = null;
-
         var viewModel = new AllQuestionsQuizViewModel();
-        var userSettings = UserSettings.Load();
-        viewModel.PlayerName = string.IsNullOrWhiteSpace(userSettings.PlayerName) ? "Unknown" : userSettings.PlayerName;
+        SetPlayerName(viewModel);
         MainContent.Content = new QuizView(this, viewModel);
     }
     
@@ -56,10 +50,8 @@ public partial class MainWindow : Window
     {
         _lastQuizType = QuizType.Category;
         _lastCategory = category;
-
         var viewModel = new CategoryQuizViewModel(category);
-        var userSettings = UserSettings.Load();
-        viewModel.PlayerName = string.IsNullOrWhiteSpace(userSettings.PlayerName) ? "Unknown" : userSettings.PlayerName;
+        SetPlayerName(viewModel);
         MainContent.Content = new QuizView(this, viewModel);
     }
 

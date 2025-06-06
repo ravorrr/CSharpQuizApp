@@ -1,5 +1,4 @@
-﻿using System;
-using CSharpQuizApp.Data;
+﻿using CSharpQuizApp.Data;
 
 namespace CSharpQuizApp.ViewModels;
 

@@ -22,7 +22,7 @@ namespace CSharpQuizApp.Data
             }
             catch (Exception)
             {
-                // Możesz dodać logowanie błędów
+                // ignorowanie błędów przy ładowaniu/zapisywaniu ustawień
             }
 
             return new UserSettings();
@@ -37,7 +37,7 @@ namespace CSharpQuizApp.Data
             }
             catch (Exception)
             {
-                // Możesz dodać logowanie błędów
+                // ignorowanie błędów przy ładowaniu/zapisywaniu ustawień
             }
         }
     }

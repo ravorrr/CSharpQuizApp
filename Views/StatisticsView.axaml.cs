@@ -1,7 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
 using CSharpQuizApp.Data;
-using CSharpQuizApp.Models;
 using CSharpQuizApp.ViewModels;
 
 namespace CSharpQuizApp.Views;
@@ -14,10 +13,8 @@ public partial class StatisticsView : UserControl
     {
         InitializeComponent();
         _mainWindow = mainWindow;
-        
-        var history = QuizDatabase.LoadHistory();
-        var stats = new StatisticsViewModel(history);
-        
+
+        var stats = new StatisticsViewModel(QuizDatabase.LoadHistory());
         TotalQuizzesTextBlock.Text = $"Liczba rozegranych quizów: {stats.TotalQuizzes}";
         AverageScoreTextBlock.Text = $"Średni wynik: {stats.AverageScorePercent}%";
         BestScoreTextBlock.Text = $"Najlepszy wynik: {stats.BestScore}";

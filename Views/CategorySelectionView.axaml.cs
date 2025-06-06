@@ -1,7 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using System;
 using System.Collections.Generic;
 
 namespace CSharpQuizApp.Views;
@@ -31,17 +30,20 @@ public partial class CategorySelectionView : UserControl
                 Cursor = new Avalonia.Input.Cursor(Avalonia.Input.StandardCursorType.Hand)
             };
 
-            button.Click += (s, e) => CategoryButton_Click(category);
+            button.Click += CategoryButton_Click;
             MainStackPanel.Children.Add(button);
         }
     }
 
-    private void CategoryButton_Click(string category)
+    private void CategoryButton_Click(object? sender, RoutedEventArgs e)
     {
-        _mainWindow.StartCategoryQuiz(category);
+        if (sender is Button button && button.Content is string category)
+        {
+            _mainWindow.StartCategoryQuiz(category);
+        }
     }
     
-    private void BackToMenu_Click(object? sender, RoutedEventArgs e)
+    private void BackToMenu_Click(object? _, RoutedEventArgs __)
     {
         _mainWindow.NavigateToStart();
     }

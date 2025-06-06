@@ -1,16 +1,16 @@
 using System.Collections.ObjectModel;
-using System.Linq;
 using CSharpQuizApp.Data;
+using CSharpQuizApp.Models;
 
 namespace CSharpQuizApp.ViewModels;
 
 public class HistoryViewModel
 {
-    public ObservableCollection<HistoryEntryViewModel> History { get; }
+    public ObservableCollection<QuizHistoryEntry> History { get; }
 
     public HistoryViewModel()
     {
-        History = new ObservableCollection<HistoryEntryViewModel>();
+        History = new ObservableCollection<QuizHistoryEntry>();
         LoadHistory();
     }
 
@@ -20,7 +20,7 @@ public class HistoryViewModel
         var entries = QuizDatabase.LoadHistory();
         foreach (var entry in entries)
         {
-            History.Add(new HistoryEntryViewModel(entry));
+            History.Add(entry);
         }
     }
 }

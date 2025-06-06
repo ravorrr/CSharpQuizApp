@@ -12,7 +12,9 @@ namespace CSharpQuizApp.Utils
         {
             try
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(LogFilePath));
+                var dir = Path.GetDirectoryName(LogFilePath);
+                if (!string.IsNullOrEmpty(dir))
+                    Directory.CreateDirectory(dir);
                 using var writer = new StreamWriter(LogFilePath, append: true);
                 writer.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {ex.Message}");
                 writer.WriteLine(ex.StackTrace);
@@ -20,7 +22,7 @@ namespace CSharpQuizApp.Utils
             }
             catch
             {
-                // ignorujemy błąd logowania
+                // ignorujemy błąd logowania, żeby aplikacja się nie zawiesiła
             }
         }
     }

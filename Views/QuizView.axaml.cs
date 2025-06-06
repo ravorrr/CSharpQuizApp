@@ -13,7 +13,7 @@ public partial class QuizView : UserControl
 {
     private MainWindow _mainWindow;
     private QuizBaseViewModel _viewModel;
-    private Timer _timer;
+    private Timer? _timer;
     private int _remainingSeconds = 15;
     private bool _answered;
     private DateTime _quizStartTime;
@@ -22,8 +22,8 @@ public partial class QuizView : UserControl
     {
         InitializeComponent();
         _mainWindow = mainWindow;
-        _viewModel = viewModel;
-        UpdateUI();
+        _viewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
+        UpdateUi();
         _quizStartTime = DateTime.Now;
     }
 
@@ -34,7 +34,7 @@ public partial class QuizView : UserControl
         TimerTextBlock.Text = $"Pozostały czas: {_remainingSeconds} s";
 
         _timer = new Timer(1000);
-        _timer.Elapsed += TimerElapsed!;
+        _timer.Elapsed += TimerElapsed;
         _timer.Start();
     }
 
@@ -58,9 +58,9 @@ public partial class QuizView : UserControl
         }
     }
 
-    private void UpdateUI()
+    private void UpdateUi()
     {
-        if (_viewModel.Questions == null || _viewModel.Questions.Count == 0)
+        if (_viewModel.Questions.Count == 0)
         {
             FeedbackTextBlock.Text = "❌ Błąd ładowania pytań. Spróbuj ponownie.";
             FeedbackTextBlock.Foreground = Brushes.OrangeRed;
@@ -79,12 +79,12 @@ public partial class QuizView : UserControl
             return;
         }
 
-        QuestionTextBlock.Text = _viewModel.CurrentQuestion.Text;
+        QuestionTextBlock.Text = _viewModel.CurrentQuestion!.Text;
 
-        Answer1Button.Content = _viewModel.CurrentQuestion.Answers[0];
-        Answer2Button.Content = _viewModel.CurrentQuestion.Answers[1];
-        Answer3Button.Content = _viewModel.CurrentQuestion.Answers[2];
-        Answer4Button.Content = _viewModel.CurrentQuestion.Answers[3];
+        Answer1Button.Content = _viewModel.CurrentQuestion!.Answers[0];
+        Answer2Button.Content = _viewModel.CurrentQuestion!.Answers[1];
+        Answer3Button.Content = _viewModel.CurrentQuestion!.Answers[2];
+        Answer4Button.Content = _viewModel.CurrentQuestion!.Answers[3];
 
         ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
         QuestionNumberTextBlock.Text = $"Pytanie {_viewModel.CurrentQuestionIndex + 1} z {_viewModel.Questions.Count}";
@@ -129,18 +129,36 @@ public partial class QuizView : UserControl
         }
 
         ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
+        
+        ColorAnswerButtons(index);
 
+        await Task.Delay(3000);
+
+        if (_viewModel.GoToNextQuestion())
+        {
+            _answered = false;
+            ResetButtonColors();
+            UpdateUi();
+        }
+        else
+        {
+            ShowFinalScreen();
+        }
+    }
+    
+    private void ColorAnswerButtons(int index)
+    {
         for (int i = 0; i < 4; i++)
         {
             var btn = GetButtonByIndex(i);
 
             if (index == -1)
             {
-                btn.Background = (i == _viewModel.CurrentQuestion.CorrectAnswerIndex)
+                btn.Background = (i == _viewModel.CurrentQuestion!.CorrectAnswerIndex)
                     ? Brushes.LightGreen
                     : Brushes.DimGray;
             }
-            else if (index == _viewModel.CurrentQuestion.CorrectAnswerIndex)
+            else if (index == _viewModel.CurrentQuestion!.CorrectAnswerIndex)
             {
                 btn.Background = (i == index)
                     ? Brushes.LightGreen
@@ -150,24 +168,11 @@ public partial class QuizView : UserControl
             {
                 if (i == index)
                     btn.Background = Brushes.IndianRed;
-                else if (i == _viewModel.CurrentQuestion.CorrectAnswerIndex)
+                else if (i == _viewModel.CurrentQuestion!.CorrectAnswerIndex)
                     btn.Background = Brushes.LightGreen;
                 else
                     btn.Background = Brushes.DimGray;
             }
-        }
-
-        await Task.Delay(3000);
-
-        if (_viewModel.GoToNextQuestion())
-        {
-            _answered = false;
-            ResetButtonColors();
-            UpdateUI();
-        }
-        else
-        {
-            ShowFinalScreen();
         }
     }
 
@@ -225,12 +230,12 @@ public partial class QuizView : UserControl
         FinalResultTextBlock.Text = $"Gratulacje! Twój wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
         FinalResultTextBlock.IsVisible = true;
         RestartButton.IsVisible = true;
-        BackToMenuButton.IsVisible = true; // <-- dodane
+        BackToMenuButton.IsVisible = true;
     }
     
     private void BackToMenu_Click(object? sender, RoutedEventArgs e)
     {
-        _mainWindow.NavigateToStart(); // <-- dodane, metoda będzie dodana w MainWindow.cs
+        _mainWindow.NavigateToStart();
     }
     
     private void ExitButton_Click(object? sender, RoutedEventArgs e)

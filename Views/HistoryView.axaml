@@ -20,7 +20,17 @@
                      MaxHeight="500">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding FormattedEntry}" Foreground="White"/>
+                        <TextBlock Foreground="White">
+                            <Run Text="{Binding DateText}"/>
+                            <Run Text=" | "/>
+                            <Run Text="{Binding PlayerName}"/>
+                            <Run Text=" | "/>
+                            <Run Text="{Binding QuizType}"/>
+                            <Run Text=" | "/>
+                            <Run Text="{Binding ScoreText}"/>
+                            <Run Text=" | "/>
+                            <Run Text="{Binding TimeText}"/>
+                        </TextBlock>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

@@ -8,17 +8,17 @@ namespace CSharpQuizApp.ViewModels;
 
 public abstract class QuizBaseViewModel : ObservableObject
 {
-    public List<Question> Questions { get; protected set; }
-    public Question CurrentQuestion { get; protected set; }
+    public List<Question> Questions { get; protected set; } = new();
+    public Question? CurrentQuestion { get; protected set; }
     public int Score { get; protected set; }
     public int CurrentQuestionIndex { get; protected set; }
     public bool IsAnswerCorrect { get; protected set; }
-    public string FeedbackMessage { get; protected set; }
+    public string FeedbackMessage { get; protected set; } = "";
     
     public string PlayerName { get; set; } = "";
     public virtual string QuizTypeName => "Nieznany";
-    public int QuizTimeSeconds { get; set; } = 0;
-    public int TotalQuestions => Questions?.Count ?? 0;
+    public int QuizTimeSeconds { get; set; }
+    public int TotalQuestions => Questions.Count;
     public int CorrectAnswers => Score;
     public int WrongAnswers => TotalQuestions - Score;
 
@@ -26,17 +26,17 @@ public abstract class QuizBaseViewModel : ObservableObject
     {
         CurrentQuestionIndex = 0;
         Score = 0;
-        FeedbackMessage = "";
     }
 
     protected void SetQuestions(List<Question> questions)
     {
         Questions = questions;
-        CurrentQuestion = Questions[CurrentQuestionIndex];
+        CurrentQuestion = Questions.Count > 0 ? Questions[CurrentQuestionIndex] : null;
     }
 
     public virtual void CheckAnswer(int selectedIndex)
     {
+        if (CurrentQuestion == null) return;
         IsAnswerCorrect = CurrentQuestion.IsCorrect(selectedIndex);
         FeedbackMessage = IsAnswerCorrect ? "Poprawna odpowiedź!" : "Zła odpowiedź!";
         if (IsAnswerCorrect)
