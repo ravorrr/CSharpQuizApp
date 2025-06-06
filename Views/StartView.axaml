@@ -64,6 +64,15 @@
                         FontSize="16"
                         HorizontalAlignment="Center"
                         Focusable="True"/>
+                
+                <Button Content="📊 Statystyki gracza"
+                        Cursor="Hand"
+                        Width="250"
+                        Height="50"
+                        Click="ShowStatistics_Click"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        Focusable="True"/>
 
                 <Button Content="ℹ️ Zasady gry"
                         Cursor="Hand"

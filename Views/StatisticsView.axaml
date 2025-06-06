@@ -1,0 +1,13 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="CSharpQuizApp.Views.StatisticsView">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="18">
+        <TextBlock Text="Statystyki gracza" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="TotalQuizzesTextBlock" FontSize="18"/>
+        <TextBlock x:Name="AverageScoreTextBlock" FontSize="18"/>
+        <TextBlock x:Name="BestScoreTextBlock" FontSize="18"/>
+        <TextBlock x:Name="WorstScoreTextBlock" FontSize="18"/>
+        <TextBlock x:Name="AverageTimeTextBlock" FontSize="18"/>
+        <Button Content="⬅️ Powrót do menu" Click="BackToMenu_Click" Cursor="Hand" Width="250" Margin="0,35,0,0" HorizontalAlignment="Center"/>
+    </StackPanel>
+</UserControl>

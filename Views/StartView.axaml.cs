@@ -81,6 +81,11 @@ public partial class StartView : UserControl
     {
         _mainWindow.NavigateToHistory();
     }
+    
+    private void ShowStatistics_Click(object? sender, RoutedEventArgs e)
+    {
+        _mainWindow.NavigateToStatistics();
+    }
 
     private void FocusCatcher_PointerPressed(object? sender, PointerPressedEventArgs e)
     {

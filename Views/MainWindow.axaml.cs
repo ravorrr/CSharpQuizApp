@@ -99,4 +99,9 @@ public partial class MainWindow : Window
     {
         MainContent.Content = new HistoryView(this);
     }
+    
+    public void NavigateToStatistics()
+    {
+        MainContent.Content = new StatisticsView(this);
+    }
 }
