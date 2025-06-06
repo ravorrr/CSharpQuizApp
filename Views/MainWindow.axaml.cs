@@ -96,4 +96,9 @@ public partial class MainWindow : Window
     {
         MainContent.Content = new StatisticsView(this);
     }
+    
+    public void NavigateToRules()
+    {
+        MainContent.Content = new RulesView(this);
+    }
 }

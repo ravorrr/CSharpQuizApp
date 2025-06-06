@@ -67,7 +67,7 @@ public partial class StartView : UserControl
         => _mainWindow.NavigateToModeSelection();
 
     private void ShowRules_Click(object? sender, RoutedEventArgs e)
-        => RulesTextBlock.IsVisible = !RulesTextBlock.IsVisible;
+        => _mainWindow.NavigateToRules();
 
     private void ShowHistory_Click(object? sender, RoutedEventArgs e)
         => _mainWindow.NavigateToHistory();

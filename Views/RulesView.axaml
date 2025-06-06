@@ -1,0 +1,62 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="CSharpQuizApp.Views.RulesView">
+
+    <Border Background="#1F1F1F" Padding="30">
+        <Grid RowDefinitions="Auto,*,Auto" Margin="0">
+            
+            <TextBlock Grid.Row="0"
+                       Text="ℹ️ Zasady gry"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+            
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" MaxHeight="350" HorizontalAlignment="Center">
+                <StackPanel Width="400">
+                    
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Center">
+                        <Run Text="Masz 15 sekund na każde pytanie." FontWeight="Bold"/>
+                        <LineBreak/>
+                        <LineBreak/>
+                        <Run Text="Za każdą poprawną odpowiedź otrzymujesz 1 punkt."/>
+                        <LineBreak/>
+                        <Run Text="Wynik końcowy poznasz po ostatnim pytaniu."/>
+                        <LineBreak/>
+                        <LineBreak/>
+                    </TextBlock>
+                    
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Margin="0,10,0,5">
+                        <Run Text="Tryby gry:"/>
+                    </TextBlock>
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Left" Margin="20,0,0,10">
+                        <Run Text="• Quiz losowy (10 pytań)"/>
+                        <LineBreak/>
+                        <Run Text="• Quiz pełny (wszystkie pytania)"/>
+                        <LineBreak/>
+                        <Run Text="• Quiz wg kategorii"/>
+                        <LineBreak/>
+                    </TextBlock>
+                    
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Margin="0,10,0,5">
+                        <Run Text="Instrukcje:"/>
+                    </TextBlock>
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Left" Margin="20,0,0,0">
+                        <Run Text="1. Wybierz tryb gry z menu."/>
+                        <LineBreak/>
+                        <Run Text="2. Odpowiadaj na pytania przed upływem czasu."/>
+                        <LineBreak/>
+                        <Run Text="3. Po zakończeniu zobaczysz wynik i statystyki."/>
+                    </TextBlock>
+
+                </StackPanel>
+            </ScrollViewer>
+            
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20" Margin="0,20,0,0">
+                <Button Content="🔙 Powrót do menu" Width="200" Cursor="Hand" Click="BackToMenu_Click"/>
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</UserControl>
