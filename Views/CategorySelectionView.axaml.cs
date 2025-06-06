@@ -10,8 +10,9 @@ public partial class CategorySelectionView : UserControl
     private readonly MainWindow _mainWindow;
     private readonly List<string> _categories = new()
     {
-        "Geografia", "Informatyka", "Astronomia", "Historia", "Chemia", "Matematyka",
-        "Biologia", "Literatura", "Języki", "Fizyka", "Kultura", "Muzyka", "Ogólna wiedza"
+        "Geografia", "Informatyka", "Astronomia", "Historia", "Chemia",
+        "Matematyka", "Biologia", "Literatura", "Języki", "Fizyka",
+        "Kultura", "Muzyka", "Motoryzacja", "Sport", "Technologia"
     };
 
     public CategorySelectionView(MainWindow mainWindow)

@@ -85,8 +85,7 @@ public partial class QuizView : UserControl
         Answer2Button.Content = _viewModel.CurrentQuestion!.Answers[1];
         Answer3Button.Content = _viewModel.CurrentQuestion!.Answers[2];
         Answer4Button.Content = _viewModel.CurrentQuestion!.Answers[3];
-
-        ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
+        
         QuestionNumberTextBlock.Text = $"Pytanie {_viewModel.CurrentQuestionIndex + 1} z {_viewModel.Questions.Count}";
 
         FeedbackTextBlock.Text = "";
@@ -127,8 +126,6 @@ public partial class QuizView : UserControl
                 FeedbackTextBlock.Foreground = Brushes.IndianRed;
             }
         }
-
-        ScoreTextBlock.Text = $"Wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
         
         ColorAnswerButtons(index);
 
@@ -218,7 +215,6 @@ public partial class QuizView : UserControl
         
         QuestionTextBlock.IsVisible = false;
         FeedbackTextBlock.IsVisible = false;
-        ScoreTextBlock.IsVisible = false;
         QuestionNumberTextBlock.IsVisible = false;
         TimerTextBlock.IsVisible = false;
         Answer1Button.IsVisible = false;

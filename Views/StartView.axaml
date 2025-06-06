@@ -83,18 +83,6 @@
                         HorizontalAlignment="Center"
                         Focusable="True"/>
 
-                <TextBlock x:Name="RulesTextBlock"
-                           Text="Masz 15 sekund na każde pytanie. Za każdą poprawną odpowiedź otrzymujesz 1 punkt. Wynik końcowy poznasz po ostatnim pytaniu. Powodzenia!"
-                           FontSize="14"
-                           Foreground="LightGray"
-                           TextAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Width="400"
-                           TextWrapping="Wrap"
-                           IsVisible="False"
-                           Margin="0,0,0,0"
-                           Focusable="True"/>
-
                 <TextBlock Text="wersja 1.0 by Ty"
                            FontSize="12"
                            Foreground="Gray"
