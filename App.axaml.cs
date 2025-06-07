@@ -16,6 +16,8 @@ public class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        CSharpQuizApp.Data.QuizDatabase.Initialize();
+        
         AppDomain.CurrentDomain.UnhandledException += (_, e) =>
         {
             if (e.ExceptionObject is Exception ex)
