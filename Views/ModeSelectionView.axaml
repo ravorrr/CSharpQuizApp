@@ -13,15 +13,15 @@
                        Margin="0,0,0,20"/>
             
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
-                <Button Content="Quiz losowy (10 pytań)" 
+                <Button Content="🎲 Quiz losowy (10 pytań)" 
                         Width="250" Height="50" Cursor="Hand"
                         Click="StartRandomQuiz_Click"/>
                 
-                <Button Content="Quiz pełny (wszystkie pytania)" 
+                <Button Content="🧠 Quiz pełny (wszystkie pytania)" 
                         Width="250" Height="50" Cursor="Hand"
                         Click="StartAllQuestionsQuiz_Click"/>
                 
-                <Button Content="📚 Quiz wg kategorii"
+                <Button Content="🗂️ Quiz wg kategorii"
                         Width="250" Height="50" Cursor="Hand"
                         Click="ShowCategorySelection_Click"/>
             </StackPanel>

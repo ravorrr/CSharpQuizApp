@@ -8,11 +8,23 @@ namespace CSharpQuizApp.Views;
 public partial class CategorySelectionView : UserControl
 {
     private readonly MainWindow _mainWindow;
-    private readonly List<string> _categories = new()
+    private readonly List<(string Emoji, string Name)> _categories = new()
     {
-        "Geografia", "Informatyka", "Astronomia", "Historia", "Chemia",
-        "Matematyka", "Biologia", "Literatura", "Języki", "Fizyka",
-        "Kultura", "Muzyka", "Motoryzacja", "Sport", "Technologia"
+        ("🌍", "Geografia"),
+        ("💻", "Informatyka"),
+        ("🌌", "Astronomia"),
+        ("📜", "Historia"),
+        ("⚗️", "Chemia"),
+        ("➗", "Matematyka"),
+        ("🧬", "Biologia"),
+        ("📚", "Literatura"),
+        ("🗣️", "Języki"),
+        ("🔬", "Fizyka"),
+        ("🎭", "Kultura"),
+        ("🎵", "Muzyka"),
+        ("🏎️", "Motoryzacja"),
+        ("🏅", "Sport"),
+        ("🤖", "Technologia")
     };
 
     public CategorySelectionView(MainWindow mainWindow)
@@ -20,30 +32,33 @@ public partial class CategorySelectionView : UserControl
         InitializeComponent();
         _mainWindow = mainWindow;
 
-        foreach (var category in _categories)
+        foreach (var (emoji, name) in _categories)
         {
             var button = new Button
             {
-                Content = category,
-                Width = 250,
-                Height = 40,
-                Margin = new Thickness(0, 5, 0, 5),
+                Content = $"{emoji} {name}",
+                Width = 230,
+                Height = 54,
+                Margin = new Thickness(12, 10, 12, 10),
+                FontSize = 18,
+                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
+                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Stretch,
                 Cursor = new Avalonia.Input.Cursor(Avalonia.Input.StandardCursorType.Hand)
             };
-
             button.Click += CategoryButton_Click;
-            MainStackPanel.Children.Add(button);
+            CategoryGrid.Children.Add(button);
         }
     }
 
     private void CategoryButton_Click(object? sender, RoutedEventArgs e)
     {
-        if (sender is Button button && button.Content is string category)
+        if (sender is Button button && button.Content is string content)
         {
+            var category = content.Substring(content.IndexOf(' ') + 1);
             _mainWindow.StartCategoryQuiz(category);
         }
     }
-    
+
     private void BackToMenu_Click(object? _, RoutedEventArgs __)
     {
         _mainWindow.NavigateToStart();

@@ -1,32 +1,27 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="CSharpQuizApp.Views.CategorySelectionView">
-    <Grid RowDefinitions="Auto,*,Auto"
-          Margin="30"
-          HorizontalAlignment="Stretch"
-          VerticalAlignment="Center">
-        
-        <TextBlock Text="Wybierz kategorię quizu"
-                   FontSize="24"
-                   FontWeight="Bold"
-                   Foreground="White"
-                   HorizontalAlignment="Center"
-                   Margin="0,0,0,20"
-                   Grid.Row="0" />
-        
-        <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <StackPanel x:Name="MainStackPanel"
-                        Spacing="15"
-                        HorizontalAlignment="Center" />
-        </ScrollViewer>
-        
-        <Button Content="⬅️ Powrót do menu"
-                Width="250"
-                Height="40"
-                Cursor="Hand"
-                Click="BackToMenu_Click"
-                Grid.Row="2"
-                HorizontalAlignment="Center"
-                Margin="0,30,0,0"/>
-    </Grid>
+    <Border Background="#1F1F1F" Padding="30">
+        <Grid RowDefinitions="Auto,*,Auto" Margin="0">
+            <TextBlock Grid.Row="0"
+                       Text="🗂️ Wybierz kategorię quizu"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <UniformGrid x:Name="CategoryGrid" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            </ScrollViewer>
+
+            <Button Content="🔙 Powrót do menu"
+                    Width="200"
+                    Cursor="Hand"
+                    Click="BackToMenu_Click"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Margin="0,30,0,0"/>
+        </Grid>
+    </Border>
 </UserControl>

@@ -47,41 +47,81 @@
                              KeyUp="NameEditBox_KeyUp"/>
                 </StackPanel>
 
-                <Button Content="🎲 Rozpocznij quiz"
-                        Cursor="Hand"
+                <Button Cursor="Hand"
                         Width="250"
                         Height="50"
                         Click="StartQuiz_Click"
                         FontSize="16"
                         HorizontalAlignment="Center"
-                        Focusable="True"/>
+                        VerticalContentAlignment="Center"
+                        Focusable="True">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="🎯"
+                                   FontSize="20"
+                                   Margin="0,-2,5,0"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Rozpocznij quiz"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
                 
-                <Button Content="📜 Historia quizów"
-                        Cursor="Hand"
+                <Button Cursor="Hand"
                         Width="250"
                         Height="50"
                         Click="ShowHistory_Click"
                         FontSize="16"
                         HorizontalAlignment="Center"
-                        Focusable="True"/>
+                        VerticalContentAlignment="Center"
+                        Focusable="True">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="📜"
+                                   FontSize="20"
+                                   Margin="0,-2,5,0"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Historia quizów"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
                 
-                <Button Content="📊 Statystyki gracza"
-                        Cursor="Hand"
+                <Button Cursor="Hand"
                         Width="250"
                         Height="50"
                         Click="ShowStatistics_Click"
                         FontSize="16"
                         HorizontalAlignment="Center"
-                        Focusable="True"/>
+                        VerticalContentAlignment="Center"
+                        Focusable="True">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="📊"
+                                   FontSize="20"
+                                   Margin="0,-2,5,0"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Statystyki gracza"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
 
-                <Button Content="ℹ️ Zasady gry"
-                        Cursor="Hand"
+                <Button Cursor="Hand"
                         Width="250"
                         Height="50"
                         Click="ShowRules_Click"
                         FontSize="16"
                         HorizontalAlignment="Center"
-                        Focusable="True"/>
+                        VerticalContentAlignment="Center"
+                        Focusable="True">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="📖"
+                                   FontSize="20"
+                                   Margin="0,-5,5,0"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Zasady gry"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
 
                 <TextBlock Text="wersja 1.0 by Ty"
                            FontSize="12"
