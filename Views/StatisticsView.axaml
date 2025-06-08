@@ -16,7 +16,19 @@
                            VerticalAlignment="Center"/>
             </StackPanel>
             
-            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="12" Width="350">
+            <StackPanel Grid.Row="1"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Spacing="18"
+                        Width="350">
+                
+                <ComboBox x:Name="PlayerComboBox"
+                          Width="250"
+                          HorizontalAlignment="Center"
+                          SelectionChanged="PlayerComboBox_SelectionChanged"
+                          Cursor="Hand"
+                          FontSize="16"/>
+
                 <TextBlock x:Name="TotalQuizzesTextBlock" FontSize="18" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="AverageScoreTextBlock" FontSize="18" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="BestScoreTextBlock" FontSize="18" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center"/>
