@@ -18,7 +18,7 @@ public partial class CategorySelectionView : UserControl
         if (sender is Button btn && btn.Content is StackPanel stack &&
             stack.Children.Count == 2 && stack.Children[1] is TextBlock nameBlock)
         {
-            var category = nameBlock.Text;
+            var category = nameBlock.Text ?? string.Empty;
             _mainWindow.StartCategoryQuiz(category);
         }
     }
