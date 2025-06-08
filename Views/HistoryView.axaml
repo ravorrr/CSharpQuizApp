@@ -6,13 +6,17 @@
 
     <Border Background="#1F1F1F" Padding="30">
         <Grid RowDefinitions="Auto,*,Auto" Margin="0">
-            <TextBlock Grid.Row="0"
-                       Text="📜 Historia Quizów"
-                       FontSize="24"
-                       FontWeight="Bold"
-                       Foreground="White"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,20"/>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <TextBlock Text="📜"
+                           FontSize="24"
+                           Margin="0,-3,8,0"
+                           VerticalAlignment="Center"/>
+                <TextBlock Text="Historia Quizów"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
             
             <ListBox Grid.Row="1"
                      ItemsSource="{Binding History}"

@@ -4,13 +4,17 @@
     <Border Background="#1F1F1F" Padding="30">
         <Grid RowDefinitions="Auto,*,Auto" Margin="0">
             
-            <TextBlock Grid.Row="0"
-                       Text="📊 Statystyki gracza"
-                       FontSize="24"
-                       FontWeight="Bold"
-                       Foreground="White"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,20"/>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <TextBlock Text="📊"
+                           FontSize="24"
+                           Margin="0,-3,8,0"
+                           VerticalAlignment="Center"/>
+                <TextBlock Text="Statystyki gracza"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
             
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="12" Width="350">
                 <TextBlock x:Name="TotalQuizzesTextBlock" FontSize="18" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center"/>

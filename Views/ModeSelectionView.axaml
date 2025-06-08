@@ -4,26 +4,75 @@
     <Border Background="#1F1F1F" Padding="30">
         <Grid RowDefinitions="Auto,*,Auto" Margin="0">
             
-            <TextBlock Grid.Row="0"
-                       Text="🎮 Wybierz tryb gry"
-                       FontSize="24"
-                       FontWeight="Bold"
-                       Foreground="White"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,20"/>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <TextBlock Text="🎮"
+                           FontSize="24"
+                           Margin="0,-8,8,0"
+                           VerticalAlignment="Center"/>
+                <TextBlock Text="Wybierz tryb gry"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
             
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
-                <Button Content="🎲 Quiz losowy (10 pytań)" 
-                        Width="250" Height="50" Cursor="Hand"
-                        Click="StartRandomQuiz_Click"/>
+                <Button Cursor="Hand"
+                        Width="250"
+                        Height="50"
+                        Click="StartRandomQuiz_Click"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Focusable="True">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="🎲"
+                                   FontSize="20"
+                                   Margin="0,-2,5,0"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Quiz losowy"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
                 
-                <Button Content="🧠 Quiz pełny (wszystkie pytania)" 
-                        Width="250" Height="50" Cursor="Hand"
-                        Click="StartAllQuestionsQuiz_Click"/>
+                <Button Cursor="Hand"
+                        Width="250"
+                        Height="50"
+                        Click="StartAllQuestionsQuiz_Click"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Focusable="True">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="🧠"
+                                   FontSize="20"
+                                   Margin="0,-2,5,0"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Quiz pełny"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
                 
-                <Button Content="🗂️ Quiz wg kategorii"
-                        Width="250" Height="50" Cursor="Hand"
-                        Click="ShowCategorySelection_Click"/>
+                <Button Cursor="Hand"
+                        Width="250"
+                        Height="50"
+                        Click="ShowCategorySelection_Click"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Focusable="True">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="📂"
+                                   FontSize="20"
+                                   Margin="0,-5,5,0"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Quiz wg kategorii"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
             
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20" Margin="0,20,0,0">
