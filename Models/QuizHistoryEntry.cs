@@ -16,5 +16,5 @@ public class QuizHistoryEntry
 
     public string ScoreText => $"{Score}/{TotalQuestions}";
     public string TimeText => $"{TimeInSeconds}s";
-    public string DateText => Date.ToString("dd.MM.yyyy HH:mm");
+    public string DateText => Date.ToString("dd.MM.yyyy HH:mm:ss");
 }
