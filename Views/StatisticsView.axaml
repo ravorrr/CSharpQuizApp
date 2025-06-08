@@ -27,6 +27,7 @@
                           HorizontalAlignment="Center"
                           SelectionChanged="PlayerComboBox_SelectionChanged"
                           Cursor="Hand"
+                          BorderBrush="Transparent"
                           FontSize="16"/>
 
                 <TextBlock x:Name="TotalQuizzesTextBlock" FontSize="18" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center"/>

@@ -7,7 +7,6 @@
     <Border Background="#232323" Padding="30" CornerRadius="16">
         <Grid RowDefinitions="Auto,*,Auto" Margin="0">
             
-            <!-- Tytuł -->
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                 <TextBlock Text="📜"
                            FontSize="24"
@@ -19,13 +18,11 @@
                            Foreground="White"
                            VerticalAlignment="Center"/>
             </StackPanel>
-
-            <!-- Środkowy blok wycentrowany pionowo -->
+            
             <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                <!-- Panel sortowania -->
                 <Border Background="#282828"
                         Padding="8,2"
-                        CornerRadius="8"
+                        CornerRadius="8, 8, 0, 0"
                         HorizontalAlignment="Stretch"
                         Margin="0,0,0,0">
                     <Grid ColumnDefinitions="160,100,120,90,70">
@@ -46,7 +43,6 @@
                                 FontWeight="Bold" Cursor="Hand" Grid.Column="4"/>
                     </Grid>
                 </Border>
-                <!-- Lista historii -->
                 <ListBox ItemsSource="{Binding History}"
                          ScrollViewer.VerticalScrollBarVisibility="Auto"
                          MaxHeight="500"
@@ -54,6 +50,7 @@
                          BorderThickness="0"
                          Padding="0"
                          Cursor="Hand"
+                         CornerRadius="0, 0, 8, 8"
                          Margin="0,0,0,0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
