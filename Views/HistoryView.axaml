@@ -5,8 +5,9 @@
              x:DataType="vm:HistoryViewModel">
 
     <Border Background="#232323" Padding="30" CornerRadius="16">
-        <Grid RowDefinitions="Auto,Auto,*,Auto" Margin="0">
+        <Grid RowDefinitions="Auto,*,Auto" Margin="0">
             
+            <!-- Tytuł -->
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                 <TextBlock Text="📜"
                            FontSize="24"
@@ -18,56 +19,59 @@
                            Foreground="White"
                            VerticalAlignment="Center"/>
             </StackPanel>
+
+            <!-- Środkowy blok wycentrowany pionowo -->
+            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <!-- Panel sortowania -->
+                <Border Background="#282828"
+                        Padding="8,2"
+                        CornerRadius="8"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,0,0,0">
+                    <Grid ColumnDefinitions="160,100,120,90,70">
+                        <Button Content="{Binding DateHeader}" Command="{Binding SortCommand}" CommandParameter="Date"
+                                Background="Transparent" Foreground="White" BorderBrush="Transparent"
+                                FontWeight="Bold" Cursor="Hand" Grid.Column="0"/>
+                        <Button Content="{Binding PlayerHeader}" Command="{Binding SortCommand}" CommandParameter="PlayerName"
+                                Background="Transparent" Foreground="White" BorderBrush="Transparent"
+                                FontWeight="Bold" Cursor="Hand" Grid.Column="1"/>
+                        <Button Content="{Binding TypeHeader}" Command="{Binding SortCommand}" CommandParameter="QuizType"
+                                Background="Transparent" Foreground="White" BorderBrush="Transparent"
+                                FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
+                        <Button Content="{Binding ScoreHeader}" Command="{Binding SortCommand}" CommandParameter="Score"
+                                Background="Transparent" Foreground="White" BorderBrush="Transparent"
+                                FontWeight="Bold" Cursor="Hand" Grid.Column="3"/>
+                        <Button Content="{Binding TimeHeader}" Command="{Binding SortCommand}" CommandParameter="Time"
+                                Background="Transparent" Foreground="White" BorderBrush="Transparent"
+                                FontWeight="Bold" Cursor="Hand" Grid.Column="4"/>
+                    </Grid>
+                </Border>
+                <!-- Lista historii -->
+                <ListBox ItemsSource="{Binding History}"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         MaxHeight="500"
+                         Background="#1F1F1F"
+                         BorderThickness="0"
+                         Padding="0"
+                         Cursor="Hand"
+                         Margin="0,0,0,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="160,100,120,90,70"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch">
+                                <TextBlock Text="{Binding DateText}" Foreground="White" Grid.Column="0" Padding="2,0"/>
+                                <TextBlock Text="{Binding PlayerName}" Foreground="White" Grid.Column="1" Padding="2,0"/>
+                                <TextBlock Text="{Binding QuizType}" Foreground="White" Grid.Column="2" Padding="2,0"/>
+                                <TextBlock Text="{Binding ScoreText}" Foreground="White" Grid.Column="3" Padding="2,0"/>
+                                <TextBlock Text="{Binding TimeText}" Foreground="White" Grid.Column="4" Padding="2,0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
             
-            <Border Grid.Row="1"
-                    Background="#282828"
-                    Padding="8,2"
-                    CornerRadius="8"
-                    HorizontalAlignment="Left"
-                    Margin="0 0 0 8">
-                <Grid ColumnDefinitions="160,100,120,90,70">
-                    <Button Content="{Binding DateHeader}" Command="{Binding SortCommand}" CommandParameter="Date"
-                            Background="Transparent" Foreground="White" BorderBrush="Transparent"
-                            FontWeight="Bold" Cursor="Hand" Grid.Column="0"/>
-                    <Button Content="{Binding PlayerHeader}" Command="{Binding SortCommand}" CommandParameter="PlayerName"
-                            Background="Transparent" Foreground="White" BorderBrush="Transparent"
-                            FontWeight="Bold" Cursor="Hand" Grid.Column="1"/>
-                    <Button Content="{Binding TypeHeader}" Command="{Binding SortCommand}" CommandParameter="QuizType"
-                            Background="Transparent" Foreground="White" BorderBrush="Transparent"
-                            FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
-                    <Button Content="{Binding ScoreHeader}" Command="{Binding SortCommand}" CommandParameter="Score"
-                            Background="Transparent" Foreground="White" BorderBrush="Transparent"
-                            FontWeight="Bold" Cursor="Hand" Grid.Column="3"/>
-                    <Button Content="{Binding TimeHeader}" Command="{Binding SortCommand}" CommandParameter="Time"
-                            Background="Transparent" Foreground="White" BorderBrush="Transparent"
-                            FontWeight="Bold" Cursor="Hand" Grid.Column="4"/>
-                </Grid>
-            </Border>
-            
-            <ListBox Grid.Row="2"
-                     ItemsSource="{Binding History}"
-                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                     MaxHeight="500"
-                     Background="#1F1F1F"
-                     BorderThickness="0"
-                     Cursor="Hand"
-                     Margin="0 8 0 0">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid ColumnDefinitions="160,100,120,90,70"
-                              HorizontalAlignment="Stretch"
-                              VerticalAlignment="Stretch">
-                            <TextBlock Text="{Binding DateText}" Foreground="White" Grid.Column="0" Padding="2,0"/>
-                            <TextBlock Text="{Binding PlayerName}" Foreground="White" Grid.Column="1" Padding="2,0"/>
-                            <TextBlock Text="{Binding QuizType}" Foreground="White" Grid.Column="2" Padding="2,0"/>
-                            <TextBlock Text="{Binding ScoreText}" Foreground="White" Grid.Column="3" Padding="2,0"/>
-                            <TextBlock Text="{Binding TimeText}" Foreground="White" Grid.Column="4" Padding="2,0"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            
-            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20" Margin="0,20,0,0">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20" Margin="0,20,0,0">
                 <Button Content="🗑️ Wyczyść historię"
                         Click="ClearHistory_Click"
                         Width="200"
