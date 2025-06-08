@@ -83,7 +83,7 @@
                 </ListBox>
             </StackPanel>
             
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20" Margin="0,20,0,0">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20" Margin="0,20,0,20">
                 <Button Content="🗑️ Wyczyść historię"
                         Click="ClearHistory_Click"
                         Width="200"

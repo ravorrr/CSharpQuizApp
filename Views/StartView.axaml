@@ -18,12 +18,12 @@
                            HorizontalAlignment="Center"
                            Margin="0,0,0,10"/>
 
-                <TextBlock Text="Sprawdź swoją wiedzę w 10 pytaniach! Masz 15 sekund na każdą odpowiedź."
+                <TextBlock Text="Podejmij wyzwanie! Szybkie pytania, szybkie odpowiedzi — do dzieła!"
                            FontSize="16"
                            Foreground="LightGray"
                            TextAlignment="Center"
                            HorizontalAlignment="Center"
-                           Width="400"
+                           Width="550"
                            TextWrapping="Wrap"
                            Margin="0,0,0,20"/>
 
@@ -123,7 +123,7 @@
                     </StackPanel>
                 </Button>
 
-                <TextBlock Text="wersja 1.0 by Ty"
+                <TextBlock Text="Made by Patryk Mars — v1.0"
                            FontSize="12"
                            Foreground="Gray"
                            HorizontalAlignment="Center"
