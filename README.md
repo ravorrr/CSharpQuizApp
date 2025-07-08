@@ -44,3 +44,7 @@ Solve quizzes in different modes, track your stats, and review your game history
 
 Project & development: **Patryk Mars** ([GitHub: ravorrr](https://github.com/ravorrr))  
 Version: **1.0.0**
+
+## 📄 License
+
+This project is licensed under the terms of the [Apache License 2.0](LICENSE). Please retain the author's information in any modified versions of this code.
