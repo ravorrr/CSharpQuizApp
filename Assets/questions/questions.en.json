@@ -1,0 +1,902 @@
+﻿[
+  {
+    "question": "What city is the capital of Poland?",
+    "answers": ["Krakow", "Warsaw", "Poznan", "Gdansk"],
+    "correctIndex": 1,
+    "category": "Geography"
+  },
+  {
+    "question": "Which ocean is the largest?",
+    "answers": ["Atlantic", "Pacific", "Arctic", "Indian"],
+    "correctIndex": 1,
+    "category": "Geography"
+  },
+  {
+    "question": "Which country has the largest population?",
+    "answers": ["USA", "China", "India", "Brazil"],
+    "correctIndex": 1,
+    "category": "Geography"
+  },
+  {
+    "question": "What is the capital of Italy?",
+    "answers": ["Milan", "Rome", "Florence", "Naples"],
+    "correctIndex": 1,
+    "category": "Geography"
+  },
+  {
+    "question": "What is the capital of Australia?",
+    "answers": ["Sydney", "Canberra", "Melbourne", "Perth"],
+    "correctIndex": 1,
+    "category": "Geography"
+  },
+  {
+    "question": "Which ocean borders Poland?",
+    "answers": ["Atlantic", "Pacific", "Arctic", "Baltic"],
+    "correctIndex": 3,
+    "category": "Geography"
+  },
+  {
+    "question": "What is the highest mountain on Earth?",
+    "answers": ["Mount Everest", "K2", "Kilimanjaro", "Mont Blanc"],
+    "correctIndex": 0,
+    "category": "Geography"
+  },
+  {
+    "question": "What is the largest lake in the world?",
+    "answers": ["Baikal", "Victoria", "Caspian", "Tanganyika"],
+    "correctIndex": 2,
+    "category": "Geography"
+  },
+  {
+    "question": "What is the capital of Germany?",
+    "answers": ["Berlin", "Munich", "Hamburg", "Frankfurt"],
+    "correctIndex": 0,
+    "category": "Geography"
+  },
+  {
+    "question": "Which country lies on two continents?",
+    "answers": ["Spain", "Russia", "Egypt", "Turkey"],
+    "correctIndex": 3,
+    "category": "Geography"
+  },
+  {
+    "question": "Which language is used to style web pages?",
+    "answers": ["HTML", "Python", "CSS", "PHP"],
+    "correctIndex": 2,
+    "category": "Computer Science"
+  },
+  {
+    "question": "What does CPU stand for?",
+    "answers": ["Central Processing Unit", "Computer Personal Unit", "Central Programming Utility", "Control Processing Unit"],
+    "correctIndex": 0,
+    "category": "Computer Science"
+  },
+  {
+    "question": "What does RAM stand for?",
+    "answers": ["Random Access Memory", "Ready And Manage", "Read A Message", "Run And Move"],
+    "correctIndex": 0,
+    "category": "Computer Science"
+  },
+  {
+    "question": "Which programming language is the most commonly used?",
+    "answers": ["C++", "Python", "Java", "PHP"],
+    "correctIndex": 1,
+    "category": "Computer Science"
+  },
+  {
+    "question": "What does HTML stand for?",
+    "answers": ["HighText Machine Language", "HyperText Markup Language", "Home Tool Markup Language", "HyperText Machine Language"],
+    "correctIndex": 1,
+    "category": "Computer Science"
+  },
+  {
+    "question": "What does SMS stand for?",
+    "answers": ["Short Message Service", "Smart Media System", "Super Mail Service", "Simple Message Service"],
+    "correctIndex": 0,
+    "category": "Computer Science"
+  },
+  {
+    "question": "What does USB stand for?",
+    "answers": ["Universal Serial Bus", "Universal Service Box", "United System Board", "Universal Socket Bridge"],
+    "correctIndex": 0,
+    "category": "Computer Science"
+  },
+  {
+    "question": "What is the largest internet search engine?",
+    "answers": ["Yahoo", "Google", "Bing", "DuckDuckGo"],
+    "correctIndex": 1,
+    "category": "Computer Science"
+  },
+  {
+    "question": "What is the basic output device?",
+    "answers": ["Monitor", "Keyboard", "Projector", "Printer"],
+    "correctIndex": 0,
+    "category": "Computer Science"
+  },
+  {
+    "question": "Which company created the Android system?",
+    "answers": ["Microsoft", "Apple", "Google", "Nokia"],
+    "correctIndex": 2,
+    "category": "Computer Science"
+  },
+  {
+    "question": "What is the largest planet in the Solar System?",
+    "answers": ["Mars", "Jupiter", "Earth", "Venus"],
+    "correctIndex": 1,
+    "category": "Astronomy"
+  },
+  {
+    "question": "Which element has the symbol Fe?",
+    "answers": ["Phosphorus", "Fluorine", "Iron", "Francium"],
+    "correctIndex": 2,
+    "category": "Astronomy"
+  },
+  {
+    "question": "Who was the first person on the Moon?",
+    "answers": ["Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "Alan Shepard"],
+    "correctIndex": 1,
+    "category": "Astronomy"
+  },
+  {
+    "question": "Which planet is closest to the Sun?",
+    "answers": ["Mercury", "Venus", "Mars", "Earth"],
+    "correctIndex": 0,
+    "category": "Astronomy"
+  },
+  {
+    "question": "In what year did the first human go to space?",
+    "answers": ["1961", "1957", "1969", "1972"],
+    "correctIndex": 0,
+    "category": "Astronomy"
+  },
+  {
+    "question": "Which planet has rings?",
+    "answers": ["Earth", "Mars", "Saturn", "Mercury"],
+    "correctIndex": 2,
+    "category": "Astronomy"
+  },
+  {
+    "question": "Which planet is called the 'Red Planet'?",
+    "answers": ["Earth", "Mars", "Venus", "Jupiter"],
+    "correctIndex": 1,
+    "category": "Astronomy"
+  },
+  {
+    "question": "What is the brightest star in the sky?",
+    "answers": ["Sun", "Sirius", "Vega", "Polaris"],
+    "correctIndex": 1,
+    "category": "Astronomy"
+  },
+  {
+    "question": "What is the closest star to Earth (after the Sun)?",
+    "answers": ["Proxima Centauri", "Betelgeuse", "Sirius", "Aldebaran"],
+    "correctIndex": 0,
+    "category": "Astronomy"
+  },
+  {
+    "question": "In which galaxy is the Solar System located?",
+    "answers": ["Andromeda Galaxy", "Large Magellanic Cloud", "Milky Way", "Small Magellanic Cloud"],
+    "correctIndex": 2,
+    "category": "Astronomy"
+  },
+  {
+    "question": "In which year did World War II begin?",
+    "answers": ["1918", "1939", "1945", "1920"],
+    "correctIndex": 1,
+    "category": "History"
+  },
+  {
+    "question": "Who invented the light bulb?",
+    "answers": ["Edison", "Tesla", "Newton", "Einstein"],
+    "correctIndex": 0,
+    "category": "History"
+  },
+  {
+    "question": "When did Poland join the EU?",
+    "answers": ["2004", "2006", "2000", "2007"],
+    "correctIndex": 0,
+    "category": "History"
+  },
+  {
+    "question": "Who discovered America?",
+    "answers": ["Cook", "Columbus", "Magellan", "Vasco da Gama"],
+    "correctIndex": 1,
+    "category": "History"
+  },
+  {
+    "question": "What is the oldest university in Poland?",
+    "answers": ["UJ", "UW", "Warsaw University of Technology", "SGH"],
+    "correctIndex": 0,
+    "category": "History"
+  },
+  {
+    "question": "In which country was gunpowder invented?",
+    "answers": ["China", "Japan", "Russia", "India"],
+    "correctIndex": 0,
+    "category": "History"
+  },
+  {
+    "question": "Which country invented paper?",
+    "answers": ["Japan", "China", "Egypt", "Greece"],
+    "correctIndex": 1,
+    "category": "History"
+  },
+  {
+    "question": "What animal is on the coat of arms of Poland?",
+    "answers": ["Lion", "Eagle", "Bear", "Wolf"],
+    "correctIndex": 1,
+    "category": "History"
+  },
+  {
+    "question": "In which year was the Battle of Grunwald?",
+    "answers": ["1410", "966", "1795", "1944"],
+    "correctIndex": 0,
+    "category": "History"
+  },
+  {
+    "question": "Who was the first king of Poland?",
+    "answers": ["Bolesław I the Brave", "Mieszko I", "Casimir III the Great", "Władysław II Jagiełło"],
+    "correctIndex": 0,
+    "category": "History"
+  },
+  {
+    "question": "The element with the symbol O is?",
+    "answers": ["Lead", "Oxygen", "Gold", "Silver"],
+    "correctIndex": 1,
+    "category": "Chemistry"
+  },
+  {
+    "question": "What color is chlorine?",
+    "answers": ["Red", "Green", "Blue", "Yellow"],
+    "correctIndex": 1,
+    "category": "Chemistry"
+  },
+  {
+    "question": "Which element has the symbol Au?",
+    "answers": ["Silver", "Gold", "Copper", "Mercury"],
+    "correctIndex": 1,
+    "category": "Chemistry"
+  },
+  {
+    "question": "Which element has the symbol Na?",
+    "answers": ["Sodium", "Calcium", "Nitrogen", "Zinc"],
+    "correctIndex": 0,
+    "category": "Chemistry"
+  },
+  {
+    "question": "What is H2O?",
+    "answers": ["Oxygen", "Water", "Hydrogen", "Nitrogen"],
+    "correctIndex": 1,
+    "category": "Chemistry"
+  },
+  {
+    "question": "What is the smallest particle of an element?",
+    "answers": ["Atom", "Proton", "Molecule", "Neutron"],
+    "correctIndex": 0,
+    "category": "Chemistry"
+  },
+  {
+    "question": "What is the chemical symbol for water?",
+    "answers": ["HO", "H2O", "OH2", "O2H"],
+    "correctIndex": 1,
+    "category": "Chemistry"
+  },
+  {
+    "question": "Which element is most common in the Earth's crust?",
+    "answers": ["Oxygen", "Iron", "Hydrogen", "Silicon"],
+    "correctIndex": 0,
+    "category": "Chemistry"
+  },
+  {
+    "question": "What is the chemical symbol for carbon?",
+    "answers": ["W", "We", "C", "Ca"],
+    "correctIndex": 2,
+    "category": "Chemistry"
+  },
+  {
+    "question": "What color is gold?",
+    "answers": ["Silver", "Yellow", "Gray", "White"],
+    "correctIndex": 1,
+    "category": "Chemistry"
+  },
+  {
+    "question": "What is the square root of 16?",
+    "answers": ["2", "3", "4", "5"],
+    "correctIndex": 2,
+    "category": "Mathematics"
+  },
+  {
+    "question": "What Roman numeral represents 1000?",
+    "answers": ["L", "C", "D", "M"],
+    "correctIndex": 3,
+    "category": "Mathematics"
+  },
+  {
+    "question": "Which number is the largest: 256, 512, 128, 1024?",
+    "answers": ["512", "128", "256", "1024"],
+    "correctIndex": 3,
+    "category": "Mathematics"
+  },
+  {
+    "question": "What is 7 x 8?",
+    "answers": ["54", "56", "64", "48"],
+    "correctIndex": 1,
+    "category": "Mathematics"
+  },
+  {
+    "question": "What is 12 squared?",
+    "answers": ["122", "144", "132", "124"],
+    "correctIndex": 1,
+    "category": "Mathematics"
+  },
+  {
+    "question": "How many sides does a pentagon have?",
+    "answers": ["4", "5", "6", "8"],
+    "correctIndex": 1,
+    "category": "Mathematics"
+  },
+  {
+    "question": "What is the result of 9 + 10?",
+    "answers": ["17", "18", "19", "20"],
+    "correctIndex": 2,
+    "category": "Mathematics"
+  },
+  {
+    "question": "What is 3! (factorial)?",
+    "answers": ["3", "6", "9", "12"],
+    "correctIndex": 1,
+    "category": "Mathematics"
+  },
+  {
+    "question": "What is a 90° angle called?",
+    "answers": ["Acute", "Obtuse", "Right", "Reflex"],
+    "correctIndex": 2,
+    "category": "Mathematics"
+  },
+  {
+    "question": "How many edges does a cube have?",
+    "answers": ["6", "8", "12", "14"],
+    "correctIndex": 2,
+    "category": "Mathematics"
+  },
+  {
+    "question": "Which animal is the largest on Earth?",
+    "answers": ["Elephant", "Blue whale", "Shark", "Giraffe"],
+    "correctIndex": 1,
+    "category": "Biology"
+  },
+  {
+    "question": "How many legs does a spider have?",
+    "answers": ["6", "8", "10", "12"],
+    "correctIndex": 1,
+    "category": "Biology"
+  },
+  {
+    "question": "Which animal is a mammal?",
+    "answers": ["Frog", "Shark", "Bat", "Hen"],
+    "correctIndex": 2,
+    "category": "Biology"
+  },
+  {
+    "question": "How many legs does a crayfish have?",
+    "answers": ["6", "8", "10", "12"],
+    "correctIndex": 2,
+    "category": "Biology"
+  },
+  {
+    "question": "What is the largest land animal?",
+    "answers": ["Rhinoceros", "African elephant", "Hippopotamus", "European bison"],
+    "correctIndex": 1,
+    "category": "Biology"
+  },
+  {
+    "question": "How many bones are in the human skeleton?",
+    "answers": ["106", "206", "306", "406"],
+    "correctIndex": 1,
+    "category": "Biology"
+  },
+  {
+    "question": "What is photosynthesis?",
+    "answers": ["Plant respiration", "Growth process", "Oxygen production by plants", "Water absorption"],
+    "correctIndex": 2,
+    "category": "Biology"
+  },
+  {
+    "question": "Which mammal can fly?",
+    "answers": ["Bat", "Squirrel", "Eagle", "Pelican"],
+    "correctIndex": 0,
+    "category": "Biology"
+  },
+  {
+    "question": "Which mammal lays eggs?",
+    "answers": ["Bat", "Dolphin", "Echidna", "Elephant"],
+    "correctIndex": 2,
+    "category": "Biology"
+  },
+  {
+    "question": "Which animal lives the longest?",
+    "answers": ["Parrot", "Tortoise", "Horse", "Elephant"],
+    "correctIndex": 1,
+    "category": "Biology"
+  },
+  {
+    "question": "Who wrote 'Pan Tadeusz'?",
+    "answers": ["Słowacki", "Mickiewicz", "Kochanowski", "Norwid"],
+    "correctIndex": 1,
+    "category": "Literature"
+  },
+  {
+    "question": "Who wrote 'Hamlet'?",
+    "answers": ["Dickens", "Shakespeare", "Hemingway", "Tolkien"],
+    "correctIndex": 1,
+    "category": "Literature"
+  },
+  {
+    "question": "Who wrote 'Crime and Punishment'?",
+    "answers": ["Tolstoy", "Dostoevsky", "Pushkin", "Gogol"],
+    "correctIndex": 1,
+    "category": "Literature"
+  },
+  {
+    "question": "Who wrote 'The Little Prince'?",
+    "answers": ["A. Milne", "A. de Saint-Exupéry", "J.K. Rowling", "H. Ch. Andersen"],
+    "correctIndex": 1,
+    "category": "Literature"
+  },
+  {
+    "question": "Who is the author of 'The Doll'?",
+    "answers": ["Prus", "Żeromski", "Mickiewicz", "Sienkiewicz"],
+    "correctIndex": 0,
+    "category": "Literature"
+  },
+  {
+    "question": "Who wrote 'A Christmas Carol'?",
+    "answers": ["Dickens", "Twain", "Shakespeare", "Austen"],
+    "correctIndex": 0,
+    "category": "Literature"
+  },
+  {
+    "question": "Who wrote 'Harry Potter'?",
+    "answers": ["Tolkien", "Rowling", "Lewis", "Pratchett"],
+    "correctIndex": 1,
+    "category": "Literature"
+  },
+  {
+    "question": "Who wrote 'The Knights of the Cross'?",
+    "answers": ["Sienkiewicz", "Prus", "Żeromski", "Reymont"],
+    "correctIndex": 0,
+    "category": "Literature"
+  },
+  {
+    "question": "Who is the author of 'Romeo and Juliet'?",
+    "answers": ["Shakespeare", "Dumas", "Hugo", "Dickens"],
+    "correctIndex": 0,
+    "category": "Literature"
+  },
+  {
+    "question": "Who wrote 'In Desert and Wilderness'?",
+    "answers": ["Prus", "Sienkiewicz", "Mickiewicz", "Reymont"],
+    "correctIndex": 1,
+    "category": "Literature"
+  },
+  {
+    "question": "What unit is used to measure energy?",
+    "answers": ["Volt", "Ampere", "Joule", "Kelvin"],
+    "correctIndex": 2,
+    "category": "Physics"
+  },
+  {
+    "question": "How many colors are in a rainbow?",
+    "answers": ["5", "6", "7", "8"],
+    "correctIndex": 2,
+    "category": "Physics"
+  },
+  {
+    "question": "What is Newton's first law?",
+    "answers": ["Action = Reaction", "An object at rest...", "F = ma", "P = mv"],
+    "correctIndex": 1,
+    "category": "Physics"
+  },
+  {
+    "question": "What is considered normal atmospheric pressure?",
+    "answers": ["760 mmHg", "800 mmHg", "720 mmHg", "700 mmHg"],
+    "correctIndex": 0,
+    "category": "Physics"
+  },
+  {
+    "question": "What is the process of liquid turning into gas called?",
+    "answers": ["Condensation", "Evaporation", "Melting", "Sublimation"],
+    "correctIndex": 1,
+    "category": "Physics"
+  },
+  {
+    "question": "In what unit is electric voltage measured?",
+    "answers": ["Volt", "Ampere", "Ohm", "Joule"],
+    "correctIndex": 0,
+    "category": "Physics"
+  },
+  {
+    "question": "What is the speed of light in a vacuum?",
+    "answers": ["300,000 km/s", "150,000 km/s", "1,000,000 km/s", "100,000 km/s"],
+    "correctIndex": 0,
+    "category": "Physics"
+  },
+  {
+    "question": "What is gravity?",
+    "answers": ["Friction force", "Attractive force between bodies", "Electric current", "Heat"],
+    "correctIndex": 1,
+    "category": "Physics"
+  },
+  {
+    "question": "What carries electric current in metals?",
+    "answers": ["Protons", "Electrons", "Neutrons", "Ions"],
+    "correctIndex": 1,
+    "category": "Physics"
+  },
+  {
+    "question": "What is the phenomenon of light reflecting from a surface called?",
+    "answers": ["Diffraction", "Refraction", "Reflection", "Bending"],
+    "correctIndex": 2,
+    "category": "Physics"
+  },
+  {
+    "question": "What is the most spoken language in the world?",
+    "answers": ["English", "Chinese", "Spanish", "Arabic"],
+    "correctIndex": 1,
+    "category": "Languages"
+  },
+  {
+    "question": "Which language is spoken in Brazil?",
+    "answers": ["Spanish", "English", "Portuguese", "French"],
+    "correctIndex": 2,
+    "category": "Languages"
+  },
+  {
+    "question": "What is the official language of Poland?",
+    "answers": ["Polish", "German", "English", "Russian"],
+    "correctIndex": 0,
+    "category": "Languages"
+  },
+  {
+    "question": "Which language is spoken in Austria?",
+    "answers": ["German", "French", "Spanish", "Italian"],
+    "correctIndex": 0,
+    "category": "Languages"
+  },
+  {
+    "question": "Which language is official in Canada?",
+    "answers": ["English", "French", "Both of the above", "Spanish"],
+    "correctIndex": 2,
+    "category": "Languages"
+  },
+  {
+    "question": "Which language is spoken in Mexico?",
+    "answers": ["Spanish", "Portuguese", "English", "French"],
+    "correctIndex": 0,
+    "category": "Languages"
+  },
+  {
+    "question": "What is the official language of Egypt?",
+    "answers": ["Arabic", "French", "English", "Italian"],
+    "correctIndex": 0,
+    "category": "Languages"
+  },
+  {
+    "question": "Which language is spoken in Argentina?",
+    "answers": ["Portuguese", "Spanish", "Italian", "French"],
+    "correctIndex": 1,
+    "category": "Languages"
+  },
+  {
+    "question": "Which language is official in India?",
+    "answers": ["English", "Hindi", "Both of the above", "Tamil"],
+    "correctIndex": 2,
+    "category": "Languages"
+  },
+  {
+    "question": "What are the official languages of Switzerland?",
+    "answers": ["German", "French", "Italian", "All of the above"],
+    "correctIndex": 3,
+    "category": "Languages"
+  },
+  {
+    "question": "Which country is famous for sushi?",
+    "answers": ["China", "Japan", "Korea", "Vietnam"],
+    "correctIndex": 1,
+    "category": "Culture"
+  },
+  {
+    "question": "Which animal is a symbol of wisdom?",
+    "answers": ["Fox", "Wolf", "Owl", "Snake"],
+    "correctIndex": 2,
+    "category": "Culture"
+  },
+  {
+    "question": "What is haiku?",
+    "answers": ["A type of sushi", "A type of poem", "A painting style", "A dance"],
+    "correctIndex": 1,
+    "category": "Culture"
+  },
+  {
+    "question": "What is the name of the traditional Polish paper cut-out?",
+    "answers": ["Origami", "Łowicz paper cut-out", "Kaleidoscope", "Mandala"],
+    "correctIndex": 1,
+    "category": "Culture"
+  },
+  {
+    "question": "What is the most popular hobby in the world?",
+    "answers": ["Fishing", "Reading", "Traveling", "Cooking"],
+    "correctIndex": 0,
+    "category": "Culture"
+  },
+  {
+    "question": "What is the name of a popular Polish folk group?",
+    "answers": ["Mazowsze", "Śląsk", "Podhale", "Kujawiak"],
+    "correctIndex": 0,
+    "category": "Culture"
+  },
+  {
+    "question": "What is the traditional Japanese art of paper folding?",
+    "answers": ["Origami", "Ikebana", "Sumo", "Haiku"],
+    "correctIndex": 0,
+    "category": "Culture"
+  },
+  {
+    "question": "Which country is famous for flamenco?",
+    "answers": ["Italy", "Spain", "France", "Greece"],
+    "correctIndex": 1,
+    "category": "Culture"
+  },
+  {
+    "question": "What holiday is celebrated on December 24?",
+    "answers": ["Easter", "Christmas Eve", "Corpus Christi", "Andrzejki"],
+    "correctIndex": 1,
+    "category": "Culture"
+  },
+  {
+    "question": "What is the name of the famous film festival in France?",
+    "answers": ["Berlin", "Cannes", "Venice", "Toronto"],
+    "correctIndex": 1,
+    "category": "Culture"
+  },
+  {
+    "question": "Which instrument belongs to the string family?",
+    "answers": ["Flute", "Violin", "Drum", "Trumpet"],
+    "correctIndex": 1,
+    "category": "Music"
+  },
+  {
+    "question": "Who composed 'Für Elise'?",
+    "answers": ["Mozart", "Beethoven", "Chopin", "Bach"],
+    "correctIndex": 1,
+    "category": "Music"
+  },
+  {
+    "question": "What is the name of a keyboard instrument?",
+    "answers": ["Guitar", "Piano", "Trumpet", "Violin"],
+    "correctIndex": 1,
+    "category": "Music"
+  },
+  {
+    "question": "Which band recorded 'Yesterday'?",
+    "answers": ["Queen", "The Beatles", "ABBA", "The Rolling Stones"],
+    "correctIndex": 1,
+    "category": "Music"
+  },
+  {
+    "question": "Who is called the 'King of Pop'?",
+    "answers": ["Elvis Presley", "Michael Jackson", "Freddie Mercury", "David Bowie"],
+    "correctIndex": 1,
+    "category": "Music"
+  },
+  {
+    "question": "What is the national anthem of Poland?",
+    "answers": ["Rota", "Bogurodzica", "Mazurek Dąbrowskiego", "Gaude Mater Polonia"],
+    "correctIndex": 2,
+    "category": "Music"
+  },
+  {
+    "question": "Which composer wrote 'Symphony From the New World'?",
+    "answers": ["Dvořák", "Mozart", "Haydn", "Beethoven"],
+    "correctIndex": 0,
+    "category": "Music"
+  },
+  {
+    "question": "What is the name of a famous music award for films?",
+    "answers": ["Oscar", "Grammy", "Nobel", "Pulitzer"],
+    "correctIndex": 1,
+    "category": "Music"
+  },
+  {
+    "question": "What is the traditional highlander instrument?",
+    "answers": ["Bagpipes", "Cymbals", "Hurdy-gurdy", "Pan flute"],
+    "correctIndex": 0,
+    "category": "Music"
+  },
+  {
+    "question": "Which of these musicians is a Polish pianist?",
+    "answers": ["Beethoven", "Chopin", "Bach", "Verdi"],
+    "correctIndex": 1,
+    "category": "Music"
+  },
+  {
+    "question": "Which country manufactures the Toyota brand?",
+    "answers": ["Japan", "Korea", "China", "USA"],
+    "correctIndex": 0,
+    "category": "Automotive"
+  },
+  {
+    "question": "What is the most popular electric car in the world?",
+    "answers": ["Nissan Leaf", "Tesla Model 3", "BMW i3", "Renault Zoe"],
+    "correctIndex": 1,
+    "category": "Automotive"
+  },
+  {
+    "question": "What does ABS stand for in a car?",
+    "answers": ["Automatic Engine Lock", "Anti-lock System", "Automatic Fuse", "Anti-lock Braking System"],
+    "correctIndex": 3,
+    "category": "Automotive"
+  },
+  {
+    "question": "Which brand produces the Golf model?",
+    "answers": ["Audi", "Opel", "Volkswagen", "Ford"],
+    "correctIndex": 2,
+    "category": "Automotive"
+  },
+  {
+    "question": "What is the largest motor show in Europe?",
+    "answers": ["Geneva Motor Show", "Paris Motor Show", "Frankfurt Motor Show", "Brussels Auto Show"],
+    "correctIndex": 2,
+    "category": "Automotive"
+  },
+  {
+    "question": "What is an SUV?",
+    "answers": ["Used Car", "Sport Universal Van", "Street Car", "Sport Utility Vehicle"],
+    "correctIndex": 3,
+    "category": "Automotive"
+  },
+  {
+    "question": "Which brand created the Mustang model?",
+    "answers": ["Chevrolet", "Dodge", "Ford", "Toyota"],
+    "correctIndex": 2,
+    "category": "Automotive"
+  },
+  {
+    "question": "Which country is famous for producing Ferrari supercars?",
+    "answers": ["Germany", "Italy", "France", "Spain"],
+    "correctIndex": 1,
+    "category": "Automotive"
+  },
+  {
+    "question": "What does LPG stand for?",
+    "answers": ["Light Gaseous Fuel", "Liquefied Petroleum Gas", "Aviation Gas Fuel", "Local Gaseous Fuel"],
+    "correctIndex": 1,
+    "category": "Automotive"
+  },
+  {
+    "question": "Which car is considered the fastest mass-produced car in the world (2024)?",
+    "answers": ["Bugatti Chiron", "Koenigsegg Jesko Absolut", "Hennessey Venom F5", "SSC Tuatara"],
+    "correctIndex": 3,
+    "category": "Automotive"
+  },
+  {
+    "question": "In which year were the first modern Olympic Games held?",
+    "answers": ["1896", "1900", "1912", "1924"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "Who has won the most Ballon d'Or awards?",
+    "answers": ["Messi", "Ronaldo", "Pele", "Maradona"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "What is the most famous cycling race in the world?",
+    "answers": ["Tour de France", "Giro d’Italia", "Vuelta a España", "Paris-Roubaix"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "In which city was the 2008 Olympics held?",
+    "answers": ["Athens", "Beijing", "Sydney", "London"],
+    "correctIndex": 1,
+    "category": "Sport"
+  },
+  {
+    "question": "Which sport does Iga Świątek play?",
+    "answers": ["Basketball", "Tennis", "Volleyball", "Fencing"],
+    "correctIndex": 1,
+    "category": "Sport"
+  },
+  {
+    "question": "Which country is the birthplace of sumo?",
+    "answers": ["China", "Korea", "Japan", "Thailand"],
+    "correctIndex": 2,
+    "category": "Sport"
+  },
+  {
+    "question": "Who holds the world record for the 100m sprint?",
+    "answers": ["Usain Bolt", "Carl Lewis", "Justin Gatlin", "Asafa Powell"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "In which year did Poland win the Men's Volleyball World Championship gold medal?",
+    "answers": ["2014", "2006", "2010", "2022"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "Who is the Polish Formula 1 driver?",
+    "answers": ["Michał Sołowow", "Kuba Przygoński", "Robert Kubica", "Karol Basz"],
+    "correctIndex": 2,
+    "category": "Sport"
+  },
+  {
+    "question": "How long does a handball match last (without overtime)?",
+    "answers": ["40 min", "60 min", "80 min", "90 min"],
+    "correctIndex": 1,
+    "category": "Sport"
+  },
+  {
+    "question": "Which operating system was created by Bill Gates?",
+    "answers": ["Linux", "macOS", "Windows", "Android"],
+    "correctIndex": 2,
+    "category": "Technology"
+  },
+  {
+    "question": "What is the most popular video conferencing tool in 2024?",
+    "answers": ["Skype", "Zoom", "Messenger", "Telegram"],
+    "correctIndex": 1,
+    "category": "Technology"
+  },
+  {
+    "question": "Which programming language is the oldest?",
+    "answers": ["Java", "Python", "Fortran", "JavaScript"],
+    "correctIndex": 2,
+    "category": "Technology"
+  },
+  {
+    "question": "What is the largest internet search engine?",
+    "answers": ["Yahoo", "Google", "Bing", "DuckDuckGo"],
+    "correctIndex": 1,
+    "category": "Technology"
+  },
+  {
+    "question": "What is the official logo of Apple?",
+    "answers": ["Pear", "Apple", "Grapes", "Orange"],
+    "correctIndex": 1,
+    "category": "Technology"
+  },
+  {
+    "question": "In which year was Facebook founded?",
+    "answers": ["2001", "2004", "2010", "1999"],
+    "correctIndex": 1,
+    "category": "Technology"
+  },
+  {
+    "question": "Which company created the Galaxy smartphone?",
+    "answers": ["Apple", "Samsung", "Huawei", "Xiaomi"],
+    "correctIndex": 1,
+    "category": "Technology"
+  },
+  {
+    "question": "What is the basic input device?",
+    "answers": ["Monitor", "Keyboard", "Projector", "Printer"],
+    "correctIndex": 1,
+    "category": "Technology"
+  },
+  {
+    "question": "What is the unit of measurement for hard drive capacity?",
+    "answers": ["Liter", "Watt", "Byte", "Volt"],
+    "correctIndex": 2,
+    "category": "Technology"
+  },
+  {
+    "question": "What is the abbreviation for artificial intelligence?",
+    "answers": ["AI", "SI", "IQ", "AG"],
+    "correctIndex": 0,
+    "category": "Technology"
+  }
+]

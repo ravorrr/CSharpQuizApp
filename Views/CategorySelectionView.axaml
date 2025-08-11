@@ -1,159 +1,141 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:loc="clr-namespace:CSharpQuizApp.Localization"
              x:Class="CSharpQuizApp.Views.CategorySelectionView">
-    <Border Background="#1F1F1F" Padding="30">
-        <Grid RowDefinitions="*,Auto" Margin="0">
-            
-            <Grid Grid.Row="0"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  MaxHeight="800">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <TextBlock Grid.Row="0"
-                           Text="🗂️ Wybierz kategorię quizu"
-                           FontSize="24"
-                           FontWeight="Bold"
-                           Foreground="White"
-                           HorizontalAlignment="Center"
-                           Margin="0,0,0,20"/>
-                <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top"
-                              MaxHeight="600">
-                    <UniformGrid Columns="2" HorizontalAlignment="Center">
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🌍" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Geografia" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="💻" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Informatyka" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🌌" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Astronomia" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="📜" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Historia" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🧪" FontSize="20" Margin="0,-5,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Chemia" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="➗" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Matematyka" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🧬" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Biologia" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="📚" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Literatura" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="💬" FontSize="20" Margin="0,-5,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Języki" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🔬" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Fizyka" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🎭" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Kultura" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🎵" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Muzyka" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🚗" FontSize="20" Margin="0,-5,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Motoryzacja" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🏅" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Sport" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="250" Height="50" Margin="12,10"
-                                Cursor="Hand" Click="Category_Click"
-                                HorizontalAlignment="Center" VerticalContentAlignment="Center" Focusable="True">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="🤖" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
-                                <TextBlock Text="Technologia" FontSize="16" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                    </UniformGrid>
-                </ScrollViewer>
-            </Grid>
-            
-            <Button Content="🔙 Powrót do menu"
-                    Width="200"
-                    Cursor="Hand"
-                    Click="BackToMenu_Click"
-                    Grid.Row="1"
-                    HorizontalAlignment="Center"
-                    Margin="0,30,0,0"/>
-        </Grid>
-    </Border>
+  <Border Background="#1F1F1F" Padding="30">
+    <Grid RowDefinitions="*,Auto" Margin="0">
+      
+      <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="800">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+          <TextBlock Text="🗂️" FontSize="24" Margin="0,-3,8,0" VerticalAlignment="Center"/>
+          <TextBlock Text="{Binding [Category_Header], Source={x:Static loc:LocalizationService.L}}"
+                     FontSize="24" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+        </StackPanel>
+        
+        <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" MaxHeight="600">
+          <UniformGrid Columns="2" HorizontalAlignment="Center">
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Geografia">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🌍" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Geography], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Informatyka">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="💻" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_ComputerScience], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Astronomia">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🌌" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Astronomy], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Historia">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="📜" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_History], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Chemia">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🧪" FontSize="20" Margin="0,-5,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Chemistry], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Matematyka">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="➗" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Mathematics], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Biologia">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🧬" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Biology], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Literatura">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="📚" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Literature], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Języki">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="💬" FontSize="20" Margin="0,-5,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Languages], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Fizyka">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🔬" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Physics], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Kultura">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🎭" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Culture], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Muzyka">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🎵" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Music], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Motoryzacja">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🚗" FontSize="20" Margin="0,-5,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Automotive], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Sport">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🏅" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Sport], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+
+            <Button Width="250" Height="50" Margin="12,10" Cursor="Hand" Click="Category_Click" Tag="Technologia">
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="🤖" FontSize="20" Margin="0,-2,5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding [Category_Technology], Source={x:Static loc:LocalizationService.L}}" FontSize="16" VerticalAlignment="Center"/>
+              </StackPanel>
+            </Button>
+          </UniformGrid>
+        </ScrollViewer>
+      </Grid>
+      
+      <Button Grid.Row="1" Width="200" Cursor="Hand" Click="BackToMenu_Click"
+              HorizontalAlignment="Center" Margin="0,30,0,0">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="White"
+                   DataContext="{x:Static loc:LocalizationService.L}" x:DataType="loc:Localizer">
+          <Run Text="🔙 "/>
+          <Run Text="{Binding [History_Back]}"/>
+        </TextBlock>
+      </Button>
+
+    </Grid>
+  </Border>
 </UserControl>

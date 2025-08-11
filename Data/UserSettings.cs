@@ -7,6 +7,7 @@ namespace CSharpQuizApp.Data
     public class UserSettings
     {
         public string PlayerName { get; set; } = "Unknown";
+        public string Language { get; set; } = "pl-PL";
 
         private static readonly string FilePath = "usersettings.json";
 

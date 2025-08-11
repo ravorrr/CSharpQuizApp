@@ -15,16 +15,12 @@ public partial class CategorySelectionView : UserControl
 
     private void Category_Click(object? sender, RoutedEventArgs e)
     {
-        if (sender is Button btn && btn.Content is StackPanel stack &&
-            stack.Children.Count == 2 && stack.Children[1] is TextBlock nameBlock)
+        if (sender is Button btn && btn.Tag is string categoryKey && !string.IsNullOrWhiteSpace(categoryKey))
         {
-            var category = nameBlock.Text ?? string.Empty;
-            _mainWindow.StartCategoryQuiz(category);
+            _mainWindow.StartCategoryQuiz(categoryKey);
         }
     }
 
     private void BackToMenu_Click(object? _, RoutedEventArgs __)
-    {
-        _mainWindow.NavigateToStart();
-    }
+        => _mainWindow.NavigateToStart();
 }

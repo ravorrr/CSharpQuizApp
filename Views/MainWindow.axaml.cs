@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using CSharpQuizApp.Data;
+using CSharpQuizApp.Localization;
 using CSharpQuizApp.ViewModels;
 
 namespace CSharpQuizApp.Views;
@@ -15,10 +16,12 @@ public partial class MainWindow : Window
 {
     private string? _lastCategory;
     private QuizType _lastQuizType;
+    public Localizer Loc => LocalizationService.Instance.Localizer;
 
     public MainWindow()
     {
         InitializeComponent();
+        DataContext = this;
         MainContent.Content = new StartView(this);
     }
     

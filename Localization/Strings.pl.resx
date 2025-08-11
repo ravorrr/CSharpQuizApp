@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="Language_Label" xml:space="preserve"><value>Język:</value></data>
+  <data name="App_Title" xml:space="preserve"><value>Quiz App</value></data>
+  <data name="Start_Tagline" xml:space="preserve"><value>Podejmij wyzwanie! Szybkie pytania, szybkie odpowiedzi — do dzieła!</value></data>
+  <data name="Start_EnterName" xml:space="preserve"><value>Kliknij tutaj, aby wpisać imię</value></data>
+  <data name="Start_Play" xml:space="preserve"><value>Zagraj</value></data>
+  <data name="Start_Statistics" xml:space="preserve"><value>Statystyki</value></data>
+  <data name="Start_Rules" xml:space="preserve"><value>Zasady gry</value></data>
+  <data name="History_Title" xml:space="preserve"><value>Historia</value></data>
+  <data name="Start_Welcome_Anonymous" xml:space="preserve"><value>Witaj, Graczu!</value></data>
+  <data name="Start_Welcome_WithName" xml:space="preserve"><value>Witaj, {0}!</value></data>
+  <data name="Quiz_Exit" xml:space="preserve"><value>Wyjście</value></data>
+  <data name="Quiz_ConfirmExit" xml:space="preserve"><value>Na pewno chcesz przerwać?</value></data>
+  <data name="Quiz_Yes" xml:space="preserve"><value>Tak</value></data>
+  <data name="Quiz_No" xml:space="preserve"><value>Nie</value></data>
+  
+  <data name="Mode_Title" xml:space="preserve"><value>Wybierz tryb gry</value></data>
+  <data name="Mode_Random" xml:space="preserve"><value>Quiz losowy</value></data>
+  <data name="Mode_All" xml:space="preserve"><value>Quiz pełny</value></data>
+  <data name="Mode_ByCategory" xml:space="preserve"><value>Quiz wg kategorii</value></data>
+  <data name="Mode_Back" xml:space="preserve"><value>Powrót do menu</value></data>
+  
+  <data name="Category_Header" xml:space="preserve"><value>Wybierz kategorię quizu</value></data>
+  <data name="Category_Geography" xml:space="preserve"><value>Geografia</value></data>
+  <data name="Category_ComputerScience" xml:space="preserve"><value>Informatyka</value></data>
+  <data name="Category_Astronomy" xml:space="preserve"><value>Astronomia</value></data>
+  <data name="Category_History" xml:space="preserve"><value>Historia</value></data>
+  <data name="Category_Chemistry" xml:space="preserve"><value>Chemia</value></data>
+  <data name="Category_Mathematics" xml:space="preserve"><value>Matematyka</value></data>
+  <data name="Category_Biology" xml:space="preserve"><value>Biologia</value></data>
+  <data name="Category_Literature" xml:space="preserve"><value>Literatura</value></data>
+  <data name="Category_Languages" xml:space="preserve"><value>Języki</value></data>
+  <data name="Category_Physics" xml:space="preserve"><value>Fizyka</value></data>
+  <data name="Category_Culture" xml:space="preserve"><value>Kultura</value></data>
+  <data name="Category_Music" xml:space="preserve"><value>Muzyka</value></data>
+  <data name="Category_Automotive" xml:space="preserve"><value>Motoryzacja</value></data>
+  <data name="Category_Sport" xml:space="preserve"><value>Sport</value></data>
+  <data name="Category_Technology" xml:space="preserve"><value>Technologia</value></data>
+  
+  <data name="History_Header" xml:space="preserve"><value>Historia Quizów</value></data>
+  <data name="History_DateTime" xml:space="preserve"><value>Data i godzina</value></data>
+  <data name="History_Player" xml:space="preserve"><value>Gracz</value></data>
+  <data name="History_Mode" xml:space="preserve"><value>Tryb</value></data>
+  <data name="History_Score" xml:space="preserve"><value>Wynik</value></data>
+  <data name="History_Time" xml:space="preserve"><value>Czas</value></data>
+  <data name="History_Clear" xml:space="preserve"><value>Wyczyść historię</value></data>
+  <data name="History_ClearConfirm" xml:space="preserve"><value>Wyczyścić całą historię?</value></data>
+  <data name="History_Back" xml:space="preserve"><value>Powrót do menu</value></data>
+  
+  <data name="Statistics_Header" xml:space="preserve"><value>Statystyki gracza</value></data>
+  <data name="Statistics_AllPlayers" xml:space="preserve"><value>Wszyscy gracze</value></data>
+  <data name="Statistics_Total" xml:space="preserve"><value>Liczba rozegranych quizów</value></data>
+  <data name="Statistics_AvgScore" xml:space="preserve"><value>Średni wynik</value></data>
+  <data name="Statistics_BestScore" xml:space="preserve"><value>Najlepszy wynik</value></data>
+  <data name="Statistics_WorstScore" xml:space="preserve"><value>Najgorszy wynik</value></data>
+  <data name="Statistics_AvgTime" xml:space="preserve"><value>Średni czas quizu</value></data>
+  
+  <data name="Rules_Header" xml:space="preserve"><value>Zasady gry</value></data>
+  <data name="Rules_TimeLimit" xml:space="preserve"><value>Masz 15 sekund na każde pytanie.</value></data>
+  <data name="Rules_Scoring" xml:space="preserve"><value>Za każdą poprawną odpowiedź otrzymujesz 1 punkt.</value></data>
+  <data name="Rules_Result" xml:space="preserve"><value>Wynik końcowy poznasz po ostatnim pytaniu.</value></data>
+  <data name="Rules_ModesTitle" xml:space="preserve"><value>Tryby gry:</value></data>
+  <data name="Rules_Mode_Random" xml:space="preserve"><value>Quiz losowy (10 pytań)</value></data>
+  <data name="Rules_Mode_All" xml:space="preserve"><value>Quiz pełny (wszystkie pytania)</value></data>
+  <data name="Rules_Mode_Category" xml:space="preserve"><value>Quiz wg kategorii</value></data>
+  <data name="Rules_InstructionsTitle" xml:space="preserve"><value>Instrukcje:</value></data>
+  <data name="Rules_Step_1" xml:space="preserve"><value>Wybierz tryb gry z menu.</value></data>
+  <data name="Rules_Step_2" xml:space="preserve"><value>Odpowiadaj na pytania przed upływem czasu.</value></data>
+  <data name="Rules_Step_3" xml:space="preserve"><value>Po zakończeniu zobaczysz wynik i statystyki.</value></data>
+  
+  <data name="Quiz_Exit" xml:space="preserve"><value>Przerwij quiz</value></data>
+  <data name="Quiz_TimeLeft" xml:space="preserve"><value>Pozostały czas: {0} s</value></data>
+  <data name="Quiz_QuestionOf" xml:space="preserve"><value>Pytanie {0} z {1}</value></data>
+  <data name="Quiz_TimeUp" xml:space="preserve"><value>Czas minął! Brak odpowiedzi.</value></data>
+  <data name="Quiz_Correct" xml:space="preserve"><value>Poprawna odpowiedź!</value></data>
+  <data name="Quiz_Wrong" xml:space="preserve"><value>Zła odpowiedź!</value></data>
+  <data name="Quiz_LoadError" xml:space="preserve"><value>❌ Błąd ładowania pytań. Spróbuj ponownie.</value></data>
+  <data name="Quiz_Restart" xml:space="preserve"><value>Zagraj ponownie</value></data>
+  <data name="Quiz_BackToMenu" xml:space="preserve"><value>Powrót do menu głównego</value></data>
+  <data name="Quiz_FinalResult" xml:space="preserve"><value>Gratulacje! Twój wynik: {0}/{1}</value></data>
+  <data name="Quiz_ConfirmExit_Title" xml:space="preserve"><value>Czy na pewno chcesz przerwać quiz?</value></data>
+  <data name="Quiz_Yes" xml:space="preserve"><value>✅ Tak</value></data>
+  <data name="Quiz_No" xml:space="preserve"><value>❌ Nie</value></data>
+</root>

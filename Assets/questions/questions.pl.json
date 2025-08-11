@@ -1,0 +1,902 @@
+﻿[
+  {
+    "question": "Jakie miasto jest stolicą Polski?",
+    "answers": ["Kraków", "Warszawa", "Poznań", "Gdańsk"],
+    "correctIndex": 1,
+    "category": "Geografia"
+  },
+  {
+    "question": "Który ocean jest największy?",
+    "answers": ["Atlantycki", "Spokojny", "Arktyczny", "Indyjski"],
+    "correctIndex": 1,
+    "category": "Geografia"
+  },
+  {
+    "question": "Które państwo ma najwięcej ludności?",
+    "answers": ["USA", "Chiny", "Indie", "Brazylia"],
+    "correctIndex": 1,
+    "category": "Geografia"
+  },
+  {
+    "question": "Stolicą Włoch jest?",
+    "answers": ["Mediolan", "Rzym", "Florencja", "Neapol"],
+    "correctIndex": 1,
+    "category": "Geografia"
+  },
+  {
+    "question": "Stolicą Australii jest?",
+    "answers": ["Sydney", "Canberra", "Melbourne", "Perth"],
+    "correctIndex": 1,
+    "category": "Geografia"
+  },
+  {
+    "question": "Który ocean leży przy Polsce?",
+    "answers": ["Atlantycki", "Spokojny", "Arktyczny", "Bałtycki"],
+    "correctIndex": 3,
+    "category": "Geografia"
+  },
+  {
+    "question": "Najwyższy szczyt na Ziemi to?",
+    "answers": ["Mount Everest", "K2", "Kilimandżaro", "Mont Blanc"],
+    "correctIndex": 0,
+    "category": "Geografia"
+  },
+  {
+    "question": "Jak nazywa się największe jezioro świata?",
+    "answers": ["Bajkał", "Wiktorii", "Kaspijskie", "Tanganika"],
+    "correctIndex": 2,
+    "category": "Geografia"
+  },
+  {
+    "question": "Stolica Niemiec to?",
+    "answers": ["Berlin", "Monachium", "Hamburg", "Frankfurt"],
+    "correctIndex": 0,
+    "category": "Geografia"
+  },
+  {
+    "question": "Które państwo leży na dwóch kontynentach?",
+    "answers": ["Hiszpania", "Rosja", "Egipt", "Turcja"],
+    "correctIndex": 3,
+    "category": "Geografia"
+  },
+  {
+    "question": "Który język służy do stylowania stron WWW?",
+    "answers": ["HTML", "Python", "CSS", "PHP"],
+    "correctIndex": 2,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Co oznacza skrót CPU?",
+    "answers": ["Central Processing Unit", "Computer Personal Unit", "Central Programming Utility", "Control Processing Unit"],
+    "correctIndex": 0,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Co oznacza skrót RAM?",
+    "answers": ["Random Access Memory", "Ready And Manage", "Read A Message", "Run And Move"],
+    "correctIndex": 0,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Który język programowania jest najczęściej używany?",
+    "answers": ["C++", "Python", "Java", "PHP"],
+    "correctIndex": 1,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Co oznacza skrót HTML?",
+    "answers": ["HighText Machine Language", "HyperText Markup Language", "Home Tool Markup Language", "HyperText Machine Language"],
+    "correctIndex": 1,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Co oznacza skrót SMS?",
+    "answers": ["Short Message Service", "Smart Media System", "Super Mail Service", "Simple Message Service"],
+    "correctIndex": 0,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Co oznacza skrót USB?",
+    "answers": ["Universal Serial Bus", "Universal Service Box", "United System Board", "Universal Socket Bridge"],
+    "correctIndex": 0,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Jak nazywa się największa wyszukiwarka internetowa?",
+    "answers": ["Yahoo", "Google", "Bing", "DuckDuckGo"],
+    "correctIndex": 1,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Jak nazywa się podstawowy sprzęt wyjścia?",
+    "answers": ["Monitor", "Klawiatura", "Projektor", "Drukarka"],
+    "correctIndex": 0,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Która firma stworzyła system Android?",
+    "answers": ["Microsoft", "Apple", "Google", "Nokia"],
+    "correctIndex": 2,
+    "category": "Informatyka"
+  },
+  {
+    "question": "Największa planeta Układu Słonecznego to?",
+    "answers": ["Mars", "Jowisz", "Ziemia", "Wenus"],
+    "correctIndex": 1,
+    "category": "Astronomia"
+  },
+  {
+    "question": "Który pierwiastek ma symbol Fe?",
+    "answers": ["Fosfor", "Fluor", "Żelazo", "Franc"],
+    "correctIndex": 2,
+    "category": "Astronomia"
+  },
+  {
+    "question": "Kto był pierwszym człowiekiem na Księżycu?",
+    "answers": ["Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "Alan Shepard"],
+    "correctIndex": 1,
+    "category": "Astronomia"
+  },
+  {
+    "question": "Która planeta jest najbliżej Słońca?",
+    "answers": ["Merkury", "Wenus", "Mars", "Ziemia"],
+    "correctIndex": 0,
+    "category": "Astronomia"
+  },
+  {
+    "question": "W jakim roku człowiek pierwszy raz poleciał w kosmos?",
+    "answers": ["1961", "1957", "1969", "1972"],
+    "correctIndex": 0,
+    "category": "Astronomia"
+  },
+  {
+    "question": "Która planeta ma pierścienie?",
+    "answers": ["Ziemia", "Mars", "Saturn", "Merkury"],
+    "correctIndex": 2,
+    "category": "Astronomia"
+  },
+  {
+    "question": "Jaka planeta nazywana jest „Czerwoną Planetą”?",
+    "answers": ["Ziemia", "Mars", "Wenus", "Jowisz"],
+    "correctIndex": 1,
+    "category": "Astronomia"
+  },
+  {
+    "question": "Jak nazywa się najjaśniejsza gwiazda na niebie?",
+    "answers": ["Słońce", "Sirius", "Wega", "Polaris"],
+    "correctIndex": 1,
+    "category": "Astronomia"
+  },
+  {
+    "question": "Jak nazywa się najbliższa Ziemi gwiazda (po Słońcu)?",
+    "answers": ["Proxima Centauri", "Betelgeza", "Sirius", "Aldebaran"],
+    "correctIndex": 0,
+    "category": "Astronomia"
+  },
+  {
+    "question": "W jakiej galaktyce znajduje się Układ Słoneczny?",
+    "answers": ["Galaktyka Andromedy", "Wielki Obłok Magellana", "Droga Mleczna", "Mały Obłok Magellana"],
+    "correctIndex": 2,
+    "category": "Astronomia"
+  },
+  {
+    "question": "W którym roku rozpoczęła się II wojna światowa?",
+    "answers": ["1918", "1939", "1945", "1920"],
+    "correctIndex": 1,
+    "category": "Historia"
+  },
+  {
+    "question": "Kto wynalazł żarówkę?",
+    "answers": ["Edison", "Tesla", "Newton", "Einstein"],
+    "correctIndex": 0,
+    "category": "Historia"
+  },
+  {
+    "question": "Kiedy Polska wstąpiła do UE?",
+    "answers": ["2004", "2006", "2000", "2007"],
+    "correctIndex": 0,
+    "category": "Historia"
+  },
+  {
+    "question": "Kto odkrył Amerykę?",
+    "answers": ["Cook", "Kolumb", "Magellan", "Vasco da Gama"],
+    "correctIndex": 1,
+    "category": "Historia"
+  },
+  {
+    "question": "Jak nazywa się najstarszy uniwersytet w Polsce?",
+    "answers": ["UJ", "UW", "Politechnika Warszawska", "SGH"],
+    "correctIndex": 0,
+    "category": "Historia"
+  },
+  {
+    "question": "W jakim państwie wynaleziono proch?",
+    "answers": ["Chiny", "Japonia", "Rosja", "Indie"],
+    "correctIndex": 0,
+    "category": "Historia"
+  },
+  {
+    "question": "Który kraj wynalazł papier?",
+    "answers": ["Japonia", "Chiny", "Egipt", "Grecja"],
+    "correctIndex": 1,
+    "category": "Historia"
+  },
+  {
+    "question": "Jakie zwierzę widnieje w herbie Polski?",
+    "answers": ["Lew", "Orzeł", "Niedźwiedź", "Wilk"],
+    "correctIndex": 1,
+    "category": "Historia"
+  },
+  {
+    "question": "W jakim roku odbyła się bitwa pod Grunwaldem?",
+    "answers": ["1410", "966", "1795", "1944"],
+    "correctIndex": 0,
+    "category": "Historia"
+  },
+  {
+    "question": "Kto był pierwszym królem Polski?",
+    "answers": ["Bolesław Chrobry", "Mieszko I", "Kazimierz Wielki", "Władysław Jagiełło"],
+    "correctIndex": 0,
+    "category": "Historia"
+  },
+  {
+    "question": "Pierwiastek o symbolu O to?",
+    "answers": ["Ołów", "Tlen", "Złoto", "Srebro"],
+    "correctIndex": 1,
+    "category": "Chemia"
+  },
+  {
+    "question": "Jakiego koloru jest chlor?",
+    "answers": ["Czerwony", "Zielony", "Niebieski", "Żółty"],
+    "correctIndex": 1,
+    "category": "Chemia"
+  },
+  {
+    "question": "Który pierwiastek ma symbol Au?",
+    "answers": ["Srebro", "Złoto", "Miedź", "Rtęć"],
+    "correctIndex": 1,
+    "category": "Chemia"
+  },
+  {
+    "question": "Który pierwiastek ma symbol Na?",
+    "answers": ["Sód", "Wapń", "Azot", "Cynk"],
+    "correctIndex": 0,
+    "category": "Chemia"
+  },
+  {
+    "question": "Co to jest H2O?",
+    "answers": ["Tlen", "Woda", "Wodór", "Azot"],
+    "correctIndex": 1,
+    "category": "Chemia"
+  },
+  {
+    "question": "Jak nazywa się najmniejsza cząstka pierwiastka?",
+    "answers": ["Atom", "Proton", "Cząsteczka", "Neutron"],
+    "correctIndex": 0,
+    "category": "Chemia"
+  },
+  {
+    "question": "Jak nazywa się chemiczny symbol wody?",
+    "answers": ["HO", "H2O", "OH2", "O2H"],
+    "correctIndex": 1,
+    "category": "Chemia"
+  },
+  {
+    "question": "Który pierwiastek występuje najczęściej w skorupie ziemskiej?",
+    "answers": ["Tlen", "Żelazo", "Wodór", "Krzem"],
+    "correctIndex": 0,
+    "category": "Chemia"
+  },
+  {
+    "question": "Jaki jest symbol chemiczny węgla?",
+    "answers": ["W", "We", "C", "Ca"],
+    "correctIndex": 2,
+    "category": "Chemia"
+  },
+  {
+    "question": "Jakiego koloru jest złoto?",
+    "answers": ["Srebrny", "Żółty", "Szary", "Biały"],
+    "correctIndex": 1,
+    "category": "Chemia"
+  },
+  {
+    "question": "Ile wynosi pierwiastek kwadratowy z 16?",
+    "answers": ["2", "3", "4", "5"],
+    "correctIndex": 2,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Jaką liczbą rzymską zapisujemy 1000?",
+    "answers": ["L", "C", "D", "M"],
+    "correctIndex": 3,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Jaka liczba jest największa spośród: 256, 512, 128, 1024?",
+    "answers": ["512", "128", "256", "1024"],
+    "correctIndex": 3,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Ile to jest 7 x 8?",
+    "answers": ["54", "56", "64", "48"],
+    "correctIndex": 1,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Ile to jest 12^2?",
+    "answers": ["122", "144", "132", "124"],
+    "correctIndex": 1,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Ile boków ma pięciokąt?",
+    "answers": ["4", "5", "6", "8"],
+    "correctIndex": 1,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Jaki jest wynik działania 9 + 10?",
+    "answers": ["17", "18", "19", "20"],
+    "correctIndex": 2,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Ile wynosi 3! (silnia)?",
+    "answers": ["3", "6", "9", "12"],
+    "correctIndex": 1,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Jak się nazywa kąt o mierze 90°?",
+    "answers": ["Ostry", "Rozwarty", "Prosty", "Wklęsły"],
+    "correctIndex": 2,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Ile krawędzi ma sześcian?",
+    "answers": ["6", "8", "12", "14"],
+    "correctIndex": 2,
+    "category": "Matematyka"
+  },
+  {
+    "question": "Które zwierzę jest największe na Ziemi?",
+    "answers": ["Słoń", "Płetwal błękitny", "Rekin", "Żyrafa"],
+    "correctIndex": 1,
+    "category": "Biologia"
+  },
+  {
+    "question": "Ile nóg ma pająk?",
+    "answers": ["6", "8", "10", "12"],
+    "correctIndex": 1,
+    "category": "Biologia"
+  },
+  {
+    "question": "Które zwierzę jest ssakiem?",
+    "answers": ["Żaba", "Rekin", "Nietoperz", "Kura"],
+    "correctIndex": 2,
+    "category": "Biologia"
+  },
+  {
+    "question": "Ile nóg ma rak?",
+    "answers": ["6", "8", "10", "12"],
+    "correctIndex": 2,
+    "category": "Biologia"
+  },
+  {
+    "question": "Jakie jest największe zwierzę lądowe?",
+    "answers": ["Nosorożec", "Słoń afrykański", "Hipopotam", "Żubr"],
+    "correctIndex": 1,
+    "category": "Biologia"
+  },
+  {
+    "question": "Z ilu kości składa się ludzki szkielet?",
+    "answers": ["106", "206", "306", "406"],
+    "correctIndex": 1,
+    "category": "Biologia"
+  },
+  {
+    "question": "Co to jest fotosynteza?",
+    "answers": ["Oddychanie roślin", "Proces wzrostu", "Wytwarzanie tlenu przez rośliny", "Wchłanianie wody"],
+    "correctIndex": 2,
+    "category": "Biologia"
+  },
+  {
+    "question": "Który ssak potrafi latać?",
+    "answers": ["Nietoperz", "Wiewiórka", "Orzeł", "Pelikany"],
+    "correctIndex": 0,
+    "category": "Biologia"
+  },
+  {
+    "question": "Który ssak składa jaja?",
+    "answers": ["Nietoperz", "Delfin", "Kolczatka", "Słoń"],
+    "correctIndex": 2,
+    "category": "Biologia"
+  },
+  {
+    "question": "Które zwierzę żyje najdłużej?",
+    "answers": ["Papuga", "Żółw", "Koń", "Słoń"],
+    "correctIndex": 1,
+    "category": "Biologia"
+  },
+  {
+    "question": "Kto napisał „Pana Tadeusza”?",
+    "answers": ["Słowacki", "Mickiewicz", "Kochanowski", "Norwid"],
+    "correctIndex": 1,
+    "category": "Literatura"
+  },
+  {
+    "question": "Kto napisał „Hamleta”?",
+    "answers": ["Dickens", "Szekspir", "Hemingway", "Tolkien"],
+    "correctIndex": 1,
+    "category": "Literatura"
+  },
+  {
+    "question": "Kto napisał „Zbrodnię i karę”?",
+    "answers": ["Tołstoj", "Dostojewski", "Puszkin", "Gogol"],
+    "correctIndex": 1,
+    "category": "Literatura"
+  },
+  {
+    "question": "Kto napisał \"Małego Księcia\"?",
+    "answers": ["A. Milne", "A. de Saint-Exupéry", "J.K. Rowling", "H. Ch. Andersen"],
+    "correctIndex": 1,
+    "category": "Literatura"
+  },
+  {
+    "question": "Kto jest autorem „Lalki”?",
+    "answers": ["Prus", "Żeromski", "Mickiewicz", "Sienkiewicz"],
+    "correctIndex": 0,
+    "category": "Literatura"
+  },
+  {
+    "question": "Kto napisał „Opowieść wigilijną”?",
+    "answers": ["Dickens", "Twain", "Szekspir", "Austen"],
+    "correctIndex": 0,
+    "category": "Literatura"
+  },
+  {
+    "question": "Kto napisał „Harry’ego Pottera”?",
+    "answers": ["Tolkien", "Rowling", "Lewis", "Pratchett"],
+    "correctIndex": 1,
+    "category": "Literatura"
+  },
+  {
+    "question": "Kto napisał „Krzyżaków”?",
+    "answers": ["Sienkiewicz", "Prus", "Żeromski", "Reymont"],
+    "correctIndex": 0,
+    "category": "Literatura"
+  },
+  {
+    "question": "Kto jest autorem „Romea i Julii”?",
+    "answers": ["Szekspir", "Dumas", "Hugo", "Dickens"],
+    "correctIndex": 0,
+    "category": "Literatura"
+  },
+  {
+    "question": "Kto napisał „W pustyni i w puszczy”?",
+    "answers": ["Prus", "Sienkiewicz", "Mickiewicz", "Reymont"],
+    "correctIndex": 1,
+    "category": "Literatura"
+  },
+  {
+    "question": "Jaką jednostką mierzymy energię?",
+    "answers": ["Wolt", "Amper", "Joule", "Kelwin"],
+    "correctIndex": 2,
+    "category": "Fizyka"
+  },
+  {
+    "question": "Z ilu kolorów składa się tęcza?",
+    "answers": ["5", "6", "7", "8"],
+    "correctIndex": 2,
+    "category": "Fizyka"
+  },
+  {
+    "question": "Jak brzmi pierwsze prawo Newtona?",
+    "answers": ["Akcja = Reakcja", "Ciało w spoczynku...", "F = ma", "P = mv"],
+    "correctIndex": 1,
+    "category": "Fizyka"
+  },
+  {
+    "question": "Jakie ciśnienie atmosferyczne uznaje się za normalne?",
+    "answers": ["760 mmHg", "800 mmHg", "720 mmHg", "700 mmHg"],
+    "correctIndex": 0,
+    "category": "Fizyka"
+  },
+  {
+    "question": "Jak nazywa się proces przejścia cieczy w gaz?",
+    "answers": ["Kondensacja", "Parowanie", "Topnienie", "Sublimacja"],
+    "correctIndex": 1,
+    "category": "Fizyka"
+  },
+  {
+    "question": "W jakiej jednostce mierzy się napięcie elektryczne?",
+    "answers": ["Wolt", "Amper", "Omb", "Dżul"],
+    "correctIndex": 0,
+    "category": "Fizyka"
+  },
+  {
+    "question": "Jaka jest prędkość światła w próżni?",
+    "answers": ["300 000 km/s", "150 000 km/s", "1 000 000 km/s", "100 000 km/s"],
+    "correctIndex": 0,
+    "category": "Fizyka"
+  },
+  {
+    "question": "Co to jest grawitacja?",
+    "answers": ["Siła tarcia", "Siła przyciągająca ciała", "Prąd elektryczny", "Ciepło"],
+    "correctIndex": 1,
+    "category": "Fizyka"
+  },
+  {
+    "question": "Co jest nośnikiem prądu w metalach?",
+    "answers": ["Protony", "Elektrony", "Neutrony", "Jony"],
+    "correctIndex": 1,
+    "category": "Fizyka"
+  },
+  {
+    "question": "Jak nazywa się zjawisko odbicia światła od powierzchni?",
+    "answers": ["Dyfrakcja", "Refrakcja", "Odbicie", "Załamanie"],
+    "correctIndex": 2,
+    "category": "Fizyka"
+  },
+  {
+    "question": "Jaki jest najpopularniejszy język na świecie?",
+    "answers": ["Angielski", "Chiński", "Hiszpański", "Arabski"],
+    "correctIndex": 1,
+    "category": "Języki"
+  },
+  {
+    "question": "Który język jest używany w Brazylii?",
+    "answers": ["Hiszpański", "Angielski", "Portugalski", "Francuski"],
+    "correctIndex": 2,
+    "category": "Języki"
+  },
+  {
+    "question": "Jaki jest język urzędowy w Polsce?",
+    "answers": ["Polski", "Niemiecki", "Angielski", "Rosyjski"],
+    "correctIndex": 0,
+    "category": "Języki"
+  },
+  {
+    "question": "Jakiego języka używa się w Austrii?",
+    "answers": ["Niemiecki", "Francuski", "Hiszpański", "Włoski"],
+    "correctIndex": 0,
+    "category": "Języki"
+  },
+  {
+    "question": "Który język jest urzędowym w Kanadzie?",
+    "answers": ["Angielski", "Francuski", "Oba powyższe", "Hiszpański"],
+    "correctIndex": 2,
+    "category": "Języki"
+  },
+  {
+    "question": "Jakiego języka używa się w Meksyku?",
+    "answers": ["Hiszpański", "Portugalski", "Angielski", "Francuski"],
+    "correctIndex": 0,
+    "category": "Języki"
+  },
+  {
+    "question": "Jaki język jest urzędowy w Egipcie?",
+    "answers": ["Arabski", "Francuski", "Angielski", "Włoski"],
+    "correctIndex": 0,
+    "category": "Języki"
+  },
+  {
+    "question": "Jakiego języka używa się w Argentynie?",
+    "answers": ["Portugalski", "Hiszpański", "Włoski", "Francuski"],
+    "correctIndex": 1,
+    "category": "Języki"
+  },
+  {
+    "question": "Jakiego języka używa się w Indiach (urzędowy)?",
+    "answers": ["Angielski", "Hindi", "Oba powyższe", "Tamilski"],
+    "correctIndex": 2,
+    "category": "Języki"
+  },
+  {
+    "question": "Jaki język urzędowy ma Szwajcaria?",
+    "answers": ["Niemiecki", "Francuski", "Włoski", "Wszystkie powyższe"],
+    "correctIndex": 3,
+    "category": "Języki"
+  },
+  {
+    "question": "Który kraj słynie z produkcji sushi?",
+    "answers": ["Chiny", "Japonia", "Korea", "Wietnam"],
+    "correctIndex": 1,
+    "category": "Kultura"
+  },
+  {
+    "question": "Które zwierzę jest symbolem mądrości?",
+    "answers": ["Lis", "Wilk", "Sowa", "Wąż"],
+    "correctIndex": 2,
+    "category": "Kultura"
+  },
+  {
+    "question": "Co to jest haiku?",
+    "answers": ["Rodzaj sushi", "Rodzaj wiersza", "Styl malarski", "Taniec"],
+    "correctIndex": 1,
+    "category": "Kultura"
+  },
+  {
+    "question": "Jak nazywa się tradycyjna polska wycinanka?",
+    "answers": ["Origami", "Wycinanka łowicka", "Kalejdoskop", "Mandala"],
+    "correctIndex": 1,
+    "category": "Kultura"
+  },
+  {
+    "question": "Jakie jest najpopularniejsze hobby na świecie?",
+    "answers": ["Wędkarstwo", "Czytanie", "Podróżowanie", "Gotowanie"],
+    "correctIndex": 0,
+    "category": "Kultura"
+  },
+  {
+    "question": "Jak nazywa się popularny polski zespół ludowy?",
+    "answers": ["Mazowsze", "Śląsk", "Podhale", "Kujawiak"],
+    "correctIndex": 0,
+    "category": "Kultura"
+  },
+  {
+    "question": "Jak nazywa się tradycyjna japońska sztuka składania papieru?",
+    "answers": ["Origami", "Ikebana", "Sumo", "Haiku"],
+    "correctIndex": 0,
+    "category": "Kultura"
+  },
+  {
+    "question": "Który kraj jest znany z flamenco?",
+    "answers": ["Włochy", "Hiszpania", "Francja", "Grecja"],
+    "correctIndex": 1,
+    "category": "Kultura"
+  },
+  {
+    "question": "Jakie święto obchodzimy 24 grudnia?",
+    "answers": ["Wielkanoc", "Wigilia", "Boże Ciało", "Andrzejki"],
+    "correctIndex": 1,
+    "category": "Kultura"
+  },
+  {
+    "question": "Jak nazywa się słynny festiwal filmowy we Francji?",
+    "answers": ["Berlin", "Cannes", "Wenecja", "Toronto"],
+    "correctIndex": 1,
+    "category": "Kultura"
+  },
+  {
+    "question": "Który instrument należy do strunowych?",
+    "answers": ["Flet", "Skrzypce", "Bęben", "Trąbka"],
+    "correctIndex": 1,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Kto był kompozytorem „Dla Elizy”?",
+    "answers": ["Mozart", "Beethoven", "Chopin", "Bach"],
+    "correctIndex": 1,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Jak nazywa się instrument klawiszowy?",
+    "answers": ["Gitara", "Fortepian", "Trąbka", "Skrzypce"],
+    "correctIndex": 1,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Który zespół nagrał „Yesterday”?",
+    "answers": ["Queen", "The Beatles", "ABBA", "The Rolling Stones"],
+    "correctIndex": 1,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Kto jest nazywany „królem popu”?",
+    "answers": ["Elvis Presley", "Michael Jackson", "Freddie Mercury", "David Bowie"],
+    "correctIndex": 1,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Jak nazywa się polski hymn narodowy?",
+    "answers": ["Rota", "Bogurodzica", "Mazurek Dąbrowskiego", "Gaude Mater Polonia"],
+    "correctIndex": 2,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Który kompozytor napisał „Symfonię Z Nowego Świata”?",
+    "answers": ["Dvořák", "Mozart", "Haydn", "Beethoven"],
+    "correctIndex": 0,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Jak nazywa się znana muzyczna nagroda filmowa?",
+    "answers": ["Oscar", "Grammy", "Nobel", "Pulitzer"],
+    "correctIndex": 1,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Jak nazywa się tradycyjny instrument góralski?",
+    "answers": ["Dudy", "Cymbały", "Lira korbowa", "Fletnia Pana"],
+    "correctIndex": 0,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Który z tych muzyków jest polskim pianistą?",
+    "answers": ["Beethoven", "Chopin", "Bach", "Verdi"],
+    "correctIndex": 1,
+    "category": "Muzyka"
+  },
+  {
+    "question": "Jakiego kraju producentem jest marka Toyota?",
+    "answers": ["Japonia", "Korea", "Chiny", "USA"],
+    "correctIndex": 0,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "Jak nazywa się najpopularniejszy samochód elektryczny na świecie?",
+    "answers": ["Nissan Leaf", "Tesla Model 3", "BMW i3", "Renault Zoe"],
+    "correctIndex": 1,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "Co oznacza skrót ABS w samochodzie?",
+    "answers": ["Automatyczny Blok Silnika", "Antyblokada Systemu", "Automatyczny Bezpiecznik", "Antyblokujący System Hamulcowy"],
+    "correctIndex": 3,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "Która marka produkuje model Golf?",
+    "answers": ["Audi", "Opel", "Volkswagen", "Ford"],
+    "correctIndex": 2,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "Jak nazywa się największe targi motoryzacyjne w Europie?",
+    "answers": ["Geneva Motor Show", "Paris Motor Show", "Frankfurt Motor Show", "Brussels Auto Show"],
+    "correctIndex": 2,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "Co to jest SUV?",
+    "answers": ["Samochód Używany", "Sportowy Uniwersalny Van", "Samochód Uliczny", "Sport Utility Vehicle"],
+    "correctIndex": 3,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "Jaka marka stworzyła model Mustang?",
+    "answers": ["Chevrolet", "Dodge", "Ford", "Toyota"],
+    "correctIndex": 2,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "Który kraj słynie z produkcji supersamochodów marki Ferrari?",
+    "answers": ["Niemcy", "Włochy", "Francja", "Hiszpania"],
+    "correctIndex": 1,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "Co oznacza skrót LPG?",
+    "answers": ["Lekka Paliwa Gazowe", "Liquefied Petroleum Gas", "Lotnicze Paliwo Gazowe", "Lokalne Paliwo Gazowe"],
+    "correctIndex": 1,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "Który samochód jest uznawany za najszybszy seryjnie produkowany na świecie (2024)?",
+    "answers": ["Bugatti Chiron", "Koenigsegg Jesko Absolut", "Hennessey Venom F5", "SSC Tuatara"],
+    "correctIndex": 3,
+    "category": "Motoryzacja"
+  },
+  {
+    "question": "W którym roku odbyły się pierwsze nowożytne igrzyska olimpijskie?",
+    "answers": ["1896", "1900", "1912", "1924"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "Kto zdobył najwięcej Złotych Piłek?",
+    "answers": ["Messi", "Ronaldo", "Pele", "Maradona"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "Jak nazywa się najbardziej znany wyścig kolarski na świecie?",
+    "answers": ["Tour de France", "Giro d’Italia", "Vuelta a España", "Paris-Roubaix"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "W jakim mieście odbyła się olimpiada w 2008 roku?",
+    "answers": ["Ateny", "Pekin", "Sydney", "Londyn"],
+    "correctIndex": 1,
+    "category": "Sport"
+  },
+  {
+    "question": "Który sport uprawia Iga Świątek?",
+    "answers": ["Koszykówka", "Tenis", "Siatkówka", "Szermierka"],
+    "correctIndex": 1,
+    "category": "Sport"
+  },
+  {
+    "question": "Który kraj jest kolebką sumo?",
+    "answers": ["Chiny", "Korea", "Japonia", "Tajlandia"],
+    "correctIndex": 2,
+    "category": "Sport"
+  },
+  {
+    "question": "Kto jest rekordzistą świata w biegu na 100 m?",
+    "answers": ["Usain Bolt", "Carl Lewis", "Justin Gatlin", "Asafa Powell"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "W którym roku Polska zdobyła złoty medal MŚ w siatkówce mężczyzn?",
+    "answers": ["2014", "2006", "2010", "2022"],
+    "correctIndex": 0,
+    "category": "Sport"
+  },
+  {
+    "question": "Jak nazywa się polski kierowca Formuły 1?",
+    "answers": ["Michał Sołowow", "Kuba Przygoński", "Robert Kubica", "Karol Basz"],
+    "correctIndex": 2,
+    "category": "Sport"
+  },
+  {
+    "question": "Ile trwa mecz piłki ręcznej (bez dogrywki)?",
+    "answers": ["40 min", "60 min", "80 min", "90 min"],
+    "correctIndex": 1,
+    "category": "Sport"
+  },
+  {
+    "question": "Który system operacyjny stworzył Bill Gates?",
+    "answers": ["Linux", "macOS", "Windows", "Android"],
+    "correctIndex": 2,
+    "category": "Technologia"
+  },
+  {
+    "question": "Jakie jest najpopularniejsze narzędzie do wideokonferencji w 2024 roku?",
+    "answers": ["Skype", "Zoom", "Messenger", "Telegram"],
+    "correctIndex": 1,
+    "category": "Technologia"
+  },
+  {
+    "question": "Który język programowania jest najstarszy?",
+    "answers": ["Java", "Python", "Fortran", "JavaScript"],
+    "correctIndex": 2,
+    "category": "Technologia"
+  },
+  {
+    "question": "Jak nazywa się największa wyszukiwarka internetowa?",
+    "answers": ["Yahoo", "Google", "Bing", "DuckDuckGo"],
+    "correctIndex": 1,
+    "category": "Technologia"
+  },
+  {
+    "question": "Jakie jest oficjalne logo Apple?",
+    "answers": ["Gruszka", "Jabłko", "Winogrono", "Pomarańcza"],
+    "correctIndex": 1,
+    "category": "Technologia"
+  },
+  {
+    "question": "W którym roku powstał Facebook?",
+    "answers": ["2001", "2004", "2010", "1999"],
+    "correctIndex": 1,
+    "category": "Technologia"
+  },
+  {
+    "question": "Który producent stworzył smartfon Galaxy?",
+    "answers": ["Apple", "Samsung", "Huawei", "Xiaomi"],
+    "correctIndex": 1,
+    "category": "Technologia"
+  },
+  {
+    "question": "Jakie jest podstawowe urządzenie wejścia?",
+    "answers": ["Monitor", "Klawiatura", "Projektor", "Drukarka"],
+    "correctIndex": 1,
+    "category": "Technologia"
+  },
+  {
+    "question": "Czym mierzy się pojemność dysku twardego?",
+    "answers": ["Litr", "Watt", "Bajt", "Volt"],
+    "correctIndex": 2,
+    "category": "Technologia"
+  },
+  {
+    "question": "Jaki jest skrót sztucznej inteligencji?",
+    "answers": ["AI", "SI", "IQ", "AG"],
+    "correctIndex": 0,
+    "category": "Technologia"
+  }
+]

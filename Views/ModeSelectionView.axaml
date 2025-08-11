@@ -1,5 +1,6 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:loc="clr-namespace:CSharpQuizApp.Localization"
              x:Class="CSharpQuizApp.Views.ModeSelectionView">
     <Border Background="#1F1F1F" Padding="30">
         <Grid RowDefinitions="Auto,*,Auto" Margin="0">
@@ -9,7 +10,7 @@
                            FontSize="24"
                            Margin="0,-8,8,0"
                            VerticalAlignment="Center"/>
-                <TextBlock Text="Wybierz tryb gry"
+                <TextBlock Text="{Binding [Mode_Title], Source={x:Static loc:LocalizationService.L}}"
                            FontSize="24"
                            FontWeight="Bold"
                            Foreground="White"
@@ -30,7 +31,7 @@
                                    FontSize="20"
                                    Margin="0,-2,5,0"
                                    VerticalAlignment="Center"/>
-                        <TextBlock Text="Quiz losowy"
+                        <TextBlock Text="{Binding [Mode_Random], Source={x:Static loc:LocalizationService.L}}"
                                    FontSize="16"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
@@ -49,7 +50,7 @@
                                    FontSize="20"
                                    Margin="0,-2,5,0"
                                    VerticalAlignment="Center"/>
-                        <TextBlock Text="Quiz pełny"
+                        <TextBlock Text="{Binding [Mode_All], Source={x:Static loc:LocalizationService.L}}"
                                    FontSize="16"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
@@ -68,7 +69,7 @@
                                    FontSize="20"
                                    Margin="0,-5,5,0"
                                    VerticalAlignment="Center"/>
-                        <TextBlock Text="Quiz wg kategorii"
+                        <TextBlock Text="{Binding [Mode_ByCategory], Source={x:Static loc:LocalizationService.L}}"
                                    FontSize="16"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
@@ -76,10 +77,16 @@
             </StackPanel>
             
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20" Margin="0,20,0,0">
-                <Button Content="🔙 Powrót do menu"
-                        Width="200"
+                <Button Width="200"
                         Cursor="Hand"
-                        Click="BackToMenu_Click"/>
+                        Click="BackToMenu_Click">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+                        <TextBlock Text="🔙" FontSize="14" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding [Mode_Back], Source={x:Static loc:LocalizationService.L}}"
+                                   FontSize="14"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </Grid>
     </Border>

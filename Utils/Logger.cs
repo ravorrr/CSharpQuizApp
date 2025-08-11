@@ -25,5 +25,21 @@ namespace CSharpQuizApp.Utils
                 // ignorujemy błąd logowania, żeby aplikacja się nie zawiesiła
             }
         }
+        
+        public static void LogInfo(string message)
+        {
+            try
+            {
+                var dir = Path.GetDirectoryName(LogFilePath);
+                if (!string.IsNullOrEmpty(dir))
+                    Directory.CreateDirectory(dir);
+                using var writer = new StreamWriter(LogFilePath, append: true);
+                writer.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] INFO: {message}");
+            }
+            catch
+            {
+                // ignorujemy błąd logowania
+            }
+        }
     }
 }

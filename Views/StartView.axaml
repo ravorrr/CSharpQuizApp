@@ -1,135 +1,158 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:loc="clr-namespace:CSharpQuizApp.Localization"
              x:Class="CSharpQuizApp.Views.StartView">
+    
+  <UserControl.Styles>
+    <Style Selector="Button.flag">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="BorderBrush" Value="Transparent"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="Padding" Value="0"/>
+      <Setter Property="Focusable" Value="False"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ContentPresenter
+              Content="{TemplateBinding Content}"
+              ContentTemplate="{TemplateBinding ContentTemplate}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"/>
+        </ControlTemplate>
+      </Setter>
+    </Style>
 
-    <Border Background="#1F1F1F" Padding="30">
-        <Grid>
-            <Rectangle Name="FocusCatcher"
-                       Fill="Transparent"
-                       Focusable="True"
-                       IsHitTestVisible="True"
-                       PointerPressed="FocusCatcher_PointerPressed"/>
+    <Style Selector="Button.flag:pointerover, Button.flag:pressed, Button.flag:focus">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+  </UserControl.Styles>
 
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
-                <TextBlock Text="QUIZ APP"
-                           FontSize="36"
-                           FontWeight="Bold"
-                           Foreground="White"
-                           HorizontalAlignment="Center"
-                           Margin="0,0,0,10"/>
+  <Border Background="#1F1F1F" Padding="30">
+    <Grid>
+      <Rectangle Name="FocusCatcher"
+                 Fill="Transparent"
+                 Focusable="True"
+                 IsHitTestVisible="False"/>
+      
+      <StackPanel Orientation="Horizontal"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Spacing="8"
+                  Margin="0">
+        <Button x:Name="BtnPl"
+                Classes="flag"
+                Tag="pl-PL"
+                Click="LanguageButton_Click"
+                ToolTip.Tip="Polski">
+          <Image x:Name="ImgPl" Width="28" Height="20"
+                 Source="avares://CSharpQuizApp/Assets/flags/pl.png"/>
+        </Button>
 
-                <TextBlock Text="Podejmij wyzwanie! Szybkie pytania, szybkie odpowiedzi — do dzieła!"
-                           FontSize="16"
-                           Foreground="LightGray"
-                           TextAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Width="550"
-                           TextWrapping="Wrap"
-                           Margin="0,0,0,20"/>
+        <Button x:Name="BtnEn"
+                Classes="flag"
+                Tag="en-US"
+                Click="LanguageButton_Click"
+                ToolTip.Tip="English">
+          <Image x:Name="ImgEn" Width="28" Height="20"
+                 Source="avares://CSharpQuizApp/Assets/flags/en.png"/>
+        </Button>
+      </StackPanel>
+      
+      <StackPanel VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Spacing="20">
 
-                <StackPanel HorizontalAlignment="Center" Spacing="10">
-                    <TextBlock x:Name="WelcomeTextBlock"
-                               Text="Kliknij tutaj, aby wpisać imię"
-                               FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="White"
-                               HorizontalAlignment="Center"
-                               Cursor="Hand"
-                               PointerPressed="WelcomeTextBlock_PointerPressed"
-                               IsVisible="True"/>
+        <TextBlock Text="{Binding [App_Title], Source={x:Static loc:LocalizationService.L}}"
+                   FontSize="36"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,10"/>
 
-                    <TextBox x:Name="NameEditBox"
-                             FontSize="20"
-                             Width="200"
-                             HorizontalAlignment="Center"
-                             IsVisible="False"
-                             LostFocus="NameEditBox_LostFocus"
-                             KeyUp="NameEditBox_KeyUp"/>
-                </StackPanel>
+        <TextBlock Text="{Binding [Start_Tagline], Source={x:Static loc:LocalizationService.L}}"
+                   FontSize="16"
+                   Foreground="LightGray"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Width="550"
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,20"/>
 
-                <Button Cursor="Hand"
-                        Width="250"
-                        Height="50"
-                        Click="StartQuiz_Click"
-                        FontSize="16"
-                        HorizontalAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Focusable="True">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="🎯"
-                                   FontSize="20"
-                                   Margin="0,-2,5,0"
-                                   VerticalAlignment="Center"/>
-                        <TextBlock Text="Rozpocznij quiz"
-                                   FontSize="16"
-                                   VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-                
-                <Button Cursor="Hand"
-                        Width="250"
-                        Height="50"
-                        Click="ShowHistory_Click"
-                        FontSize="16"
-                        HorizontalAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Focusable="True">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="📜"
-                                   FontSize="20"
-                                   Margin="0,-2,5,0"
-                                   VerticalAlignment="Center"/>
-                        <TextBlock Text="Historia quizów"
-                                   FontSize="16"
-                                   VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-                
-                <Button Cursor="Hand"
-                        Width="250"
-                        Height="50"
-                        Click="ShowStatistics_Click"
-                        FontSize="16"
-                        HorizontalAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Focusable="True">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="📊"
-                                   FontSize="20"
-                                   Margin="0,-2,5,0"
-                                   VerticalAlignment="Center"/>
-                        <TextBlock Text="Statystyki gracza"
-                                   FontSize="16"
-                                   VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
+        <StackPanel HorizontalAlignment="Center" Spacing="10">
+          <TextBlock x:Name="WelcomeTextBlock"
+                     Text="{Binding [Start_EnterName], Source={x:Static loc:LocalizationService.L}}"
+                     FontSize="20"
+                     FontWeight="Bold"
+                     Foreground="White"
+                     HorizontalAlignment="Center"
+                     Cursor="Hand"
+                     PointerPressed="WelcomeTextBlock_PointerPressed"
+                     IsVisible="True"/>
 
-                <Button Cursor="Hand"
-                        Width="250"
-                        Height="50"
-                        Click="ShowRules_Click"
-                        FontSize="16"
-                        HorizontalAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Focusable="True">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="📖"
-                                   FontSize="20"
-                                   Margin="0,-5,5,0"
-                                   VerticalAlignment="Center"/>
-                        <TextBlock Text="Zasady gry"
-                                   FontSize="16"
-                                   VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
+          <TextBox x:Name="NameEditBox"
+                   FontSize="20"
+                   Width="200"
+                   HorizontalAlignment="Center"
+                   IsVisible="False"
+                   LostFocus="NameEditBox_LostFocus"
+                   KeyUp="NameEditBox_KeyUp"/>
+        </StackPanel>
 
-                <TextBlock Text="Made by Patryk Mars — v1.0.0"
-                           FontSize="12"
-                           Foreground="Gray"
-                           HorizontalAlignment="Center"
-                           Margin="0,30,0,0"
-                           Focusable="True"/>
-            </StackPanel>
-        </Grid>
-    </Border>
+        <Button Cursor="Hand"
+                Width="250" Height="50"
+                Click="StartQuiz_Click"
+                FontSize="16"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Center">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="🎯" FontSize="20" Margin="0,-2,5,0"/>
+            <TextBlock Text="{Binding [Start_Play], Source={x:Static loc:LocalizationService.L}}" FontSize="16"/>
+          </StackPanel>
+        </Button>
+        
+        <Button Cursor="Hand"
+                Width="250" Height="50"
+                Click="ShowHistory_Click"
+                FontSize="16"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Center">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="📜" FontSize="20" Margin="0,-2,5,0"/>
+            <TextBlock Text="{Binding [History_Title], Source={x:Static loc:LocalizationService.L}}" FontSize="16"/>
+          </StackPanel>
+        </Button>
+        
+        <Button Cursor="Hand"
+                Width="250" Height="50"
+                Click="ShowStatistics_Click"
+                FontSize="16"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Center">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="📊" FontSize="20" Margin="0,-2,5,0"/>
+            <TextBlock Text="{Binding [Start_Statistics], Source={x:Static loc:LocalizationService.L}}" FontSize="16"/>
+          </StackPanel>
+        </Button>
+
+        <Button Cursor="Hand"
+                Width="250" Height="50"
+                Click="ShowRules_Click"
+                FontSize="16"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Center">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="📖" FontSize="20" Margin="0,-5,5,0"/>
+            <TextBlock Text="{Binding [Start_Rules], Source={x:Static loc:LocalizationService.L}}" FontSize="16"/>
+          </StackPanel>
+        </Button>
+
+        <TextBlock Text="Made by Patryk Mars — v1.0.0"
+                   FontSize="12"
+                   Foreground="Gray"
+                   HorizontalAlignment="Center"
+                   Margin="0,30,0,0"/>
+      </StackPanel>
+    </Grid>
+  </Border>
 </UserControl>

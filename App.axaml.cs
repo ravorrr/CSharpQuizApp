@@ -4,15 +4,14 @@ using Avalonia.Markup.Xaml;
 using CSharpQuizApp.Views;
 using System;
 using CSharpQuizApp.Utils;
+using CSharpQuizApp.Localization;
+using CSharpQuizApp.Data;
 
 namespace CSharpQuizApp;
 
 public class App : Application
 {
-    public override void Initialize()
-    {
-        AvaloniaXamlLoader.Load(this);
-    }
+    public override void Initialize() => AvaloniaXamlLoader.Load(this);
 
     public override void OnFrameworkInitializationCompleted()
     {
@@ -20,14 +19,23 @@ public class App : Application
         
         AppDomain.CurrentDomain.UnhandledException += (_, e) =>
         {
-            if (e.ExceptionObject is Exception ex)
-                Logger.LogError(ex);
+            if (e.ExceptionObject is Exception ex) Logger.LogError(ex);
         };
         
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        var settings = UserSettings.Load();
+        try
         {
-            desktop.MainWindow = new MainWindow();
+            LocalizationService.Instance.SetCulture(settings.Language);
         }
+        catch
+        {
+            LocalizationService.Instance.SetCulture("pl-PL");
+            settings.Language = "pl-PL";
+            settings.Save();
+        }
+
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+            desktop.MainWindow = new MainWindow();
 
         base.OnFrameworkInitializationCompleted();
     }

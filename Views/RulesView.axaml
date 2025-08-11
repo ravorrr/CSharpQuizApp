@@ -1,5 +1,6 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:loc="clr-namespace:CSharpQuizApp.Localization"
              x:Class="CSharpQuizApp.Views.RulesView">
 
     <Border Background="#1F1F1F" Padding="30">
@@ -10,55 +11,69 @@
                            FontSize="24"
                            Margin="0,-8,8,0"
                            VerticalAlignment="Center"/>
-                <TextBlock Text="Zasady gry"
+                <TextBlock Text="{Binding [Rules_Header], Source={x:Static loc:LocalizationService.L}}"
                            FontSize="24"
                            FontWeight="Bold"
                            Foreground="White"
                            VerticalAlignment="Center"/>
             </StackPanel>
             
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" MaxHeight="350" HorizontalAlignment="Center">
-                <StackPanel Width="400">
+            <ScrollViewer Grid.Row="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          VerticalScrollBarVisibility="Disabled"
+                          HorizontalScrollBarVisibility="Disabled">
+                <StackPanel Width="400" Spacing="6">
                     
-                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Center">
-                        <Run Text="Masz 15 sekund na każde pytanie." FontWeight="Bold"/>
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Center"
+                               DataContext="{x:Static loc:LocalizationService.L}" x:DataType="loc:Localizer">
+                        <Run Text="{Binding [Rules_TimeLimit]}" FontWeight="Bold"/>
+                        <LineBreak/><LineBreak/>
+                        <Run Text="{Binding [Rules_Scoring]}"/>
                         <LineBreak/>
-                        <LineBreak/>
-                        <Run Text="Za każdą poprawną odpowiedź otrzymujesz 1 punkt."/>
-                        <LineBreak/>
-                        <Run Text="Wynik końcowy poznasz po ostatnim pytaniu."/>
-                        <LineBreak/>
-                        <LineBreak/>
-                    </TextBlock>
-                    
-                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Margin="0,10,0,5">
-                        <Run Text="Tryby gry:"/>
-                    </TextBlock>
-                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Left" Margin="20,0,0,10">
-                        <Run Text="• Quiz losowy (10 pytań)"/>
-                        <LineBreak/>
-                        <Run Text="• Quiz pełny (wszystkie pytania)"/>
-                        <LineBreak/>
-                        <Run Text="• Quiz wg kategorii"/>
-                        <LineBreak/>
+                        <Run Text="{Binding [Rules_Result]}"/>
+                        <LineBreak/><LineBreak/>
                     </TextBlock>
                     
-                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Margin="0,10,0,5">
-                        <Run Text="Instrukcje:"/>
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Center"
+                               FontWeight="Bold" Margin="0,10,0,5"
+                               DataContext="{x:Static loc:LocalizationService.L}" x:DataType="loc:Localizer">
+                        <Run Text="{Binding [Rules_ModesTitle]}"/>
                     </TextBlock>
-                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Left" Margin="20,0,0,0">
-                        <Run Text="1. Wybierz tryb gry z menu."/>
-                        <LineBreak/>
-                        <Run Text="2. Odpowiadaj na pytania przed upływem czasu."/>
-                        <LineBreak/>
-                        <Run Text="3. Po zakończeniu zobaczysz wynik i statystyki."/>
+
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Left"
+                               Margin="20,0,0,10"
+                               DataContext="{x:Static loc:LocalizationService.L}" x:DataType="loc:Localizer">
+                        <Run Text="• "/><Run Text="{Binding [Rules_Mode_Random]}"/><LineBreak/>
+                        <Run Text="• "/><Run Text="{Binding [Rules_Mode_All]}"/><LineBreak/>
+                        <Run Text="• "/><Run Text="{Binding [Rules_Mode_Category]}"/><LineBreak/>
+                    </TextBlock>
+                    
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Center"
+                               FontWeight="Bold" Margin="0,10,0,5"
+                               DataContext="{x:Static loc:LocalizationService.L}" x:DataType="loc:Localizer">
+                        <Run Text="{Binding [Rules_InstructionsTitle]}"/>
+                    </TextBlock>
+
+                    <TextBlock FontSize="16" Foreground="LightGray" TextWrapping="Wrap" TextAlignment="Left"
+                               Margin="20,0,0,0"
+                               DataContext="{x:Static loc:LocalizationService.L}" x:DataType="loc:Localizer">
+                        <Run Text="1. "/><Run Text="{Binding [Rules_Step_1]}"/><LineBreak/>
+                        <Run Text="2. "/><Run Text="{Binding [Rules_Step_2]}"/><LineBreak/>
+                        <Run Text="3. "/><Run Text="{Binding [Rules_Step_3]}"/>
                     </TextBlock>
 
                 </StackPanel>
             </ScrollViewer>
             
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20" Margin="0,20,0,0">
-                <Button Content="🔙 Powrót do menu" Width="200" Cursor="Hand" Click="BackToMenu_Click"/>
+                <Button Width="200" Cursor="Hand" Click="BackToMenu_Click">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="White"
+                               DataContext="{x:Static loc:LocalizationService.L}" x:DataType="loc:Localizer">
+                        <Run Text="🔙 "/>
+                        <Run Text="{Binding [History_Back]}"/>
+                    </TextBlock>
+                </Button>
             </StackPanel>
 
         </Grid>

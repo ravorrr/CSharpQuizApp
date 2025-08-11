@@ -1,10 +1,11 @@
-﻿using Avalonia.Controls;
-using Avalonia.Interactivity;
-using CSharpQuizApp.Data;
-using CSharpQuizApp.Models;
-using CSharpQuizApp.ViewModels;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Avalonia.Controls;
+using Avalonia.Interactivity;
+using CSharpQuizApp.Data;
+using CSharpQuizApp.Localization;
+using CSharpQuizApp.Models;
 
 namespace CSharpQuizApp.Views;
 
@@ -20,51 +21,92 @@ public partial class StatisticsView : UserControl
 
         _allHistory = QuizDatabase.LoadHistory();
         
-        var playerNames = _allHistory
-            .Select(h => string.IsNullOrWhiteSpace(h.PlayerName) ? "(Nieznany)" : h.PlayerName)
-            .Distinct()
-            .OrderBy(name => name)
-            .ToList();
+        BuildPlayersListAndBind();
+        UpdateForSelection();
         
-        playerNames.Insert(0, "Wszyscy gracze");
-
-        PlayerComboBox.ItemsSource = playerNames;
-        PlayerComboBox.SelectedIndex = 0;
-        
-        UpdateStats(_allHistory);
+        LocalizationService.Instance.Localizer.PropertyChanged += (_, e) =>
+        {
+            if (string.IsNullOrEmpty(e.PropertyName) || e.PropertyName == "Item[]")
+            {
+                var keepIndex = PlayerComboBox.SelectedIndex;
+                BuildPlayersListAndBind(keepIndex);
+                UpdateForSelection();
+            }
+        };
     }
 
     private void PlayerComboBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+        => UpdateForSelection();
+
+    private void BackToMenu_Click(object? sender, RoutedEventArgs e)
+        => _mainWindow.NavigateToStart();
+    
+
+    private static bool IsUnknownName(string? name)
+        => string.IsNullOrWhiteSpace(name) || string.Equals(name, "Unknown", StringComparison.OrdinalIgnoreCase);
+
+    private string T(string key, string fallback)
     {
-        if (PlayerComboBox.SelectedItem is string selected)
+        var s = LocalizationService.L[key];
+        return s == key ? fallback : s;
+    }
+
+    private void BuildPlayersListAndBind(int? restoreIndex = null)
+    {
+        var unknown = T("Statistics_UnknownPlayer", "(Unknown)");
+        var allPlayers = T("Statistics_AllPlayers", "All players");
+
+        var playerNames = _allHistory
+            .Select(h => IsUnknownName(h.PlayerName) ? unknown : h.PlayerName!.Trim())
+            .Distinct(StringComparer.CurrentCultureIgnoreCase)
+            .OrderBy(n => n, StringComparer.CurrentCultureIgnoreCase)
+            .ToList();
+
+        playerNames.Insert(0, allPlayers);
+
+        PlayerComboBox.ItemsSource = playerNames;
+        PlayerComboBox.SelectedIndex = restoreIndex is { } idx && idx >= 0 && idx < playerNames.Count ? idx : 0;
+    }
+
+    private void UpdateForSelection()
+    {
+        var unknown = T("Statistics_UnknownPlayer", "(Unknown)");
+        var selected = PlayerComboBox.SelectedItem as string ?? "";
+        List<QuizHistoryEntry> filtered;
+
+        if (PlayerComboBox.SelectedIndex <= 0)
         {
-            List<QuizHistoryEntry> filtered;
-            if (selected == "Wszyscy gracze")
-            {
-                filtered = _allHistory;
-            }
-            else
-            {
-                filtered = _allHistory.Where(h => 
-                    (!string.IsNullOrWhiteSpace(h.PlayerName) ? h.PlayerName : "(Nieznany)") == selected
-                ).ToList();
-            }
-            UpdateStats(filtered);
+            filtered = _allHistory;
         }
+        else if (string.Equals(selected, unknown, StringComparison.CurrentCultureIgnoreCase))
+        {
+            filtered = _allHistory.Where(h => IsUnknownName(h.PlayerName)).ToList();
+        }
+        else
+        {
+            filtered = _allHistory.Where(h => !IsUnknownName(h.PlayerName) &&
+                                              string.Equals(h.PlayerName!.Trim(), selected,
+                                                  StringComparison.CurrentCultureIgnoreCase))
+                                  .ToList();
+        }
+
+        UpdateStats(filtered);
     }
 
     private void UpdateStats(List<QuizHistoryEntry> history)
     {
-        var stats = new StatisticsViewModel(history);
-        TotalQuizzesTextBlock.Text = $"Liczba rozegranych quizów: {stats.TotalQuizzes}";
-        AverageScoreTextBlock.Text = $"Średni wynik: {stats.AverageScorePercent}%";
-        BestScoreTextBlock.Text = $"Najlepszy wynik: {stats.BestScore}";
-        WorstScoreTextBlock.Text = $"Najgorszy wynik: {stats.WorstScore}";
-        AverageTimeTextBlock.Text = $"Średni czas quizu: {stats.AverageTimeSeconds} s";
-    }
+        var stats = new CSharpQuizApp.ViewModels.StatisticsViewModel(history);
+        
+        var totalLbl   = T("Statistics_Total",     "Total quizzes played");
+        var avgLbl     = T("Statistics_AvgScore",  "Average score");
+        var bestLbl    = T("Statistics_BestScore", "Best score");
+        var worstLbl   = T("Statistics_WorstScore","Worst score");
+        var avgTimeLbl = T("Statistics_AvgTime",   "Average quiz time");
 
-    private void BackToMenu_Click(object? sender, RoutedEventArgs e)
-    {
-        _mainWindow.NavigateToStart();
+        TotalQuizzesTextBlock.Text  = $"{totalLbl}: {stats.TotalQuizzes}";
+        AverageScoreTextBlock.Text  = $"{avgLbl}: {stats.AverageScorePercent}%";
+        BestScoreTextBlock.Text     = $"{bestLbl}: {stats.BestScore}";
+        WorstScoreTextBlock.Text    = $"{worstLbl}: {stats.WorstScore}";
+        AverageTimeTextBlock.Text   = $"{avgTimeLbl}: {stats.AverageTimeSeconds} s";
     }
 }

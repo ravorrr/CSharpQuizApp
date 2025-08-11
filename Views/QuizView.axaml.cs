@@ -2,6 +2,7 @@
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Threading;
+using CSharpQuizApp.Localization;
 using CSharpQuizApp.ViewModels;
 using System;
 using System.Threading.Tasks;
@@ -11,27 +12,29 @@ namespace CSharpQuizApp.Views;
 
 public partial class QuizView : UserControl
 {
-    private MainWindow _mainWindow;
-    private QuizBaseViewModel _viewModel;
+    private readonly MainWindow _mainWindow;
+    private readonly QuizBaseViewModel _viewModel;
     private Timer? _timer;
     private int _remainingSeconds = 15;
     private bool _answered;
     private DateTime _quizStartTime;
+
+    private Localizer L => LocalizationService.Instance.Localizer;
 
     public QuizView(MainWindow mainWindow, QuizBaseViewModel viewModel)
     {
         InitializeComponent();
         _mainWindow = mainWindow;
         _viewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
-        UpdateUi();
         _quizStartTime = DateTime.Now;
+        UpdateUi();
     }
 
     private void StartTimer()
     {
         _remainingSeconds = 15;
         _answered = false;
-        TimerTextBlock.Text = $"Pozostały czas: {_remainingSeconds} s";
+        TimerTextBlock.Text = string.Format(L["Quiz_TimeLeft"], _remainingSeconds);
 
         _timer = new Timer(1000);
         _timer.Elapsed += TimerElapsed;
@@ -44,7 +47,7 @@ public partial class QuizView : UserControl
 
         await Dispatcher.UIThread.InvokeAsync(() =>
         {
-            TimerTextBlock.Text = $"Pozostały czas: {_remainingSeconds} s";
+            TimerTextBlock.Text = string.Format(L["Quiz_TimeLeft"], _remainingSeconds);
         });
 
         if (_remainingSeconds <= 0)
@@ -62,7 +65,7 @@ public partial class QuizView : UserControl
     {
         if (_viewModel.Questions.Count == 0)
         {
-            FeedbackTextBlock.Text = "❌ Błąd ładowania pytań. Spróbuj ponownie.";
+            FeedbackTextBlock.Text = L["Quiz_LoadError"];
             FeedbackTextBlock.Foreground = Brushes.OrangeRed;
 
             QuestionTextBlock.IsVisible = false;
@@ -79,14 +82,17 @@ public partial class QuizView : UserControl
             return;
         }
 
-        QuestionTextBlock.Text = _viewModel.CurrentQuestion!.Text;
+        var q = _viewModel.CurrentQuestion!;
+        QuestionTextBlock.Text = q.Text;
+        Answer1Button.Content = q.Answers[0];
+        Answer2Button.Content = q.Answers[1];
+        Answer3Button.Content = q.Answers[2];
+        Answer4Button.Content = q.Answers[3];
 
-        Answer1Button.Content = _viewModel.CurrentQuestion!.Answers[0];
-        Answer2Button.Content = _viewModel.CurrentQuestion!.Answers[1];
-        Answer3Button.Content = _viewModel.CurrentQuestion!.Answers[2];
-        Answer4Button.Content = _viewModel.CurrentQuestion!.Answers[3];
-        
-        QuestionNumberTextBlock.Text = $"Pytanie {_viewModel.CurrentQuestionIndex + 1} z {_viewModel.Questions.Count}";
+        QuestionNumberTextBlock.Text = string.Format(
+            L["Quiz_QuestionOf"],
+            _viewModel.CurrentQuestionIndex + 1,
+            _viewModel.Questions.Count);
 
         FeedbackTextBlock.Text = "";
         ResetButtonColors();
@@ -108,7 +114,7 @@ public partial class QuizView : UserControl
 
         if (index == -1)
         {
-            FeedbackTextBlock.Text = "Czas minął! Brak odpowiedzi.";
+            FeedbackTextBlock.Text = L["Quiz_TimeUp"];
             FeedbackTextBlock.Foreground = Brushes.Orange;
         }
         else
@@ -117,16 +123,16 @@ public partial class QuizView : UserControl
 
             if (_viewModel.IsAnswerCorrect)
             {
-                FeedbackTextBlock.Text = "Poprawna odpowiedź!";
+                FeedbackTextBlock.Text = L["Quiz_Correct"];
                 FeedbackTextBlock.Foreground = Brushes.LightGreen;
             }
             else
             {
-                FeedbackTextBlock.Text = "Zła odpowiedź!";
+                FeedbackTextBlock.Text = L["Quiz_Wrong"];
                 FeedbackTextBlock.Foreground = Brushes.IndianRed;
             }
         }
-        
+
         ColorAnswerButtons(index);
 
         await Task.Delay(3000);
@@ -142,7 +148,7 @@ public partial class QuizView : UserControl
             ShowFinalScreen();
         }
     }
-    
+
     private void ColorAnswerButtons(int index)
     {
         for (int i = 0; i < 4; i++)
@@ -157,33 +163,25 @@ public partial class QuizView : UserControl
             }
             else if (index == _viewModel.CurrentQuestion!.CorrectAnswerIndex)
             {
-                btn.Background = (i == index)
-                    ? Brushes.LightGreen
-                    : Brushes.DimGray;
+                btn.Background = (i == index) ? Brushes.LightGreen : Brushes.DimGray;
             }
             else
             {
-                if (i == index)
-                    btn.Background = Brushes.IndianRed;
-                else if (i == _viewModel.CurrentQuestion!.CorrectAnswerIndex)
-                    btn.Background = Brushes.LightGreen;
-                else
-                    btn.Background = Brushes.DimGray;
+                if (i == index) btn.Background = Brushes.IndianRed;
+                else if (i == _viewModel.CurrentQuestion!.CorrectAnswerIndex) btn.Background = Brushes.LightGreen;
+                else btn.Background = Brushes.DimGray;
             }
         }
     }
 
-    private Button GetButtonByIndex(int index)
+    private Button GetButtonByIndex(int index) => index switch
     {
-        return index switch
-        {
-            0 => Answer1Button,
-            1 => Answer2Button,
-            2 => Answer3Button,
-            3 => Answer4Button,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-    }
+        0 => Answer1Button,
+        1 => Answer2Button,
+        2 => Answer3Button,
+        3 => Answer4Button,
+        _ => throw new ArgumentOutOfRangeException()
+    };
 
     private void ResetButtonColors()
     {
@@ -198,21 +196,16 @@ public partial class QuizView : UserControl
     private void DisableAllAnswerButtons()
     {
         foreach (var btn in new[] { Answer1Button, Answer2Button, Answer3Button, Answer4Button })
-        {
             btn.IsEnabled = false;
-        }
     }
 
-    private void RestartButton_Click(object? sender, RoutedEventArgs e)
-    {
-        _mainWindow.PlayAgain();
-    }
+    private void RestartButton_Click(object? sender, RoutedEventArgs e) => _mainWindow.PlayAgain();
 
     private void ShowFinalScreen()
     {
         _viewModel.QuizTimeSeconds = (int)(DateTime.Now - _quizStartTime).TotalSeconds;
         _viewModel.SaveQuizHistory();
-        
+
         QuestionTextBlock.IsVisible = false;
         FeedbackTextBlock.IsVisible = false;
         QuestionNumberTextBlock.IsVisible = false;
@@ -223,29 +216,30 @@ public partial class QuizView : UserControl
         Answer4Button.IsVisible = false;
         ExitButton.IsVisible = false;
 
-        FinalResultTextBlock.Text = $"Gratulacje! Twój wynik: {_viewModel.Score}/{_viewModel.Questions.Count}";
+        FinalResultTextBlock.Text = string.Format(
+            L["Quiz_FinalResult"],
+            _viewModel.Score,
+            _viewModel.Questions.Count);
+
         FinalResultTextBlock.IsVisible = true;
         RestartButton.IsVisible = true;
         BackToMenuButton.IsVisible = true;
     }
-    
-    private void BackToMenu_Click(object? sender, RoutedEventArgs e)
-    {
-        _mainWindow.NavigateToStart();
-    }
-    
-    private void ExitButton_Click(object? sender, RoutedEventArgs e)
-    {
-        ConfirmExitOverlay.IsVisible = true;
-    }
-    
-    private void ConfirmExit_Yes_Click(object? sender, RoutedEventArgs e)
-    {
-        _mainWindow.NavigateToStart();
-    }
 
-    private void ConfirmExit_No_Click(object? sender, RoutedEventArgs e)
+    private void BackToMenu_Click(object? sender, RoutedEventArgs e) => _mainWindow.NavigateToStart();
+    private void ExitButton_Click(object? sender, RoutedEventArgs e) => ConfirmExitOverlay.IsVisible = true;
+    private void ConfirmExit_Yes_Click(object? sender, RoutedEventArgs e) => _mainWindow.NavigateToStart();
+    private void ConfirmExit_No_Click(object? sender, RoutedEventArgs e) => ConfirmExitOverlay.IsVisible = false;
+    
+    protected override void OnDetachedFromVisualTree(Avalonia.VisualTreeAttachmentEventArgs e)
     {
-        ConfirmExitOverlay.IsVisible = false;
+        base.OnDetachedFromVisualTree(e);
+        if (_timer is not null)
+        {
+            _timer.Elapsed -= TimerElapsed;
+            _timer.Stop();
+            _timer.Dispose();
+            _timer = null;
+        }
     }
 }
