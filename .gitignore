@@ -1,5 +1,19 @@
+# IDE
+.idea/
+.vs/
+.vscode/
+*.sln.DotSettings.user
+*.user
+
+# .NET build
 bin/
 obj/
-/packages/
-riderModule.iml
-/_ReSharper.Caches/
+
+# Avalonia (pliki generowane)
+*.g.cs
+*.g.*.cs
+*.axaml.cs.map
+
+# System
+.DS_Store
+Thumbs.db
