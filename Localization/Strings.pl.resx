@@ -133,4 +133,7 @@
   <data name="Quiz_ConfirmExit_Title" xml:space="preserve"><value>Czy na pewno chcesz przerwać quiz?</value></data>
   <data name="Quiz_Yes" xml:space="preserve"><value>✅ Tak</value></data>
   <data name="Quiz_No" xml:space="preserve"><value>❌ Nie</value></data>
+  <data name="Mode_Survival" xml:space="preserve">
+    <value>Quiz przetrwanie</value>
+  </data>
 </root>

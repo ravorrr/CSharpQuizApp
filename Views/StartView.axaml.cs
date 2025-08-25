@@ -43,12 +43,12 @@ public partial class StartView : UserControl
         var lang = _userSettings.Language?.ToLowerInvariant() ?? "pl-pl";
         
         var plUri = lang.StartsWith("pl")
-            ? "avares://CSharpQuizApp/Assets/flags/pl.png"
-            : "avares://CSharpQuizApp/Assets/flags/pl.gray.png";
+            ? "avares://CSharpQuizApp/Assets/Flags/pl.png"
+            : "avares://CSharpQuizApp/Assets/Flags/pl.gray.png";
 
         var enUri = lang.StartsWith("en")
-            ? "avares://CSharpQuizApp/Assets/flags/en.png"
-            : "avares://CSharpQuizApp/Assets/flags/en.gray.png";
+            ? "avares://CSharpQuizApp/Assets/Flags/en.png"
+            : "avares://CSharpQuizApp/Assets/Flags/en.gray.png";
 
         if (ImgPl is not null) ImgPl.Source = LoadAssetBitmap(plUri);
         if (ImgEn is not null) ImgEn.Source = LoadAssetBitmap(enUri);

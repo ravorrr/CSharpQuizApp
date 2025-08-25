@@ -6,6 +6,7 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <ApplicationIcon>Assets\Icons\app.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -51,12 +52,21 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Assets\flags\" />
+        <Folder Include="Assets\Flags\"/>
     </ItemGroup>
     
     <ItemGroup>
         <None Include="Assets\Questions\*.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_1024x1024.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_128x128.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_16x16.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_256x256.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_32x32.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_512x512.png" />
     </ItemGroup>
 </Project>

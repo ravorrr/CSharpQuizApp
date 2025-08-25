@@ -46,7 +46,7 @@
                 Click="LanguageButton_Click"
                 ToolTip.Tip="Polski">
           <Image x:Name="ImgPl" Width="28" Height="20"
-                 Source="avares://CSharpQuizApp/Assets/flags/pl.png"/>
+                 Source="avares://CSharpQuizApp/Assets/Flags/pl.png"/>
         </Button>
 
         <Button x:Name="BtnEn"
@@ -55,7 +55,7 @@
                 Click="LanguageButton_Click"
                 ToolTip.Tip="English">
           <Image x:Name="ImgEn" Width="28" Height="20"
-                 Source="avares://CSharpQuizApp/Assets/flags/en.png"/>
+                 Source="avares://CSharpQuizApp/Assets/Flags/en.png"/>
         </Button>
       </StackPanel>
       

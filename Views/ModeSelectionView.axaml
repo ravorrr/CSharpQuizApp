@@ -59,6 +59,25 @@
                 <Button Cursor="Hand"
                         Width="250"
                         Height="50"
+                        Click="StartSurvivalQuiz_Click"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Focusable="True">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="🔥"
+                                   FontSize="20"
+                                   Margin="0,-2,5,0"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding [Mode_Survival], Source={x:Static loc:LocalizationService.L}}"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                
+                <Button Cursor="Hand"
+                        Width="250"
+                        Height="50"
                         Click="ShowCategorySelection_Click"
                         FontSize="16"
                         HorizontalAlignment="Center"

@@ -49,6 +49,15 @@ public partial class MainWindow : Window
         MainContent.Content = new QuizView(this, viewModel);
     }
     
+    public void StartSurvivalQuiz()
+    {
+        _lastQuizType = QuizType.All;
+        _lastCategory = null;
+        var viewModel = new SurvivalQuizViewModel();
+        SetPlayerName(viewModel);
+        MainContent.Content = new QuizView(this, viewModel);
+    }
+    
     public void StartCategoryQuiz(string category)
     {
         _lastQuizType = QuizType.Category;

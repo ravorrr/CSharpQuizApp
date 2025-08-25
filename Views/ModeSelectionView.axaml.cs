@@ -23,6 +23,11 @@ namespace CSharpQuizApp.Views
             _mainWindow.StartAllQuestionsQuiz();
         }
         
+        private void StartSurvivalQuiz_Click(object? sender, RoutedEventArgs e)
+        {
+            _mainWindow.StartSurvivalQuiz();
+        }
+        
         private void ShowCategorySelection_Click(object? sender, RoutedEventArgs e)
         {
             _mainWindow.NavigateToCategorySelection();

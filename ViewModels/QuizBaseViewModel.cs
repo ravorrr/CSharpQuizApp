@@ -43,7 +43,7 @@ public abstract class QuizBaseViewModel : ObservableObject
             Score++;
     }
 
-    public bool GoToNextQuestion()
+    public virtual bool GoToNextQuestion()
     {
         CurrentQuestionIndex++;
 
