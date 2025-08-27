@@ -147,12 +147,22 @@
             <TextBlock Text="{Binding [Start_Rules], Source={x:Static loc:LocalizationService.L}}" FontSize="16"/>
           </StackPanel>
         </Button>
+        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,30,0,0" Spacing="4">
+          <TextBlock Text="Made by Patryk Mars — v1.1.0"
+                     FontSize="12"
+                     Foreground="Gray"
+                     HorizontalAlignment="Center"/>
+          
+          <TextBlock FontSize="12"
+                     Foreground="Gray"
+                     Cursor="Hand"
+                     HorizontalAlignment="Center"
+                     PointerPressed="OpenGithub_Click">
+            <Run Text="GitHub: ravorrr"/>
+          </TextBlock>
+        </StackPanel>
 
-        <TextBlock Text="Made by Patryk Mars — v1.0.0"
-                   FontSize="12"
-                   Foreground="Gray"
-                   HorizontalAlignment="Center"
-                   Margin="0,30,0,0"/>
       </StackPanel>
     </Grid>
   </Border>

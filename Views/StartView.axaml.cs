@@ -7,6 +7,7 @@ using CSharpQuizApp.Data;
 using CSharpQuizApp.Localization;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace CSharpQuizApp.Views;
 
@@ -128,7 +129,6 @@ public partial class StartView : UserControl
         {
             CommitNameOnce();
             e.Handled = true;
-            
             FocusCatcher?.Focus();
         }
     }
@@ -171,6 +171,22 @@ public partial class StartView : UserControl
         finally
         {
             _isCommittingName = false;
+        }
+    }
+
+    private void OpenGithub_Click(object? sender, PointerPressedEventArgs e)
+    {
+        try
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://github.com/ravorrr",
+                UseShellExecute = true
+            });
+        }
+        catch
+        {
+            
         }
     }
 

@@ -9,7 +9,7 @@ public class RandomQuizViewModel : QuizBaseViewModel
     public RandomQuizViewModel()
     {
         QuizDatabase.Initialize();
-        var questions = QuizDatabase.LoadQuestions(); // 10 losowych
+        var questions = QuizDatabase.LoadQuestions();
         SetQuestions(questions);
         
         var settings = UserSettings.Load();

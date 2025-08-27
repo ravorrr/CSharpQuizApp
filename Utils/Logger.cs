@@ -22,7 +22,7 @@ namespace CSharpQuizApp.Utils
             }
             catch
             {
-                // ignorujemy błąd logowania, żeby aplikacja się nie zawiesiła
+                
             }
         }
         
@@ -38,7 +38,7 @@ namespace CSharpQuizApp.Utils
             }
             catch
             {
-                // ignorujemy błąd logowania
+                
             }
         }
     }
