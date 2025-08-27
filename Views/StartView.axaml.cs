@@ -14,17 +14,25 @@ public partial class StartView : UserControl
 {
     private readonly MainWindow _mainWindow;
     private UserSettings _userSettings;
+    
+    private bool _isCommittingName;
 
     public StartView(MainWindow mainWindow)
     {
         InitializeComponent();
         _mainWindow = mainWindow;
         _userSettings = UserSettings.Load();
-        
+
         LocalizationService.Instance.Localizer.PropertyChanged += OnLocalizerPropertyChanged;
 
         UpdateFlagVisuals();
         UpdateWelcomeMessage();
+    }
+
+    protected override void OnDetachedFromVisualTree(Avalonia.VisualTreeAttachmentEventArgs e)
+    {
+        LocalizationService.Instance.Localizer.PropertyChanged -= OnLocalizerPropertyChanged;
+        base.OnDetachedFromVisualTree(e);
     }
 
     private void OnLocalizerPropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -70,12 +78,12 @@ public partial class StartView : UserControl
         if (sender is not Button btn || btn.Tag is not string raw) return;
 
         var culture = NormalizeCulture(raw);
-        
+
         _userSettings.Language = culture;
         _userSettings.Save();
-        
+
         LocalizationService.Instance.SetCulture(culture);
-        
+
         UpdateFlagVisuals();
         UpdateWelcomeMessage();
     }
@@ -117,28 +125,53 @@ public partial class StartView : UserControl
     private void NameEditBox_KeyUp(object? sender, KeyEventArgs e)
     {
         if (e.Key == Key.Enter)
-            SaveAndSwitchBack();
+        {
+            CommitNameOnce();
+            e.Handled = true;
+            
+            FocusCatcher?.Focus();
+        }
     }
 
     private void NameEditBox_LostFocus(object? sender, RoutedEventArgs e)
     {
-        SaveAndSwitchBack();
+        CommitNameOnce();
     }
 
-    private void SaveAndSwitchBack()
+    private void FocusCatcher_PointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        if (NameEditBox is null || WelcomeTextBlock is null) return;
+        if (NameEditBox?.IsVisible == true)
+        {
+            CommitNameOnce();
+            FocusCatcher?.Focus();
+            e.Handled = true;
+        }
+    }
 
-        var name = NameEditBox.Text?.Trim();
-        if (string.IsNullOrWhiteSpace(name))
-            name = "Unknown";
+    private void CommitNameOnce()
+    {
+        if (_isCommittingName) return;
+        _isCommittingName = true;
 
-        _userSettings.PlayerName = name;
-        _userSettings.Save();
+        try
+        {
+            if (NameEditBox is null || WelcomeTextBlock is null) return;
 
-        UpdateWelcomeMessage();
-        NameEditBox.IsVisible = false;
-        WelcomeTextBlock.IsVisible = true;
+            var name = NameEditBox.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(name))
+                name = "Unknown";
+
+            _userSettings.PlayerName = name;
+            _userSettings.Save();
+
+            UpdateWelcomeMessage();
+            NameEditBox.IsVisible = false;
+            WelcomeTextBlock.IsVisible = true;
+        }
+        finally
+        {
+            _isCommittingName = false;
+        }
     }
 
     private void StartQuiz_Click(object? sender, RoutedEventArgs e)
@@ -152,7 +185,4 @@ public partial class StartView : UserControl
 
     private void ShowStatistics_Click(object? sender, RoutedEventArgs e)
         => _mainWindow.NavigateToStatistics();
-
-    private void FocusCatcher_PointerPressed(object? sender, PointerPressedEventArgs e)
-        => Focus();
 }

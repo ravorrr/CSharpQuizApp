@@ -33,7 +33,8 @@
       <Rectangle Name="FocusCatcher"
                  Fill="Transparent"
                  Focusable="True"
-                 IsHitTestVisible="False"/>
+                 IsHitTestVisible="True"
+                 PointerPressed="FocusCatcher_PointerPressed"/>
       
       <StackPanel Orientation="Horizontal"
                   HorizontalAlignment="Left"

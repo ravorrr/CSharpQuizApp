@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 using CSharpQuizApp.Models;
 using CSharpQuizApp.Utils;
@@ -13,7 +14,7 @@ namespace CSharpQuizApp.Data;
 public static class QuizDatabase
 {
     private const string QuestionsFolder = "Assets/Questions";
-    
+
     private static readonly string[] PlCandidates = { "questions.pl.json", "questions_pl.json" };
     private static readonly string[] EnCandidates = { "questions.en.json", "questions_en.json" };
 
@@ -29,17 +30,60 @@ public static class QuizDatabase
         public int CorrectIndex { get; set; }
         public string Category { get; set; } = "";
     }
-    
-    private static readonly string AppDataDir =
-        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CSharpQuizApp");
+
     private const string DbFileName = "quiz.db";
-    public static string ConnectionString => $"Data Source={Path.Combine(AppDataDir, DbFileName)}";
+    
+    private static string GetAppDataDir()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            var roaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); // AppData\Roaming
+            return Path.Combine(roaming, "Quiz App");
+        }
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            var home = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // /Users/<name>
+            return Path.Combine(home, "Library", "Application Support", "Quiz App");
+        }
+        var homeDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        return Path.Combine(homeDir, ".config", "Quiz App");
+    }
+
+    private static readonly string AppDataDir = GetAppDataDir();
+    private static readonly string FilePath = Path.Combine(AppDataDir, DbFileName);
+    
+    private static string LegacyPath
+    {
+        get
+        {
+            var roaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            return Path.Combine(roaming, "CSharpQuizApp", DbFileName);
+        }
+    }
+
+    public static string ConnectionString => $"Data Source={FilePath}";
 
     public static void Initialize()
     {
         try
         {
             Directory.CreateDirectory(AppDataDir);
+            
+            if (File.Exists(LegacyPath) && !File.Exists(FilePath))
+            {
+                try
+                {
+                    File.Copy(LegacyPath, FilePath, overwrite: false);
+#if DEBUG
+                    Console.WriteLine($"[DEBUG] Migrated quiz.db: {LegacyPath} → {FilePath}");
+#endif
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex);
+                }
+            }
+
             EnsureHistoryTableExists();
         }
         catch (Exception ex) { Logger.LogError(ex); }

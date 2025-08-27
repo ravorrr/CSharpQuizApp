@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 
 namespace CSharpQuizApp.Data
@@ -9,17 +10,46 @@ namespace CSharpQuizApp.Data
         public string PlayerName { get; set; } = "Unknown";
         public string Language { get; set; } = "pl-PL";
 
-        // ~/AppData/Roaming/CSharpQuizApp (Windows), ~/Library/Application Support/CSharpQuizApp (macOS), ~/.config/CSharpQuizApp (Linux)
-        private static readonly string AppDataDir =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-                "..", "Library", "Application Support", "CSharpQuizApp");
-        private static readonly string FilePath = Path.Combine(AppDataDir, "usersettings.json");
+        private const string FileName = "usersettings.json";
+
+        private static string GetAppDataDir()
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                var roaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                return Path.Combine(roaming, "Quiz App");
+            }
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                var home = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                return Path.Combine(home, "Library", "Application Support", "Quiz App");
+            }
+            
+            var homeDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            return Path.Combine(homeDir, ".config", "Quiz App");
+        }
+
+        private static string AppDataDir => GetAppDataDir();
+        private static string FilePath => Path.Combine(AppDataDir, FileName);
+        
+        private static string LegacyPath => Path.Combine(AppContext.BaseDirectory, FileName);
 
         public static UserSettings Load()
         {
             try
             {
                 Directory.CreateDirectory(AppDataDir);
+                
+                if (File.Exists(LegacyPath) && !File.Exists(FilePath))
+                {
+                    try
+                    {
+                        File.Copy(LegacyPath, FilePath, overwrite: false);
+                    }
+                    catch { }
+                }
+
                 if (!File.Exists(FilePath))
                     return new UserSettings();
 
@@ -39,10 +69,15 @@ namespace CSharpQuizApp.Data
                 Directory.CreateDirectory(AppDataDir);
                 var json = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(FilePath, json);
+#if DEBUG
+                Console.WriteLine($"[DEBUG] UserSettings saved → {FilePath}");
+#endif
             }
             catch
             {
-                // cicho ignorujemy błędy IO
+#if DEBUG
+                Console.WriteLine($"[DEBUG] Failed to save UserSettings at {FilePath}");
+#endif
             }
         }
     }

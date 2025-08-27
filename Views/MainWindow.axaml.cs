@@ -9,7 +9,8 @@ public enum QuizType
 {
     Random,
     All,
-    Category
+    Category,
+    Survival
 }
 
 public partial class MainWindow : Window
@@ -51,7 +52,7 @@ public partial class MainWindow : Window
     
     public void StartSurvivalQuiz()
     {
-        _lastQuizType = QuizType.All;
+        _lastQuizType = QuizType.Survival;
         _lastCategory = null;
         var viewModel = new SurvivalQuizViewModel();
         SetPlayerName(viewModel);
@@ -80,6 +81,14 @@ public partial class MainWindow : Window
             case QuizType.Category:
                 if (!string.IsNullOrEmpty(_lastCategory))
                     StartCategoryQuiz(_lastCategory);
+                else
+                    NavigateToModeSelection();
+                break;
+            case QuizType.Survival:
+                StartSurvivalQuiz();
+                break;
+            default:
+                NavigateToModeSelection();
                 break;
         }
     }
