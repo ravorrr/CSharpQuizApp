@@ -6,13 +6,48 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-        <ApplicationIcon>Assets\Icons\app.ico</ApplicationIcon>
+
+        <!-- Windows: ikona -->
+        <ApplicationIcon>Assets/Icons/app.ico</ApplicationIcon>
+
+        <!-- macOS: host natywny -->
+        <UseAppHost>true</UseAppHost>
+
+        <!-- Nazwa widoczna w Finder/Dock oraz NAZWA BUNDLA .app -->
+        <AppLabel>Quiz App</AppLabel>
+
+        <!-- 🔵 LOKALIZACJA: wymuś satelity + pełną globalizację -->
+        <GenerateSatelliteAssemblies>true</GenerateSatelliteAssemblies>
+        <SatelliteResourceLanguages>pl;en</SatelliteResourceLanguages>
+        <InvariantGlobalization>false</InvariantGlobalization>
     </PropertyGroup>
 
+    <!-- 🔵 Publikacja na macOS: bez SingleFile i bez trimming -->
+    <PropertyGroup Condition=" '$(RuntimeIdentifier)' == 'osx-x64' Or '$(RuntimeIdentifier)' == 'osx-arm64' ">
+        <SelfContained>true</SelfContained>
+        <PublishSingleFile>false</PublishSingleFile>
+        <PublishTrimmed>false</PublishTrimmed>
+    </PropertyGroup>
+
+    <!-- ===== ZASOBY AVALONIA ===== -->
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**" Exclude="Assets\Questions\*.json" />
+        <!-- usuń inne akcje build na flagach -->
+        <None Remove="Assets/Flags/**" />
+        <Content Remove="Assets/Flags/**" />
+        <Resource Remove="Assets/Flags/**" />
     </ItemGroup>
 
+    <!-- Globalny include zasobów (wyklucz JSON i iconset) -->
+    <ItemGroup>
+        <AvaloniaResource Include="Assets/**"
+                          Exclude="Assets/Questions/*.json;Assets/Icons/MyIcon.iconset/**" />
+        <!-- Logiczna ścieżka = 'Assets/Flags/...' (działa też z avares://CSharpQuizApp/...) -->
+        <AvaloniaResource Update="Assets/Flags/**">
+            <LogicalName>Assets/Flags/%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+        </AvaloniaResource>
+    </ItemGroup>
+
+    <!-- ===== PACZKI ===== -->
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.2.6" />
         <PackageReference Include="Avalonia.Desktop" Version="11.2.6" />
@@ -27,46 +62,150 @@
         <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.3" />
     </ItemGroup>
 
+    <!-- Powiązania .axaml.cs -->
     <ItemGroup>
-        <Compile Update="Views\StartView.axaml.cs">
+        <Compile Update="Views/StartView.axaml.cs">
             <DependentUpon>StartView.axaml</DependentUpon>
         </Compile>
-        <Compile Update="Views\QuizView.axaml.cs">
+        <Compile Update="Views/QuizView.axaml.cs">
             <DependentUpon>QuizView.axaml</DependentUpon>
         </Compile>
-        <Compile Update="Views\MainWindow.axaml.cs">
+        <Compile Update="Views/MainWindow.axaml.cs">
             <DependentUpon>MainWindow.axaml</DependentUpon>
         </Compile>
-        <Compile Update="Views\ModeSelectionView.axaml.cs">
+        <Compile Update="Views/ModeSelectionView.axaml.cs">
             <DependentUpon>ModeSelectionView.axaml</DependentUpon>
         </Compile>
-        <Compile Update="Views\HistoryView.axaml.cs">
+        <Compile Update="Views/HistoryView.axaml.cs">
             <DependentUpon>HistoryView.axaml</DependentUpon>
         </Compile>
-        <Compile Update="Views\ConfirmExitWindow.axaml.cs">
+        <Compile Update="Views/ConfirmExitWindow.axaml.cs">
             <DependentUpon>ConfirmExitWindow.axaml</DependentUpon>
         </Compile>
-        <Compile Update="Views\CategorySelectionView.axaml.cs">
+        <Compile Update="Views/CategorySelectionView.axaml.cs">
             <DependentUpon>CategorySelectionView.axaml</DependentUpon>
         </Compile>
     </ItemGroup>
 
+    <!-- Ikona macOS do outputu -->
     <ItemGroup>
-        <Folder Include="Assets\Flags\"/>
+        <None Include="Assets/Icons/app.icns" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
-    
+
+    <!-- JSON-y do outputu -->
     <ItemGroup>
-        <None Include="Assets\Questions\*.json">
+        <None Include="Assets/Questions/*.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
-    
+
+    <!-- Zasoby .resx (lokalizacja) -->
     <ItemGroup>
-      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_1024x1024.png" />
-      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_128x128.png" />
-      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_16x16.png" />
-      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_256x256.png" />
-      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_32x32.png" />
-      <UpToDateCheckInput Remove="Assets\Icons\MyIcon.iconset\icon_512x512.png" />
+        <EmbeddedResource Update="Localization/Strings.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization/Strings.*.resx" />
     </ItemGroup>
+
+    <!-- Neutral language = en (bazowy Strings.resx jest po EN) -->
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Resources.NeutralResourcesLanguage">
+            <_Parameter1>en</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <!-- Nie śledź roboczego iconset -->
+    <ItemGroup>
+        <UpToDateCheckInput Remove="Assets/Icons/MyIcon.iconset/icon_16x16.png" />
+        <UpToDateCheckInput Remove="Assets/Icons/MyIcon.iconset/icon_32x32.png" />
+        <UpToDateCheckInput Remove="Assets/Icons/MyIcon.iconset/icon_128x128.png" />
+        <UpToDateCheckInput Remove="Assets/Icons/MyIcon.iconset/icon_256x256.png" />
+        <UpToDateCheckInput Remove="Assets/Icons/MyIcon.iconset/icon_512x512.png" />
+        <UpToDateCheckInput Remove="Assets/Icons/MyIcon.iconset/icon_1024x1024.png" />
+    </ItemGroup>
+
+    <!-- Weryfikacja (opcjonalnie) -->
+    <Target Name="VerifyFlagsExist" BeforeTargets="PrepareResources">
+        <ItemGroup>
+            <_MustHaveFlag Include="Assets/Flags/pl.png" />
+            <_MustHaveFlag Include="Assets/Flags/en.png" />
+        </ItemGroup>
+        <Error Text="Missing flag file: %(_MustHaveFlag.Identity) (sprawdź wielkość liter i ścieżkę)"
+               Condition="!Exists('%(_MustHaveFlag.Identity)')" />
+    </Target>
+
+    <!-- ===== Budowanie .app po publish ===== -->
+    <Target Name="CreateMacAppBundle" AfterTargets="Publish"
+            Condition=" '$(RuntimeIdentifier)' == 'osx-x64' OR '$(RuntimeIdentifier)' == 'osx-arm64' ">
+        <PropertyGroup>
+            <BundleFileName>$(AppLabel)</BundleFileName>
+            <ExeName>$(AssemblyName)</ExeName>
+
+            <AppBundle>$(PublishDir)$(BundleFileName).app</AppBundle>
+            <Contents>$(AppBundle)/Contents</Contents>
+            <MacOSDir>$(Contents)/MacOS</MacOSDir>
+            <ResourcesDir>$(Contents)/Resources</ResourcesDir>
+            <Plist>$(Contents)/Info.plist</Plist>
+        </PropertyGroup>
+
+        <Message Text=">>> CreateMacAppBundle (bundle=$(AppBundle), exe=$(ExeName))" Importance="High" />
+
+        <MakeDir Directories="$(MacOSDir)" />
+        <MakeDir Directories="$(ResourcesDir)" />
+
+        <!-- przenieś wszystko z publish do MacOS (exe, dll, pl/, en/ itd.), pomijając samo .app -->
+        <ItemGroup>
+            <_AllPublishFiles Include="$(PublishDir)**/*" Exclude="$(AppBundle)/**" />
+        </ItemGroup>
+
+        <RemoveDir Directories="$(AppBundle)" />
+        <MakeDir Directories="@(_AllPublishFiles->'$(MacOSDir)/%(RecursiveDir)')" />
+        <Copy SourceFiles="@(_AllPublishFiles)"
+              DestinationFiles="@(_AllPublishFiles->'$(MacOSDir)/%(RecursiveDir)%(Filename)%(Extension)')"
+              SkipUnchangedFiles="true" />
+
+        <Copy SourceFiles="$(PublishDir)$(AssemblyName)"
+              DestinationFiles="$(MacOSDir)/$(ExeName)"
+              SkipUnchangedFiles="true"
+              Condition="Exists('$(PublishDir)$(AssemblyName)')" />
+
+        <!-- ikona do Resources: najpierw z publish, jak brak – z katalogu projektu -->
+        <Copy SourceFiles="$(PublishDir)Assets/Icons/app.icns"
+              DestinationFolder="$(ResourcesDir)"
+              SkipUnchangedFiles="true"
+              Condition="Exists('$(PublishDir)Assets/Icons/app.icns')" />
+
+        <Copy SourceFiles="$(ProjectDir)Assets/Icons/app.icns"
+              DestinationFolder="$(ResourcesDir)"
+              SkipUnchangedFiles="true"
+              Condition="!Exists('$(PublishDir)Assets/Icons/app.icns') AND Exists('$(ProjectDir)Assets/Icons/app.icns')" />
+
+        <!-- Info.plist: dodaj CFBundleDevelopmentRegion=pl -->
+        <ItemGroup>
+            <PlistLines Include="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;" />
+            <PlistLines Include="&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;" />
+            <PlistLines Include="&lt;plist version=&quot;1.0&quot;&gt;" />
+            <PlistLines Include="&lt;dict&gt;" />
+            <PlistLines Include="  &lt;key&gt;CFBundleName&lt;/key&gt;&lt;string&gt;$(AppLabel)&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;CFBundleDisplayName&lt;/key&gt;&lt;string&gt;$(AppLabel)&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;CFBundleIdentifier&lt;/key&gt;&lt;string&gt;com.quiz.$(ExeName)&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;CFBundleVersion&lt;/key&gt;&lt;string&gt;1.0.0&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;CFBundleShortVersionString&lt;/key&gt;&lt;string&gt;1.0.0&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;CFBundlePackageType&lt;/key&gt;&lt;string&gt;APPL&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;CFBundleExecutable&lt;/key&gt;&lt;string&gt;$(ExeName)&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;CFBundleIconFile&lt;/key&gt;&lt;string&gt;app&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;CFBundleDevelopmentRegion&lt;/key&gt;&lt;string&gt;pl&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;LSMinimumSystemVersion&lt;/key&gt;&lt;string&gt;10.13&lt;/string&gt;" />
+            <PlistLines Include="  &lt;key&gt;NSHighResolutionCapable&lt;/key&gt;&lt;true/&gt;" />
+            <PlistLines Include="&lt;/dict&gt;" />
+            <PlistLines Include="&lt;/plist&gt;" />
+        </ItemGroup>
+
+        <WriteLinesToFile File="$(Plist)" Overwrite="true" Lines="@(PlistLines)" />
+
+        <!-- +x na executable i zdejmij quarantine -->
+        <Exec Command="chmod +x '$(MacOSDir)/$(ExeName)'" ContinueOnError="true" />
+        <Exec Command="xattr -dr com.apple.quarantine '$(AppBundle)'" ContinueOnError="true" />
+    </Target>
 </Project>

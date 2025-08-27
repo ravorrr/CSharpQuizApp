@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Reflection;
 using System.Resources;
 
@@ -9,9 +10,11 @@ namespace CSharpQuizApp.Localization
         public static LocalizationService Instance { get; } = new();
 
         private readonly ResourceManager _rm;
-        public Localizer Localizer { get; }
+        public Localizer Localizer { get; private set; }
         
         public static Localizer L => Instance.Localizer;
+
+        public event Action? CultureChanged;
 
         private LocalizationService()
         {
@@ -22,10 +25,15 @@ namespace CSharpQuizApp.Localization
 
         public void SetCulture(string cultureName)
         {
-            var culture = new CultureInfo(cultureName);
-            CultureInfo.CurrentCulture = culture;
-            CultureInfo.CurrentUICulture = culture;
-            Localizer.SetCulture(culture);
+            var ci = new CultureInfo(cultureName);
+
+            CultureInfo.DefaultThreadCurrentCulture = ci;
+            CultureInfo.DefaultThreadCurrentUICulture = ci;
+            CultureInfo.CurrentCulture = ci;
+            CultureInfo.CurrentUICulture = ci;
+
+            Localizer.SetCulture(ci);
+            CultureChanged?.Invoke();
         }
     }
 }

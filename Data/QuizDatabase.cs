@@ -13,8 +13,9 @@ namespace CSharpQuizApp.Data;
 public static class QuizDatabase
 {
     private const string QuestionsFolder = "Assets/Questions";
-    private const string PlFileName = "questions.pl.json";
-    private const string EnFileName = "questions.en.json";
+    
+    private static readonly string[] PlCandidates = { "questions.pl.json", "questions_pl.json" };
+    private static readonly string[] EnCandidates = { "questions.en.json", "questions_en.json" };
 
     private static readonly JsonSerializerOptions JsonOpts = new()
     {
@@ -29,12 +30,18 @@ public static class QuizDatabase
         public string Category { get; set; } = "";
     }
     
-    private const string FileName = "quiz.db";
-    public static string ConnectionString = $"Data Source={FileName}";
+    private static readonly string AppDataDir =
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CSharpQuizApp");
+    private const string DbFileName = "quiz.db";
+    public static string ConnectionString => $"Data Source={Path.Combine(AppDataDir, DbFileName)}";
 
     public static void Initialize()
     {
-        try { EnsureHistoryTableExists(); }
+        try
+        {
+            Directory.CreateDirectory(AppDataDir);
+            EnsureHistoryTableExists();
+        }
         catch (Exception ex) { Logger.LogError(ex); }
     }
 
@@ -125,7 +132,7 @@ public static class QuizDatabase
         cmd.CommandText = "DELETE FROM quiz_history";
         cmd.ExecuteNonQuery();
     }
-    
+
     public static List<Question> LoadQuestions(int limit = 10)
     {
         try
@@ -175,25 +182,30 @@ public static class QuizDatabase
     private static List<JsonQuestion> ReadAllFromCurrentLanguage()
     {
         var lang = CultureInfo.CurrentUICulture?.TwoLetterISOLanguageName?.ToLowerInvariant() ?? "pl";
-        var preferred = lang.StartsWith("pl") ? PlFileName : EnFileName;
+        var candidates = lang.StartsWith("pl") ? PlCandidates : EnCandidates;
 
         string BuildPath(string file) =>
-            Path.Combine(AppContext.BaseDirectory, QuestionsFolder.Replace('/', Path.DirectorySeparatorChar), file);
+            Path.Combine(AppContext.BaseDirectory,
+                         QuestionsFolder.Replace('/', Path.DirectorySeparatorChar),
+                         file);
 
-        var preferredPath = BuildPath(preferred);
-        if (!File.Exists(preferredPath))
+        string? chosen = candidates.Select(BuildPath).FirstOrDefault(File.Exists);
+
+        if (chosen is null)
         {
-            var fallback = preferred == PlFileName ? EnFileName : PlFileName;
-            var fallbackPath = BuildPath(fallback);
-
-            if (File.Exists(fallbackPath))
-                preferredPath = fallbackPath;
-            else
-                throw new FileNotFoundException(
-                    $"Nie znaleziono plików z pytaniami: {preferredPath} lub {fallbackPath}");
+            var fb = (candidates == PlCandidates) ? EnCandidates : PlCandidates;
+            chosen = fb.Select(BuildPath).FirstOrDefault(File.Exists);
         }
 
-        var json = File.ReadAllText(preferredPath);
+        if (chosen is null)
+        {
+            var diag = string.Join(", ",
+                candidates.Select(BuildPath).Concat(
+                    ((candidates == PlCandidates) ? EnCandidates : PlCandidates).Select(BuildPath)));
+            throw new FileNotFoundException($"Nie znaleziono plików z pytaniami. Sprawdź: {diag}");
+        }
+
+        var json = File.ReadAllText(chosen);
         var data = JsonSerializer.Deserialize<List<JsonQuestion>>(json, JsonOpts) ?? new();
         return data;
     }
@@ -203,7 +215,7 @@ public static class QuizDatabase
 
     private static List<Question> TakeRandom(List<Question> src, int limit) =>
         src.OrderBy(_ => Random.Shared.Next()).Take(limit).ToList();
-    
+
     private static readonly Dictionary<string, string> CategoryMap = new(StringComparer.OrdinalIgnoreCase)
     {
         ["Geografia"] = "geography", ["Geography"] = "geography",

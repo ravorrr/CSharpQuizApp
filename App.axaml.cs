@@ -1,41 +1,32 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using CSharpQuizApp.Views;
-using System;
-using CSharpQuizApp.Utils;
 using CSharpQuizApp.Localization;
-using CSharpQuizApp.Data;
+using CSharpQuizApp.Views;
 
 namespace CSharpQuizApp;
 
-public class App : Application
+public partial class App : Application
 {
     public override void Initialize() => AvaloniaXamlLoader.Load(this);
 
     public override void OnFrameworkInitializationCompleted()
     {
-        Data.QuizDatabase.Initialize();
-        
-        AppDomain.CurrentDomain.UnhandledException += (_, e) =>
-        {
-            if (e.ExceptionObject is Exception ex) Logger.LogError(ex);
-        };
-        
-        var settings = UserSettings.Load();
-        try
-        {
-            LocalizationService.Instance.SetCulture(settings.Language);
-        }
-        catch
-        {
-            LocalizationService.Instance.SetCulture("pl-PL");
-            settings.Language = "pl-PL";
-            settings.Save();
-        }
-
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            // Subskrybuj zmianę kultury: po kliknięciu flagi przebuduj całe okno
+            LocalizationService.Instance.CultureChanged += () =>
+            {
+                var old = desktop.MainWindow;
+                var fresh = new MainWindow();
+                desktop.MainWindow = fresh;
+                fresh.Show();
+                old?.Close();
+            };
+
+            // Teraz utwórz pierwsze okno (na bazie już ustawionej kultury)
             desktop.MainWindow = new MainWindow();
+        }
 
         base.OnFrameworkInitializationCompleted();
     }

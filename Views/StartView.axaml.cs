@@ -6,7 +6,6 @@ using Avalonia.Platform;
 using CSharpQuizApp.Data;
 using CSharpQuizApp.Localization;
 using System;
-using System.Globalization;
 
 namespace CSharpQuizApp.Views;
 
@@ -24,7 +23,7 @@ public partial class StartView : UserControl
         UpdateFlagVisuals();
         UpdateWelcomeMessage();
     }
-    
+
     private static Bitmap? LoadAssetBitmap(string avaresUri)
     {
         try
@@ -32,39 +31,44 @@ public partial class StartView : UserControl
             using var s = AssetLoader.Open(new Uri(avaresUri));
             return new Bitmap(s);
         }
-        catch
-        {
-            return null;
-        }
+        catch { return null; }
     }
 
     private void UpdateFlagVisuals()
     {
-        var lang = _userSettings.Language?.ToLowerInvariant() ?? "pl-pl";
-        
-        var plUri = lang.StartsWith("pl")
-            ? "avares://CSharpQuizApp/Assets/Flags/pl.png"
-            : "avares://CSharpQuizApp/Assets/Flags/pl.gray.png";
+        var lang = (_userSettings.Language ?? "pl-PL").ToLowerInvariant();
 
-        var enUri = lang.StartsWith("en")
-            ? "avares://CSharpQuizApp/Assets/Flags/en.png"
-            : "avares://CSharpQuizApp/Assets/Flags/en.gray.png";
+        string A(string name) => $"avares://CSharpQuizApp/Assets/Flags/{name}";
+        var plUri = lang.StartsWith("pl") ? A("pl.png") : A("pl.gray.png");
+        var enUri = lang.StartsWith("en") ? A("en.png") : A("en.gray.png");
 
         if (ImgPl is not null) ImgPl.Source = LoadAssetBitmap(plUri);
         if (ImgEn is not null) ImgEn.Source = LoadAssetBitmap(enUri);
     }
 
+    private static string NormalizeCulture(string tag) => tag switch
+    {
+        "pl" or "PL" => "pl-PL",
+        "en" or "EN" => "en-US",
+        _ => tag
+    };
+
     private void LanguageButton_Click(object? sender, RoutedEventArgs e)
     {
-        if (sender is Button btn && btn.Tag is string culture)
-        {
-            LocalizationService.Instance.SetCulture(culture);
-            _userSettings.Language = culture;
-            _userSettings.Save();
+        if (sender is not Button btn || btn.Tag is not string raw) return;
 
-            UpdateFlagVisuals();
-            UpdateWelcomeMessage();
-        }
+        var culture = NormalizeCulture(raw);
+
+        // 1) zapisz preferencję użytkownika
+        _userSettings.Language = culture;
+        _userSettings.Save();
+
+        // 2) przełącz kulturę globalnie (App odbuduje MainWindow przez CultureChanged)
+        LocalizationService.Instance.SetCulture(culture);
+
+        // 3) lokalny soft-refresh (gdyby kiedyś przebudowa okna była wyłączona)
+        UpdateFlagVisuals();
+        UpdateWelcomeMessage();
     }
 
     private void UpdateWelcomeMessage()
