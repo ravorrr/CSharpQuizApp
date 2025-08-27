@@ -37,16 +37,21 @@ namespace CSharpQuizApp.Models
 
         private static string MapMode(string raw)
         {
-            var v = (raw ?? string.Empty).Trim().ToLowerInvariant();
+            var v = (raw ?? string.Empty).Trim();
+            
+            if (v.StartsWith("Mode_", StringComparison.Ordinal))
+                return LocalizationService.L[v];
+            
+            v = v.ToLowerInvariant();
 
             string key = v switch
             {
-                "losowy" or "quiz losowy"                       => "Mode_Random",
-                "pełny"  or "pelny" or "quiz pełny" or "quiz pelny" => "Mode_All",
-                "kategoria" or "wg kategorii" or "quiz wg kategorii" => "Mode_ByCategory",
-                
-                "random" or "random quiz" => "Mode_Random",
-                "all" or "full" or "full quiz" => "Mode_All",
+                "losowy" or "quiz losowy"                             => "Mode_Random",
+                "pełny" or "pelny" or "quiz pełny" or "quiz pelny"    => "Mode_All",
+                "kategoria" or "wg kategorii" or "quiz wg kategorii"  => "Mode_ByCategory",
+
+                "random" or "random quiz"     => "Mode_Random",
+                "all" or "full" or "full quiz"=> "Mode_All",
                 "category" or "category quiz" => "Mode_ByCategory",
 
                 _ => "Mode_Random"

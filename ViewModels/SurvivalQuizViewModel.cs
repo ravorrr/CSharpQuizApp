@@ -2,19 +2,26 @@
 using System.Linq;
 using CSharpQuizApp.Data;
 using CSharpQuizApp.Models;
+using CSharpQuizApp.Localization;
 
 namespace CSharpQuizApp.ViewModels;
 
 public class SurvivalQuizViewModel : QuizBaseViewModel
 {
-    public override string QuizTypeName => "Survival";
-    public bool IsAlive { get; private set; } = true;
+    public override string ModeKey => "Mode_Survival";
+    public override string QuizTypeName => LocalizationService.L[ModeKey];
+
+    private bool _isDead;
+    public bool IsAlive => !_isDead;
 
     public SurvivalQuizViewModel()
     {
         QuizDatabase.Initialize();
-        var qs = QuizDatabase.LoadAllQuestions();
-        qs = qs.OrderBy(_ => Random.Shared.Next()).ToList();
+
+        var qs = QuizDatabase.LoadAllQuestions()
+            .OrderBy(_ => Random.Shared.Next())
+            .ToList();
+
         SetQuestions(qs);
 
         var settings = UserSettings.Load();
@@ -23,13 +30,26 @@ public class SurvivalQuizViewModel : QuizBaseViewModel
 
     public override void CheckAnswer(int index)
     {
+        if (_isDead || CurrentQuestion is null)
+            return;
+
         base.CheckAnswer(index);
-        if (!IsAnswerCorrect) IsAlive = false;
+
+        if (!IsAnswerCorrect)
+        {
+            _isDead = true;
+        }
+        else
+        {
+            
+        }
     }
 
     public override bool GoToNextQuestion()
     {
-        if (!IsAlive) return false;
+        if (_isDead)
+            return false;
+        
         return base.GoToNextQuestion();
     }
 }

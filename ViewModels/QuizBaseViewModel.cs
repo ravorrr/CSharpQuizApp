@@ -3,6 +3,7 @@ using CSharpQuizApp.Models;
 using CSharpQuizApp.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
+using CSharpQuizApp.Localization;
 
 namespace CSharpQuizApp.ViewModels;
 
@@ -16,7 +17,11 @@ public abstract class QuizBaseViewModel : ObservableObject
     public string FeedbackMessage { get; protected set; } = "";
     
     public string PlayerName { get; set; } = "";
-    public virtual string QuizTypeName => "Nieznany";
+    
+    public virtual string ModeKey => "Mode_Random";
+    
+    public virtual string QuizTypeName => LocalizationService.L[ModeKey];
+
     public int QuizTimeSeconds { get; set; }
     public int TotalQuestions => Questions.Count;
     public int CorrectAnswers => Score;
@@ -64,7 +69,7 @@ public abstract class QuizBaseViewModel : ObservableObject
         var entry = new QuizHistoryEntry
         {
             PlayerName = playerName,
-            QuizType = QuizTypeName,
+            QuizType = ModeKey,
             Score = Score,
             TotalQuestions = TotalQuestions,
             CorrectAnswers = CorrectAnswers,
