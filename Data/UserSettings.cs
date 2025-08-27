@@ -12,6 +12,22 @@ namespace CSharpQuizApp.Data
 
         private const string FileName = "usersettings.json";
 
+        private static string GetHomeDir()
+        {
+            var home = Environment.GetEnvironmentVariable("HOME");
+            if (!string.IsNullOrWhiteSpace(home))
+                return home;
+
+            var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            if (!string.IsNullOrWhiteSpace(userProfile))
+                return userProfile;
+
+            var personal = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            if (!string.IsNullOrWhiteSpace(personal) && personal.EndsWith(Path.DirectorySeparatorChar + "Documents"))
+                personal = personal[..personal.LastIndexOf(Path.DirectorySeparatorChar)];
+            return personal;
+        }
+
         private static string GetAppDataDir()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -22,32 +38,49 @@ namespace CSharpQuizApp.Data
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
-                var home = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                var home = GetHomeDir();
                 return Path.Combine(home, "Library", "Application Support", "Quiz App");
             }
-            
-            var homeDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+            var xdg = Environment.GetEnvironmentVariable("XDG_CONFIG_HOME");
+            if (!string.IsNullOrWhiteSpace(xdg))
+                return Path.Combine(xdg, "Quiz App");
+
+            var homeDir = GetHomeDir();
             return Path.Combine(homeDir, ".config", "Quiz App");
         }
 
         private static string AppDataDir => GetAppDataDir();
         private static string FilePath => Path.Combine(AppDataDir, FileName);
-        
-        private static string LegacyPath => Path.Combine(AppContext.BaseDirectory, FileName);
+
+        private static string LegacyAppLocal => Path.Combine(AppContext.BaseDirectory, FileName);
+
+        private static string LegacyMacDocumentsPath
+        {
+            get
+            {
+                var personal = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                return Path.Combine(personal, "Library", "Application Support", "Quiz App", FileName);
+            }
+        }
 
         public static UserSettings Load()
         {
             try
             {
                 Directory.CreateDirectory(AppDataDir);
-                
-                if (File.Exists(LegacyPath) && !File.Exists(FilePath))
+
+                if (File.Exists(LegacyAppLocal) && !File.Exists(FilePath))
                 {
-                    try
+                    try { File.Copy(LegacyAppLocal, FilePath, overwrite: false); } catch { }
+                }
+
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    if (File.Exists(LegacyMacDocumentsPath) && !File.Exists(FilePath))
                     {
-                        File.Copy(LegacyPath, FilePath, overwrite: false);
+                        try { File.Copy(LegacyMacDocumentsPath, FilePath, overwrite: false); } catch { }
                     }
-                    catch { }
                 }
 
                 if (!File.Exists(FilePath))

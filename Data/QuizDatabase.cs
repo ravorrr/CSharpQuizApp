@@ -32,32 +32,57 @@ public static class QuizDatabase
     }
 
     private const string DbFileName = "quiz.db";
-    
+
+    private static string GetHomeDir()
+    {
+        var home = Environment.GetEnvironmentVariable("HOME");
+        if (!string.IsNullOrWhiteSpace(home))
+            return home;
+
+        var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        if (!string.IsNullOrWhiteSpace(userProfile))
+            return userProfile;
+
+        var personal = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        if (!string.IsNullOrWhiteSpace(personal) && personal.EndsWith(Path.DirectorySeparatorChar + "Documents"))
+            personal = personal[..personal.LastIndexOf(Path.DirectorySeparatorChar)];
+        return personal;
+    }
+
     private static string GetAppDataDir()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            var roaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); // AppData\Roaming
+            var roaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); // %AppData%
             return Path.Combine(roaming, "Quiz App");
         }
+
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
-            var home = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // /Users/<name>
+            var home = GetHomeDir();
             return Path.Combine(home, "Library", "Application Support", "Quiz App");
         }
-        var homeDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+        var xdg = Environment.GetEnvironmentVariable("XDG_CONFIG_HOME");
+        if (!string.IsNullOrWhiteSpace(xdg))
+            return Path.Combine(xdg, "Quiz App");
+
+        var homeDir = GetHomeDir();
         return Path.Combine(homeDir, ".config", "Quiz App");
     }
 
     private static readonly string AppDataDir = GetAppDataDir();
     private static readonly string FilePath = Path.Combine(AppDataDir, DbFileName);
-    
-    private static string LegacyPath
+
+    private static string LegacyWindowsPath =>
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CSharpQuizApp", DbFileName);
+
+    private static string LegacyMacDocumentsPath
     {
         get
         {
-            var roaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            return Path.Combine(roaming, "CSharpQuizApp", DbFileName);
+            var personal = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            return Path.Combine(personal, "Library", "Application Support", "Quiz App", DbFileName);
         }
     }
 
@@ -68,19 +93,33 @@ public static class QuizDatabase
         try
         {
             Directory.CreateDirectory(AppDataDir);
-            
-            if (File.Exists(LegacyPath) && !File.Exists(FilePath))
+
+            if (File.Exists(LegacyWindowsPath) && !File.Exists(FilePath))
             {
                 try
                 {
-                    File.Copy(LegacyPath, FilePath, overwrite: false);
+                    Directory.CreateDirectory(Path.GetDirectoryName(FilePath)!);
+                    File.Copy(LegacyWindowsPath, FilePath, overwrite: false);
 #if DEBUG
-                    Console.WriteLine($"[DEBUG] Migrated quiz.db: {LegacyPath} → {FilePath}");
+                    Console.WriteLine($"[DEBUG] Migrated quiz.db (Windows): {LegacyWindowsPath} → {FilePath}");
 #endif
                 }
-                catch (Exception ex)
+                catch (Exception ex) { Logger.LogError(ex); }
+            }
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                if (File.Exists(LegacyMacDocumentsPath) && !File.Exists(FilePath))
                 {
-                    Logger.LogError(ex);
+                    try
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(FilePath)!);
+                        File.Copy(LegacyMacDocumentsPath, FilePath, overwrite: false);
+#if DEBUG
+                        Console.WriteLine($"[DEBUG] Migrated quiz.db (macOS Documents): {LegacyMacDocumentsPath} → {FilePath}");
+#endif
+                    }
+                    catch (Exception ex) { Logger.LogError(ex); }
                 }
             }
 
