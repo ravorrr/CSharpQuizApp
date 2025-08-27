@@ -6,6 +6,7 @@ using Avalonia.Platform;
 using CSharpQuizApp.Data;
 using CSharpQuizApp.Localization;
 using System;
+using System.ComponentModel;
 
 namespace CSharpQuizApp.Views;
 
@@ -19,9 +20,20 @@ public partial class StartView : UserControl
         InitializeComponent();
         _mainWindow = mainWindow;
         _userSettings = UserSettings.Load();
+        
+        LocalizationService.Instance.Localizer.PropertyChanged += OnLocalizerPropertyChanged;
 
         UpdateFlagVisuals();
         UpdateWelcomeMessage();
+    }
+
+    private void OnLocalizerPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (string.IsNullOrEmpty(e.PropertyName) || e.PropertyName == "Item[]")
+        {
+            UpdateWelcomeMessage();
+            UpdateFlagVisuals();
+        }
     }
 
     private static Bitmap? LoadAssetBitmap(string avaresUri)
@@ -58,15 +70,12 @@ public partial class StartView : UserControl
         if (sender is not Button btn || btn.Tag is not string raw) return;
 
         var culture = NormalizeCulture(raw);
-
-        // 1) zapisz preferencję użytkownika
+        
         _userSettings.Language = culture;
         _userSettings.Save();
-
-        // 2) przełącz kulturę globalnie (App odbuduje MainWindow przez CultureChanged)
+        
         LocalizationService.Instance.SetCulture(culture);
-
-        // 3) lokalny soft-refresh (gdyby kiedyś przebudowa okna była wyłączona)
+        
         UpdateFlagVisuals();
         UpdateWelcomeMessage();
     }

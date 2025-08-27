@@ -10,8 +10,7 @@ namespace CSharpQuizApp.Localization
         public static LocalizationService Instance { get; } = new();
 
         private readonly ResourceManager _rm;
-        public Localizer Localizer { get; private set; }
-        
+        public Localizer Localizer { get; }
         public static Localizer L => Instance.Localizer;
 
         public event Action? CultureChanged;
@@ -33,6 +32,7 @@ namespace CSharpQuizApp.Localization
             CultureInfo.CurrentUICulture = ci;
 
             Localizer.SetCulture(ci);
+            
             CultureChanged?.Invoke();
         }
     }
