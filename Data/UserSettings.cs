@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.Json;
+using CSharpQuizApp.Utils;
 
 namespace CSharpQuizApp.Data
 {
@@ -12,19 +13,25 @@ namespace CSharpQuizApp.Data
 
         private const string FileName = "usersettings.json";
 
+        private static readonly JsonSerializerOptions JsonOpts = new()
+        {
+            WriteIndented = true
+        };
+
         private static string GetHomeDir()
         {
             var home = Environment.GetEnvironmentVariable("HOME");
-            if (!string.IsNullOrWhiteSpace(home))
-                return home;
+            if (!string.IsNullOrWhiteSpace(home)) return home;
 
             var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            if (!string.IsNullOrWhiteSpace(userProfile))
-                return userProfile;
+            if (!string.IsNullOrWhiteSpace(userProfile)) return userProfile;
 
             var personal = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            if (!string.IsNullOrWhiteSpace(personal) && personal.EndsWith(Path.DirectorySeparatorChar + "Documents"))
+            if (!string.IsNullOrWhiteSpace(personal) &&
+                personal.EndsWith(Path.DirectorySeparatorChar + "Documents", StringComparison.Ordinal))
+            {
                 personal = personal[..personal.LastIndexOf(Path.DirectorySeparatorChar)];
+            }
             return personal;
         }
 
@@ -54,7 +61,6 @@ namespace CSharpQuizApp.Data
         private static string FilePath => Path.Combine(AppDataDir, FileName);
 
         private static string LegacyAppLocal => Path.Combine(AppContext.BaseDirectory, FileName);
-
         private static string LegacyMacDocumentsPath
         {
             get
@@ -72,14 +78,38 @@ namespace CSharpQuizApp.Data
 
                 if (File.Exists(LegacyAppLocal) && !File.Exists(FilePath))
                 {
-                    try { File.Copy(LegacyAppLocal, FilePath, overwrite: false); } catch { }
-                }
+                    try
+                    {
+                        File.Copy(LegacyAppLocal, FilePath, overwrite: false);
+#if DEBUG
+                        // ReSharper disable once LocalizableElement
+                        Console.WriteLine($"[DEBUG] Migrated usersettings from app local → {FilePath}");
 
+#endif
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError(ex);
+                    }
+                }
+                
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
                 {
                     if (File.Exists(LegacyMacDocumentsPath) && !File.Exists(FilePath))
                     {
-                        try { File.Copy(LegacyMacDocumentsPath, FilePath, overwrite: false); } catch { }
+                        try
+                        {
+                            File.Copy(LegacyMacDocumentsPath, FilePath, overwrite: false);
+#if DEBUG
+                            // ReSharper disable once LocalizableElement
+                            Console.WriteLine($"[DEBUG] Migrated usersettings from app local → {FilePath}");
+
+#endif
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.LogError(ex);
+                        }
                     }
                 }
 
@@ -89,8 +119,9 @@ namespace CSharpQuizApp.Data
                 var json = File.ReadAllText(FilePath);
                 return JsonSerializer.Deserialize<UserSettings>(json) ?? new UserSettings();
             }
-            catch
+            catch (Exception ex)
             {
+                Logger.LogError(ex);
                 return new UserSettings();
             }
         }
@@ -100,15 +131,18 @@ namespace CSharpQuizApp.Data
             try
             {
                 Directory.CreateDirectory(AppDataDir);
-                var json = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+                var json = JsonSerializer.Serialize(this, JsonOpts);
                 File.WriteAllText(FilePath, json);
 #if DEBUG
+                // ReSharper disable once LocalizableElement
                 Console.WriteLine($"[DEBUG] UserSettings saved → {FilePath}");
 #endif
             }
-            catch
+            catch (Exception ex)
             {
+                Logger.LogError(ex);
 #if DEBUG
+                // ReSharper disable once LocalizableElement
                 Console.WriteLine($"[DEBUG] Failed to save UserSettings at {FilePath}");
 #endif
             }

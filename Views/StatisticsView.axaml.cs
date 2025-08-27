@@ -6,6 +6,7 @@ using Avalonia.Interactivity;
 using CSharpQuizApp.Data;
 using CSharpQuizApp.Localization;
 using CSharpQuizApp.Models;
+using CSharpQuizApp.ViewModels;
 
 namespace CSharpQuizApp.Views;
 
@@ -41,7 +42,6 @@ public partial class StatisticsView : UserControl
     private void BackToMenu_Click(object? sender, RoutedEventArgs e)
         => _mainWindow.NavigateToStart();
     
-
     private static bool IsUnknownName(string? name)
         => string.IsNullOrWhiteSpace(name) || string.Equals(name, "Unknown", StringComparison.OrdinalIgnoreCase);
 
@@ -57,7 +57,7 @@ public partial class StatisticsView : UserControl
         var allPlayers = T("Statistics_AllPlayers", "All players");
 
         var playerNames = _allHistory
-            .Select(h => IsUnknownName(h.PlayerName) ? unknown : h.PlayerName!.Trim())
+            .Select(h => IsUnknownName(h.PlayerName) ? unknown : h.PlayerName.Trim())
             .Distinct(StringComparer.CurrentCultureIgnoreCase)
             .OrderBy(n => n, StringComparer.CurrentCultureIgnoreCase)
             .ToList();
@@ -84,10 +84,10 @@ public partial class StatisticsView : UserControl
         }
         else
         {
-            filtered = _allHistory.Where(h => !IsUnknownName(h.PlayerName) &&
-                                              string.Equals(h.PlayerName!.Trim(), selected,
-                                                  StringComparison.CurrentCultureIgnoreCase))
-                                  .ToList();
+            filtered = _allHistory
+                .Where(h => !IsUnknownName(h.PlayerName) &&
+                            string.Equals(h.PlayerName.Trim(), selected, StringComparison.CurrentCultureIgnoreCase))
+                .ToList();
         }
 
         UpdateStats(filtered);
@@ -95,7 +95,7 @@ public partial class StatisticsView : UserControl
 
     private void UpdateStats(List<QuizHistoryEntry> history)
     {
-        var stats = new CSharpQuizApp.ViewModels.StatisticsViewModel(history);
+        var stats = new StatisticsViewModel(history);
         
         var totalLbl   = T("Statistics_Total",     "Total quizzes played");
         var avgLbl     = T("Statistics_AvgScore",  "Average score");

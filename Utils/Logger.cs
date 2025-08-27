@@ -15,17 +15,21 @@ namespace CSharpQuizApp.Utils
                 var dir = Path.GetDirectoryName(LogFilePath);
                 if (!string.IsNullOrEmpty(dir))
                     Directory.CreateDirectory(dir);
+
                 using var writer = new StreamWriter(LogFilePath, append: true);
-                writer.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {ex.Message}");
+                writer.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ERROR: {ex.Message}");
                 writer.WriteLine(ex.StackTrace);
                 writer.WriteLine("--------------------------------------------------");
             }
-            catch
+            catch (Exception innerEx)
             {
-                
+#if DEBUG
+                // ReSharper disable once LocalizableElement
+                Console.WriteLine($"[DEBUG] Failed to write log error: {innerEx.Message}");
+#endif
             }
         }
-        
+
         public static void LogInfo(string message)
         {
             try
@@ -33,12 +37,16 @@ namespace CSharpQuizApp.Utils
                 var dir = Path.GetDirectoryName(LogFilePath);
                 if (!string.IsNullOrEmpty(dir))
                     Directory.CreateDirectory(dir);
+
                 using var writer = new StreamWriter(LogFilePath, append: true);
                 writer.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] INFO: {message}");
             }
-            catch
+            catch (Exception innerEx)
             {
-                
+#if DEBUG
+                // ReSharper disable once LocalizableElement
+                Console.WriteLine($"[DEBUG] Failed to write log info: {innerEx.Message}");
+#endif
             }
         }
     }

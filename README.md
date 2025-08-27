@@ -5,14 +5,15 @@ Solve quizzes in different modes, track your stats, and review your game history
 
 ## 📋 Features
 
-- **Three game modes:**  
+- **Four game modes:**  
   • Random quiz (10 random questions)  
   • Full quiz (all questions from the database)  
+  • Survival quiz (game ends after first mistake)  
   • By selected category
 
+- **Multilanguage support:** Polish 🇵🇱 and English 🇬🇧 (switch instantly in-app)
 - **Player statistics:** See your progress over time  
-- **Quiz history:** View all previous games with scores and dates  
-- **Repeat last quiz:** Instantly retry the previous set of questions  
+- **Quiz history:** View all previous games with scores and dates
 - **Player name:** Personalize your experience  
 - **Automatic database:** No configuration needed — just run and play  
 - **Modern interface:** Clean, intuitive design  
@@ -26,7 +27,7 @@ Solve quizzes in different modes, track your stats, and review your game history
 ## 🚀 How to Run
 
 1. Unzip the application folder anywhere on your computer.
-2. Run `QuizApp.exe` (on Windows) or `QuizApp`/`QuizApp.app` (on macOS).
+2. Run `QuizApp.exe` (on Windows) or `QuizApp`/`QuizApp.app` (on macOS - Apple Silicon, ARM64).
 3. Enter your name, select a quiz mode, and start playing!
 4. The question database and all results are created automatically at first launch.
 
@@ -34,16 +35,17 @@ Solve quizzes in different modes, track your stats, and review your game history
 
 - `QuizApp.exe` — main application file
 - `quiz.db` — question database (auto-generated)
+- `usersettings.json` — user settings (player name, language, etc., auto-generated)
 - `.dll` files & folders — required libraries
 
 ## 📸 Screenshot
 
-![Quiz App Screenshot](https://i.imgur.com/uO5lzKD.png)
+![Quiz App Screenshot](https://i.imgur.com/L607HiU.png)
 
 ## 📝 Author
 
 Project & development: **Patryk Mars** ([GitHub: ravorrr](https://github.com/ravorrr))  
-Version: **1.0.0**
+Version: **1.1.0**
 
 ## 📄 License
 

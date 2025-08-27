@@ -37,11 +37,11 @@ namespace CSharpQuizApp.Models
 
         private static string MapMode(string raw)
         {
-            var v = (raw ?? string.Empty).Trim();
-            
+            var v = raw.Trim();
+
             if (v.StartsWith("Mode_", StringComparison.Ordinal))
                 return LocalizationService.L[v];
-            
+
             v = v.ToLowerInvariant();
 
             string key = v switch

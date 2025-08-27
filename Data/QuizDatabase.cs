@@ -53,7 +53,7 @@ public static class QuizDatabase
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            var roaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); // %AppData%
+            var roaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             return Path.Combine(roaming, "Quiz App");
         }
 
@@ -98,10 +98,10 @@ public static class QuizDatabase
             {
                 try
                 {
-                    Directory.CreateDirectory(Path.GetDirectoryName(FilePath)!);
+                    Directory.CreateDirectory(Path.GetDirectoryName(FilePath) ?? AppDataDir);
                     File.Copy(LegacyWindowsPath, FilePath, overwrite: false);
 #if DEBUG
-                    Console.WriteLine($"[DEBUG] Migrated quiz.db (Windows): {LegacyWindowsPath} → {FilePath}");
+                    Console.WriteLine(FormattableString.Invariant($"[DEBUG] Migrated quiz.db (Windows): {LegacyWindowsPath} → {FilePath}"));
 #endif
                 }
                 catch (Exception ex) { Logger.LogError(ex); }
@@ -113,10 +113,10 @@ public static class QuizDatabase
                 {
                     try
                     {
-                        Directory.CreateDirectory(Path.GetDirectoryName(FilePath)!);
+                        Directory.CreateDirectory(Path.GetDirectoryName(FilePath) ?? AppDataDir);
                         File.Copy(LegacyMacDocumentsPath, FilePath, overwrite: false);
 #if DEBUG
-                        Console.WriteLine($"[DEBUG] Migrated quiz.db (macOS Documents): {LegacyMacDocumentsPath} → {FilePath}");
+                        Console.WriteLine(FormattableString.Invariant($"[DEBUG] Migrated quiz.db (macOS Documents): {LegacyMacDocumentsPath} → {FilePath}"));
 #endif
                     }
                     catch (Exception ex) { Logger.LogError(ex); }
@@ -161,14 +161,14 @@ public static class QuizDatabase
                 @"INSERT INTO quiz_history
                   (player_name, quiz_type, score, total_questions, correct_answers, wrong_answers, time_in_seconds, date)
                   VALUES (@name, @type, @score, @total, @correct, @wrong, @time, @date)";
-            cmd.Parameters.AddWithValue("@name", entry.PlayerName);
-            cmd.Parameters.AddWithValue("@type", entry.QuizType);
-            cmd.Parameters.AddWithValue("@score", entry.Score);
-            cmd.Parameters.AddWithValue("@total", entry.TotalQuestions);
-            cmd.Parameters.AddWithValue("@correct", entry.CorrectAnswers);
-            cmd.Parameters.AddWithValue("@wrong", entry.WrongAnswers);
-            cmd.Parameters.AddWithValue("@time", entry.TimeInSeconds);
-            cmd.Parameters.AddWithValue("@date", entry.Date.ToString("yyyy-MM-dd HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@name",   entry.PlayerName);
+            cmd.Parameters.AddWithValue("@type",   entry.QuizType);
+            cmd.Parameters.AddWithValue("@score",  entry.Score);
+            cmd.Parameters.AddWithValue("@total",  entry.TotalQuestions);
+            cmd.Parameters.AddWithValue("@correct",entry.CorrectAnswers);
+            cmd.Parameters.AddWithValue("@wrong",  entry.WrongAnswers);
+            cmd.Parameters.AddWithValue("@time",   entry.TimeInSeconds);
+            cmd.Parameters.AddWithValue("@date",   entry.Date.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
             cmd.ExecuteNonQuery();
         }
         catch (Exception ex) { Logger.LogError(ex); }
@@ -190,15 +190,15 @@ public static class QuizDatabase
             {
                 history.Add(new QuizHistoryEntry
                 {
-                    Id = r.GetInt32(0),
-                    PlayerName = r.GetString(1),
-                    QuizType = r.GetString(2),
-                    Score = r.GetInt32(3),
-                    TotalQuestions = r.GetInt32(4),
-                    CorrectAnswers = r.GetInt32(5),
-                    WrongAnswers = r.GetInt32(6),
-                    TimeInSeconds = r.GetInt32(7),
-                    Date = DateTime.Parse(r.GetString(8))
+                    Id              = r.GetInt32(0),
+                    PlayerName      = r.GetString(1),
+                    QuizType        = r.GetString(2),
+                    Score           = r.GetInt32(3),
+                    TotalQuestions  = r.GetInt32(4),
+                    CorrectAnswers  = r.GetInt32(5),
+                    WrongAnswers    = r.GetInt32(6),
+                    TimeInSeconds   = r.GetInt32(7),
+                    Date            = DateTime.Parse(r.GetString(8), CultureInfo.InvariantCulture)
                 });
             }
         }
@@ -264,7 +264,7 @@ public static class QuizDatabase
 
     private static List<JsonQuestion> ReadAllFromCurrentLanguage()
     {
-        var lang = CultureInfo.CurrentUICulture?.TwoLetterISOLanguageName?.ToLowerInvariant() ?? "pl";
+        var lang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.ToLowerInvariant();
         var candidates = lang.StartsWith("pl") ? PlCandidates : EnCandidates;
 
         string BuildPath(string file) =>

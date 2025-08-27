@@ -13,17 +13,18 @@ internal static class Program
     {
         var settings = UserSettings.Load();
         var lang = string.IsNullOrWhiteSpace(settings.Language) ? "pl-PL" : settings.Language;
+        
         var ci = new CultureInfo(lang);
-
-        // 🔥 Ustaw wszystkie możliwe pola kultury
         CultureInfo.DefaultThreadCurrentCulture = ci;
         CultureInfo.DefaultThreadCurrentUICulture = ci;
         CultureInfo.CurrentCulture = ci;
         CultureInfo.CurrentUICulture = ci;
-        
-        Console.WriteLine($"[DEBUG] Loaded language = {lang}");
 
-        // 🔥 Zainicjalizuj LocalizationService od razu z kulturą z settings
+#if DEBUG
+        // ReSharper disable once LocalizableElement
+        Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "[DEBUG] Loaded language = {0}", lang));
+#endif
+        
         LocalizationService.Instance.SetCulture(lang);
 
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);

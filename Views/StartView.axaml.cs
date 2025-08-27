@@ -52,12 +52,15 @@ public partial class StartView : UserControl
             using var s = AssetLoader.Open(new Uri(avaresUri));
             return new Bitmap(s);
         }
-        catch { return null; }
+        catch
+        {
+            return null;
+        }
     }
 
     private void UpdateFlagVisuals()
     {
-        var lang = (_userSettings.Language ?? "pl-PL").ToLowerInvariant();
+        var lang = _userSettings.Language.ToLowerInvariant();
 
         string A(string name) => $"avares://CSharpQuizApp/Assets/Flags/{name}";
         var plUri = lang.StartsWith("pl") ? A("pl.png") : A("pl.gray.png");
@@ -184,9 +187,9 @@ public partial class StartView : UserControl
                 UseShellExecute = true
             });
         }
-        catch
+        catch (Exception ex)
         {
-            
+            Debug.WriteLine($"[DEBUG] Failed to open GitHub: {ex.Message}");
         }
     }
 
