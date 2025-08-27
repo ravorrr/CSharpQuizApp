@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Resources;
 
-namespace CSharpQuizApp.Localization
+namespace QuizApp.Localization
 {
     public sealed class LocalizationService
     {

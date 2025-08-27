@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using CSharpQuizApp.Data;
-using CSharpQuizApp.Localization;
-using CSharpQuizApp.Models;
-using CSharpQuizApp.ViewModels;
+using QuizApp.Data;
+using QuizApp.Localization;
+using QuizApp.Models;
+using QuizApp.ViewModels;
 
-namespace CSharpQuizApp.Views;
+namespace QuizApp.Views;
 
 public partial class StatisticsView : UserControl
 {

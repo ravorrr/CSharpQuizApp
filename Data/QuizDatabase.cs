@@ -5,11 +5,11 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.Json;
-using CSharpQuizApp.Models;
-using CSharpQuizApp.Utils;
 using Microsoft.Data.Sqlite;
+using QuizApp.Models;
+using QuizApp.Utils;
 
-namespace CSharpQuizApp.Data;
+namespace QuizApp.Data;
 
 public static class QuizDatabase
 {

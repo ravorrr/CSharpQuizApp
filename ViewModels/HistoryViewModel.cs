@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using CSharpQuizApp.Data;
-using CSharpQuizApp.Models;
+using QuizApp.Data;
+using QuizApp.Models;
 
-namespace CSharpQuizApp.ViewModels;
+namespace QuizApp.ViewModels;
 
 public class HistoryViewModel : INotifyPropertyChanged
 {

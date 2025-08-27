@@ -1,8 +1,8 @@
 using System;
 using System.ComponentModel;
-using CSharpQuizApp.Localization;
+using QuizApp.Localization;
 
-namespace CSharpQuizApp.Models
+namespace QuizApp.Models
 {
     public class QuizHistoryEntry : INotifyPropertyChanged
     {

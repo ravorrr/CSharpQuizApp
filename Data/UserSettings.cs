@@ -2,9 +2,9 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.Json;
-using CSharpQuizApp.Utils;
+using QuizApp.Utils;
 
-namespace CSharpQuizApp.Data
+namespace QuizApp.Data
 {
     public class UserSettings
     {

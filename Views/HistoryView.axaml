@@ -1,9 +1,9 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="clr-namespace:CSharpQuizApp.ViewModels"
-             xmlns:loc="clr-namespace:CSharpQuizApp.Localization"
-             xmlns:m="clr-namespace:CSharpQuizApp.Models"
-             x:Class="CSharpQuizApp.Views.HistoryView"
+             xmlns:vm="clr-namespace:QuizApp.ViewModels"
+             xmlns:loc="clr-namespace:QuizApp.Localization"
+             xmlns:m="clr-namespace:QuizApp.Models"
+             x:Class="QuizApp.Views.HistoryView"
              x:DataType="vm:HistoryViewModel">
 
   <Grid>

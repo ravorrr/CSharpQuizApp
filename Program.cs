@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using Avalonia;
-using CSharpQuizApp.Data;
-using CSharpQuizApp.Localization;
+using QuizApp.Data;
+using QuizApp.Localization;
 
-namespace CSharpQuizApp;
+namespace QuizApp;
 
 internal static class Program
 {

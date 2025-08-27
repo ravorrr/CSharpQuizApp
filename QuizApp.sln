@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpQuizApp", "CSharpQuizApp.csproj", "{ABCF4988-A227-4CC1-8988-73A1C5D81283}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizApp", "QuizApp.csproj", "{ABCF4988-A227-4CC1-8988-73A1C5D81283}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

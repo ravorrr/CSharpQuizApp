@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace CSharpQuizApp.Utils
+namespace QuizApp.Utils
 {
     public static class Logger
     {

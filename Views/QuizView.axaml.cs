@@ -2,13 +2,13 @@
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Threading;
-using CSharpQuizApp.Localization;
-using CSharpQuizApp.ViewModels;
 using System;
 using System.Threading.Tasks;
 using System.Timers;
+using QuizApp.Localization;
+using QuizApp.ViewModels;
 
-namespace CSharpQuizApp.Views;
+namespace QuizApp.Views;
 
 public partial class QuizView : UserControl
 {

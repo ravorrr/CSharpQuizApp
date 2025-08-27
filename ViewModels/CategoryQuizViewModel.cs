@@ -1,6 +1,6 @@
-﻿using CSharpQuizApp.Data;
+﻿using QuizApp.Data;
 
-namespace CSharpQuizApp.ViewModels;
+namespace QuizApp.ViewModels;
 
 public class CategoryQuizViewModel : QuizBaseViewModel
 {

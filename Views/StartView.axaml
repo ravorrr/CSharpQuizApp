@@ -1,7 +1,7 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:loc="clr-namespace:CSharpQuizApp.Localization"
-             x:Class="CSharpQuizApp.Views.StartView">
+             xmlns:loc="clr-namespace:QuizApp.Localization"
+             x:Class="QuizApp.Views.StartView">
     
   <UserControl.Styles>
     <Style Selector="Button.flag">
@@ -47,7 +47,7 @@
                 Click="LanguageButton_Click"
                 ToolTip.Tip="Polski">
           <Image x:Name="ImgPl" Width="28" Height="20"
-                 Source="avares://CSharpQuizApp/Assets/Flags/pl.png"/>
+                 Source="avares://QuizApp/Assets/Flags/pl.png"/>
         </Button>
 
         <Button x:Name="BtnEn"
@@ -56,7 +56,7 @@
                 Click="LanguageButton_Click"
                 ToolTip.Tip="English">
           <Image x:Name="ImgEn" Width="28" Height="20"
-                 Source="avares://CSharpQuizApp/Assets/Flags/en.png"/>
+                 Source="avares://QuizApp/Assets/Flags/en.png"/>
         </Button>
       </StackPanel>
       

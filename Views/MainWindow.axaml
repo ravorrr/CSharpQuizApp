@@ -1,6 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="CSharpQuizApp.Views.MainWindow"
+        x:Class="QuizApp.Views.MainWindow"
         Title="Quiz App"
         Width="800" Height="700"
         MinWidth="700" MinHeight="600"

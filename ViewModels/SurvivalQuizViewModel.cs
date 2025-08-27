@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using CSharpQuizApp.Data;
+using QuizApp.Data;
 
-namespace CSharpQuizApp.ViewModels
+namespace QuizApp.ViewModels
 {
     public class SurvivalQuizViewModel : QuizBaseViewModel
     {

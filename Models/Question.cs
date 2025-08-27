@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace CSharpQuizApp.Models;
+namespace QuizApp.Models;
 
 public class Question
 {

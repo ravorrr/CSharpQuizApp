@@ -1,9 +1,9 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using CSharpQuizApp.Views;
+using QuizApp.Views;
 
-namespace CSharpQuizApp;
+namespace QuizApp;
 
 public partial class App : Application
 {

@@ -1,7 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
 
-namespace CSharpQuizApp.Views
+namespace QuizApp.Views
 {
     public partial class ModeSelectionView : UserControl
     {

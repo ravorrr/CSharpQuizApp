@@ -16,6 +16,7 @@
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
         <FileVersion>1.1.0.0</FileVersion>
         <AssemblyInformationalVersion>1.1.0</AssemblyInformationalVersion>
+        <RootNamespace>QuizApp</RootNamespace>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(RuntimeIdentifier)' == 'osx-x64' Or '$(RuntimeIdentifier)' == 'osx-arm64' ">

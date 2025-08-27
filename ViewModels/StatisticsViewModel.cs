@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSharpQuizApp.Models;
+using QuizApp.Models;
 
-namespace CSharpQuizApp.ViewModels
+namespace QuizApp.ViewModels
 {
     public class StatisticsViewModel
     {

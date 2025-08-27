@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using CSharpQuizApp.Models;
-using CSharpQuizApp.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
-using CSharpQuizApp.Localization;
+using QuizApp.Data;
+using QuizApp.Localization;
+using QuizApp.Models;
 
-namespace CSharpQuizApp.ViewModels;
+namespace QuizApp.ViewModels;
 
 public abstract class QuizBaseViewModel : ObservableObject
 {

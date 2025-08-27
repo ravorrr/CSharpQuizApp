@@ -3,13 +3,13 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
-using CSharpQuizApp.Data;
-using CSharpQuizApp.Localization;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using QuizApp.Data;
+using QuizApp.Localization;
 
-namespace CSharpQuizApp.Views;
+namespace QuizApp.Views;
 
 public partial class StartView : UserControl
 {
@@ -62,7 +62,7 @@ public partial class StartView : UserControl
     {
         var lang = _userSettings.Language.ToLowerInvariant();
 
-        string A(string name) => $"avares://CSharpQuizApp/Assets/Flags/{name}";
+        string A(string name) => $"avares://QuizApp/Assets/Flags/{name}";
         var plUri = lang.StartsWith("pl") ? A("pl.png") : A("pl.gray.png");
         var enUri = lang.StartsWith("en") ? A("en.png") : A("en.gray.png");
 

@@ -1,9 +1,9 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using CSharpQuizApp.Data;
-using CSharpQuizApp.ViewModels;
+using QuizApp.Data;
+using QuizApp.ViewModels;
 
-namespace CSharpQuizApp.Views;
+namespace QuizApp.Views;
 
 public partial class HistoryView : UserControl
 {

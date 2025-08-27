@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Resources;
 
-namespace CSharpQuizApp.Localization
+namespace QuizApp.Localization
 {
     public class Localizer : INotifyPropertyChanged
     {

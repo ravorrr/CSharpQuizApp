@@ -1,9 +1,9 @@
 using Avalonia.Controls;
-using CSharpQuizApp.Data;
-using CSharpQuizApp.Localization;
-using CSharpQuizApp.ViewModels;
+using QuizApp.Data;
+using QuizApp.Localization;
+using QuizApp.ViewModels;
 
-namespace CSharpQuizApp.Views;
+namespace QuizApp.Views;
 
 public enum QuizType
 {
