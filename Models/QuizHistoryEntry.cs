@@ -46,13 +46,17 @@ namespace QuizApp.Models
 
             string key = v switch
             {
+                // PL
                 "losowy" or "quiz losowy"                             => "Mode_Random",
                 "pełny" or "pelny" or "quiz pełny" or "quiz pelny"    => "Mode_All",
                 "kategoria" or "wg kategorii" or "quiz wg kategorii"  => "Mode_ByCategory",
+                "przetrwanie" or "tryb przetrwanie"                   => "Mode_Survival",
 
-                "random" or "random quiz"     => "Mode_Random",
-                "all" or "full" or "full quiz"=> "Mode_All",
-                "category" or "category quiz" => "Mode_ByCategory",
+                // EN
+                "random" or "random quiz"                             => "Mode_Random",
+                "all" or "full" or "full quiz"                        => "Mode_All",
+                "category" or "category quiz"                         => "Mode_ByCategory",
+                "survival"                                            => "Mode_Survival",
 
                 _ => "Mode_Random"
             };

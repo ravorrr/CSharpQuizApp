@@ -6,7 +6,10 @@ namespace QuizApp.ViewModels
 {
     public class SurvivalQuizViewModel : QuizBaseViewModel
     {
+        public override string ModeKey => "Mode_Survival";
+        
         public override string QuizTypeName => "Survival";
+
         public bool IsAlive { get; private set; } = true;
 
         public SurvivalQuizViewModel()
@@ -17,9 +20,11 @@ namespace QuizApp.ViewModels
         private void InitNewRun()
         {
             QuizDatabase.Initialize();
+
             var qs = QuizDatabase.LoadAllQuestions()
                 .OrderBy(_ => Random.Shared.Next())
                 .ToList();
+
             SetQuestions(qs);
             Score = 0;
             CurrentQuestionIndex = 0;
